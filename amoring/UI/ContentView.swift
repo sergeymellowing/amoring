@@ -14,13 +14,12 @@ struct ContentView: View {
         if sessionManager.isLoading {
             ProgressView()
         } else if !sessionManager.signedIn {
-            SignInView().environment(sessionManager)
+            SignInView().environmentObject(sessionManager)
         } else {
-            SessionView().environment(sessionManager)
+            SessionView().environmentObject(sessionManager)
         }
     }
 }
-
 
 
 #Preview {

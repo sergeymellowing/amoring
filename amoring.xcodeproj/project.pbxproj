@@ -28,6 +28,15 @@
 		850A30242B0AEF41003B12B7 /* Pretendard-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 850A301B2B0AEF41003B12B7 /* Pretendard-ExtraLight.ttf */; };
 		850A30262B0AEF6C003B12B7 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A30252B0AEF6C003B12B7 /* DesignSystem.swift */; };
 		850A30282B0AEFA9003B12B7 /* ScreenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A30272B0AEFA9003B12B7 /* ScreenHelper.swift */; };
+		850A302B2B0B0D62003B12B7 /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A302A2B0B0D62003B12B7 /* NavigatorView.swift */; };
+		850A30312B0B1CC7003B12B7 /* NearbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A30302B0B1CC7003B12B7 /* NearbyView.swift */; };
+		850A30332B0B1CD6003B12B7 /* AmoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A30322B0B1CD6003B12B7 /* AmoringView.swift */; };
+		850A30352B0B1CE3003B12B7 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A30342B0B1CE3003B12B7 /* MessagesView.swift */; };
+		850A30372B0B1CF0003B12B7 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A30362B0B1CF0003B12B7 /* AccountView.swift */; };
+		850A30392B0B236A003B12B7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 850A30382B0B236A003B12B7 /* Localizable.xcstrings */; };
+		850A303C2B0B2C56003B12B7 /* UserOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A303B2B0B2C56003B12B7 /* UserOnboardingView.swift */; };
+		850A303E2B0B2C61003B12B7 /* BusinessOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A303D2B0B2C61003B12B7 /* BusinessOnboardingView.swift */; };
+		850A30402B0B2DEF003B12B7 /* BusinessSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A303F2B0B2DEF003B12B7 /* BusinessSignInView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +82,16 @@
 		850A301B2B0AEF41003B12B7 /* Pretendard-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.ttf"; sourceTree = "<group>"; };
 		850A30252B0AEF6C003B12B7 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		850A30272B0AEFA9003B12B7 /* ScreenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenHelper.swift; sourceTree = "<group>"; };
+		850A302A2B0B0D62003B12B7 /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
+		850A30302B0B1CC7003B12B7 /* NearbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyView.swift; sourceTree = "<group>"; };
+		850A30322B0B1CD6003B12B7 /* AmoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmoringView.swift; sourceTree = "<group>"; };
+		850A30342B0B1CE3003B12B7 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		850A30362B0B1CF0003B12B7 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		850A30382B0B236A003B12B7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		850A303A2B0B2501003B12B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		850A303B2B0B2C56003B12B7 /* UserOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOnboardingView.swift; sourceTree = "<group>"; };
+		850A303D2B0B2C61003B12B7 /* BusinessOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessOnboardingView.swift; sourceTree = "<group>"; };
+		850A303F2B0B2DEF003B12B7 /* BusinessSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSignInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +122,7 @@
 		850A2FD02B0AE54B003B12B7 = {
 			isa = PBXGroup;
 			children = (
+				850A30382B0B236A003B12B7 /* Localizable.xcstrings */,
 				850A2FDB2B0AE54B003B12B7 /* amoring */,
 				850A2FED2B0AE54D003B12B7 /* amoringTests */,
 				850A2FF72B0AE54D003B12B7 /* amoringUITests */,
@@ -123,6 +143,7 @@
 		850A2FDB2B0AE54B003B12B7 /* amoring */ = {
 			isa = PBXGroup;
 			children = (
+				850A303A2B0B2501003B12B7 /* Info.plist */,
 				850A30122B0AEF04003B12B7 /* Resources */,
 				850A2FDC2B0AE54B003B12B7 /* amoringApp.swift */,
 				850A30092B0AE9E6003B12B7 /* UI */,
@@ -190,6 +211,9 @@
 			isa = PBXGroup;
 			children = (
 				850A30102B0AEE1F003B12B7 /* SignInView.swift */,
+				850A303B2B0B2C56003B12B7 /* UserOnboardingView.swift */,
+				850A303D2B0B2C61003B12B7 /* BusinessOnboardingView.swift */,
+				850A303F2B0B2DEF003B12B7 /* BusinessSignInView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -198,6 +222,11 @@
 			isa = PBXGroup;
 			children = (
 				850A300E2B0AEDF8003B12B7 /* SessionView.swift */,
+				850A302A2B0B0D62003B12B7 /* NavigatorView.swift */,
+				850A302C2B0B1BA5003B12B7 /* Nearby */,
+				850A302D2B0B1BAE003B12B7 /* Amoring */,
+				850A302E2B0B1C9A003B12B7 /* Messages */,
+				850A302F2B0B1CB0003B12B7 /* Account */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -225,6 +254,38 @@
 				850A30252B0AEF6C003B12B7 /* DesignSystem.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		850A302C2B0B1BA5003B12B7 /* Nearby */ = {
+			isa = PBXGroup;
+			children = (
+				850A30302B0B1CC7003B12B7 /* NearbyView.swift */,
+			);
+			path = Nearby;
+			sourceTree = "<group>";
+		};
+		850A302D2B0B1BAE003B12B7 /* Amoring */ = {
+			isa = PBXGroup;
+			children = (
+				850A30322B0B1CD6003B12B7 /* AmoringView.swift */,
+			);
+			path = Amoring;
+			sourceTree = "<group>";
+		};
+		850A302E2B0B1C9A003B12B7 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				850A30342B0B1CE3003B12B7 /* MessagesView.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		850A302F2B0B1CB0003B12B7 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				850A30362B0B1CF0003B12B7 /* AccountView.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +374,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 850A2FD02B0AE54B003B12B7;
 			productRefGroup = 850A2FDA2B0AE54B003B12B7 /* Products */;
@@ -333,6 +395,7 @@
 			files = (
 				850A30212B0AEF41003B12B7 /* Pretendard-Medium.ttf in Resources */,
 				850A301F2B0AEF41003B12B7 /* Pretendard-Thin.ttf in Resources */,
+				850A30392B0B236A003B12B7 /* Localizable.xcstrings in Resources */,
 				850A301D2B0AEF41003B12B7 /* Pretendard-SemiBold.ttf in Resources */,
 				850A30222B0AEF41003B12B7 /* Pretendard-Light.ttf in Resources */,
 				850A301C2B0AEF41003B12B7 /* Pretendard-ExtraBold.ttf in Resources */,
@@ -366,13 +429,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				850A30372B0B1CF0003B12B7 /* AccountView.swift in Sources */,
 				850A30262B0AEF6C003B12B7 /* DesignSystem.swift in Sources */,
 				850A2FDF2B0AE54B003B12B7 /* ContentView.swift in Sources */,
+				850A30332B0B1CD6003B12B7 /* AmoringView.swift in Sources */,
 				850A2FDD2B0AE54B003B12B7 /* amoringApp.swift in Sources */,
 				850A30282B0AEFA9003B12B7 /* ScreenHelper.swift in Sources */,
+				850A302B2B0B0D62003B12B7 /* NavigatorView.swift in Sources */,
+				850A30402B0B2DEF003B12B7 /* BusinessSignInView.swift in Sources */,
 				850A300B2B0AEA09003B12B7 /* SessionManager.swift in Sources */,
+				850A30352B0B1CE3003B12B7 /* MessagesView.swift in Sources */,
+				850A303E2B0B2C61003B12B7 /* BusinessOnboardingView.swift in Sources */,
 				850A300F2B0AEDF8003B12B7 /* SessionView.swift in Sources */,
+				850A30312B0B1CC7003B12B7 /* NearbyView.swift in Sources */,
 				850A30112B0AEE1F003B12B7 /* SignInView.swift in Sources */,
+				850A303C2B0B2C56003B12B7 /* UserOnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +607,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = amoring/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -574,6 +646,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = amoring/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

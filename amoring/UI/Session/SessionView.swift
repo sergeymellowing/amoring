@@ -9,13 +9,28 @@ import SwiftUI
 
 struct SessionView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("SESSION")
+        ZStack {
+            NavigatorView { index in
+                getTabView(index: index)
+            }
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    @ViewBuilder
+    func getTabView(index: Int) -> some View {
+        let type = TabBarType(rawValue: index) ?? .amoring
+        
+        switch type {
+        case .nearby :
+            NearbyView()
+        case .amoring:
+            AmoringView()
+        case .messages:
+            MessagesView()
+        case .account:
+            AccountView()
+        }
     }
 }
 

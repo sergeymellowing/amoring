@@ -1,0 +1,126 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "AccountView" : {
+
+    },
+    "AMORING" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AMORING"
+          }
+        }
+      }
+    },
+    "Apple" : {
+
+    },
+    "Business sign in" : {
+
+    },
+    "Business sign Up" : {
+
+    },
+    "Facebook" : {
+
+    },
+    "Go To Business Sign In" : {
+
+    },
+    "Google" : {
+
+    },
+    "Hello, World!" : {
+
+    },
+    "Kakao" : {
+
+    },
+    "MessagesView" : {
+
+    },
+    "Naver" : {
+
+    },
+    "navi.ACCOUNT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "내 계정"
+          }
+        }
+      }
+    },
+    "navi.AMORING" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amoring"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아모링"
+          }
+        }
+      }
+    },
+    "navi.MESSAGES" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Messages"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메세지"
+          }
+        }
+      }
+    },
+    "navi.NEARBY" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nearby"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "주변검색"
+          }
+        }
+      }
+    },
+    "NearbyView" : {
+
+    },
+    "User Onboarding Page" : {
+
+    }
+  },
+  "version" : "1.0"
+}
