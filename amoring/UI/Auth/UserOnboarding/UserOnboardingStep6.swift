@@ -9,7 +9,14 @@ import SwiftUI
 
 struct UserOnboardingStep6: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 20) {
+            Text("Step6")
+            Text("TERMS and AGREEMENTS")
+            
+            NavigationLink(destination: { UserOnboardingStep7() }) {
+                Text("Next")
+            }
+        }
     }
 }
 

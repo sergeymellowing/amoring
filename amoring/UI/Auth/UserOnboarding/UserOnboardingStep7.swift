@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct UserOnboardingStep7: View {
+    @EnvironmentObject var sessionManager: SessionManager
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 20) {
+            Text("Step7")
+            Text("SUCCESS!")
+            
+            Button(action: {
+                sessionManager.signedIn = true
+                // user onb finished
+            }) {
+                Text("Next")
+            }
+        }
     }
 }
 

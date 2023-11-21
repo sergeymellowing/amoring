@@ -42,9 +42,6 @@ struct SignInView: View {
                             Button(action: goNext) {
                                 Text("Kakao")
                             }
-                            Button(action: goNext) {
-                                Text("Apple")
-                            }
                         }
                         
                         Spacer()

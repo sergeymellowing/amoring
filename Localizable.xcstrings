@@ -50,6 +50,9 @@
     "Kakao" : {
 
     },
+    "Lastly, please explain yourself\n(40 characters or less)" : {
+
+    },
     "Male" : {
 
     },
@@ -158,6 +161,21 @@
 
     },
     "Step4" : {
+
+    },
+    "Step5" : {
+
+    },
+    "Step6" : {
+
+    },
+    "Step7" : {
+
+    },
+    "SUCCESS!" : {
+
+    },
+    "TERMS and AGREEMENTS" : {
 
     },
     "Visible to other users and cannot be changed after registration" : {

@@ -63,6 +63,7 @@ struct PictureGridView: View {
                 picturesChanged = true
                 cells.move(fromOffsets: from, toOffset: to)
             }
+            
         }
         .onChange(of: pictures, perform: { newValue in
             cells = (0...8).map{ GridCell(picture: $0 < newValue.count ? newValue[$0] : nil)}

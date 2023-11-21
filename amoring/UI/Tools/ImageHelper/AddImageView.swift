@@ -26,7 +26,7 @@ struct AddImageView: View {
             Image(systemName: "plus.circle.fill")
                 .resizable()
                 .frame(width: 32, height: 32)
-                .foregroundGradient(colors: [Color("e83984"), Color("f47d55")])
+                .foregroundGradient(colors: [Color.blue, Color.white])
                 .background(Capsule().fill(.white))
                 .offset(x: 8, y: 8)
         }

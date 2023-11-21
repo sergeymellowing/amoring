@@ -9,7 +9,6 @@ import SwiftUI
 
 struct UserOnboardingStep4: View {
     @State private var pictures: [PictureModel] = []
-    @State private var image = UIImage()
     
     @State private var droppedOutside: Bool = false
     @State private var confirmRemoveImageIndex: Int = 0
@@ -17,7 +16,7 @@ struct UserOnboardingStep4: View {
     @State private var showContentTypeSheet: Bool = false
     @State private var showPermissionDenied: Bool = false
     @State private var showImagePicker: Bool = false
-    @State private var selectedContentType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var goToStep5: Bool = false
     
     var body: some View {
         VStack(spacing: 20) {
@@ -30,32 +29,32 @@ struct UserOnboardingStep4: View {
                 showRemoveConfirmation.toggle()
             }, onAddImageClick: {
                 showContentTypeSheet.toggle()
-            })
-                    .padding(.leading).padding(.trailing)
+            }).padding(.horizontal)
             
-            NavigationLink(destination: { UserOnboardingStep4() }) {
+            
+            NavigationLink(isActive: $goToStep5, destination: {
+                UserOnboardingStep5()
+            }) {
+                EmptyView()
+            }
+            
+            Button(action: {
+                // save images
+                print("\(pictures.count) pictures saved!")
+                goToStep5 = true
+            }) {
                 Text("Next")
             }
             .disabled(pictures.count < 3)
             .opacity(pictures.count < 3 ? 0.5 : 1)
-            .onChange(of: image, perform: { newValue in
-                pictures.append(PictureModel.newPicture(newValue))
-            })
-//            .sheet(isPresented: $showContentTypeSheet) {
-//                ContentTypeView(onContentTypeSelected: { contentType in
-//                    switch contentType {
-//                    case .permissionDenied:
-//                        showPermissionDenied.toggle()
-//                        return
-//                    case .contentType(let sourceType):
-//                        self.selectedContentType = sourceType
-//                        showImagePicker.toggle()
-//                        return
-//                    }
-//                })
-//            }
+//            .onChange(of: images, perform: { newImages in
+//                print(newImages)
+////                images.forEach{ image in
+////                    pictures.append(PictureModel.newPicture(image))
+////                }
+//            })
             .sheet(isPresented: $showContentTypeSheet) {
-                ImagePicker(sourceType: selectedContentType, selectedImage: $image)
+                ImagePicker(pictures: $pictures)
             }
 //            .alert("camera-permission-denied", isPresented: $showPermissionDenied, actions: {}, message: { Text("user-must-grant-camera-permission") })
             .alert("Remove this picture?", isPresented: $showRemoveConfirmation, actions: {

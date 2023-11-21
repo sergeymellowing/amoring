@@ -13,16 +13,20 @@ struct AddedImageView: View {
     let action: () -> ()
     var body: some View {
         ZStack(alignment: .bottomTrailing){
+            /// need this Color and .allowsHitTesting(false) because wide images overlaying on each other
+            Color.gray100.opacity(0.1)
+                .cornerRadius(8)
             Image(uiImage: image)
                 .centerCropped()
                 .frame(maxWidth: .infinity)
                 .aspectRatio(0.6, contentMode: .fit)
-//                .background(AppColor.lightGray)
+                .background(.gray100)
                 .cornerRadius(8)
+                .allowsHitTesting(false)
             Image(systemName: "multiply.circle.fill")
                 .resizable()
                 .frame(width: 32, height: 32)
-                .background(Capsule().fill(LinearGradient(colors: [Color("e83984"), Color("f47d55")], startPoint: .leading, endPoint: .trailing)))
+                .background(Capsule().fill(LinearGradient(colors: [Color.blue, Color.white], startPoint: .leading, endPoint: .trailing)))
 //                .background(Capsule().fill(LinearGradient(colors: AppColor.appColors, startPoint: .leading, endPoint: .trailing)))
                 .foregroundColor(.white)
                 .offset(x: 8, y: 8)
