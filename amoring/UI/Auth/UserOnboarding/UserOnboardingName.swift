@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct UserOnboardingStep1: View {
-    @State var name = ""
+struct UserOnboardingName: View {
+    @Binding var user: User
     
     var body: some View {
         VStack(spacing: 20) {
             Text("Step1")
             Text("Input your name")
-            TextField("", text: $name)
+            TextField("", text: $user.name ?? "name")
             Text("Visible to other users and cannot be changed after registration")
-            NavigationLink(destination: { UserOnboardingStep2() }) {
+            NavigationLink(destination: { UserOnboardingGender() }) {
                 Text("Next")
             }
         }
@@ -24,5 +24,7 @@ struct UserOnboardingStep1: View {
 }
 
 #Preview {
-    UserOnboardingStep1()
+    UserOnboardingName(user: .constant(User()))
 }
+
+

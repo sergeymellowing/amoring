@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SessionView: View {
+    @StateObject var userManager = UserManager()
+    
     var body: some View {
         ZStack {
             NavigatorView { index in
@@ -15,6 +17,7 @@ struct SessionView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .environmentObject(userManager)
     }
     
     @ViewBuilder

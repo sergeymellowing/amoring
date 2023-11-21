@@ -4,6 +4,9 @@
     "" : {
 
     },
+    "%lld" : {
+
+    },
     "AccountView" : {
 
     },
@@ -32,9 +35,6 @@
     "Facebook" : {
 
     },
-    "Female" : {
-
-    },
     "Go To Business Sign In" : {
 
     },
@@ -51,9 +51,6 @@
 
     },
     "Lastly, please explain yourself\n(40 characters or less)" : {
-
-    },
-    "Male" : {
 
     },
     "MessagesView" : {
@@ -134,6 +131,9 @@
 
     },
     "Next" : {
+
+    },
+    "pick-your-birthday" : {
 
     },
     "Please add photo" : {

@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct UserOnboardingStep6: View {
+struct UserOnboardingTerms: View {
     var body: some View {
         VStack(spacing: 20) {
             Text("Step6")
             Text("TERMS and AGREEMENTS")
             
-            NavigationLink(destination: { UserOnboardingStep7() }) {
+            NavigationLink(destination: { UserOnboardingSuccess() }) {
                 Text("Next")
             }
         }
@@ -21,5 +21,5 @@ struct UserOnboardingStep6: View {
 }
 
 #Preview {
-    UserOnboardingStep6()
+    UserOnboardingTerms()
 }

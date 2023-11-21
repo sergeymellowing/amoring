@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UserOnboardingStep4: View {
+struct UserOnboardingPhoto: View {
     @State private var pictures: [PictureModel] = []
     
     @State private var droppedOutside: Bool = false
@@ -31,15 +31,15 @@ struct UserOnboardingStep4: View {
                 showContentTypeSheet.toggle()
             }).padding(.horizontal)
             
-            
+        
             NavigationLink(isActive: $goToStep5, destination: {
-                UserOnboardingStep5()
+                UserOnboardingBio()
             }) {
                 EmptyView()
             }
             
             Button(action: {
-                // save images
+                // TODO: Save images to db at this point
                 print("\(pictures.count) pictures saved!")
                 goToStep5 = true
             }) {
@@ -70,5 +70,5 @@ struct UserOnboardingStep4: View {
 }
 
 #Preview {
-    UserOnboardingStep4()
+    UserOnboardingPhoto()
 }

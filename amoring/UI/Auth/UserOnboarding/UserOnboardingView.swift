@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct UserOnboardingView: View {
+    @State var user: User = User()
+    
     var body: some View {
         NavigationView {
-            UserOnboardingStep1()
+            UserOnboardingName(user: user)
         }
     }
 }

@@ -16,7 +16,8 @@ struct ContentView: View {
         } else if !sessionManager.signedIn {
             SignInView().environmentObject(sessionManager)
         } else {
-            SessionView().environmentObject(sessionManager)  .transition(.move(edge: .trailing))
+            /// pass user here
+            SessionView().environmentObject(sessionManager).transition(.move(edge: .trailing))
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UserOnboardingStep7: View {
+struct UserOnboardingSuccess: View {
     @EnvironmentObject var sessionManager: SessionManager
     var body: some View {
         VStack(spacing: 20) {
@@ -15,8 +15,11 @@ struct UserOnboardingStep7: View {
             Text("SUCCESS!")
             
             Button(action: {
-                sessionManager.signedIn = true
-                // user onb finished
+                withAnimation {
+                    sessionManager.signedIn = true
+                    // user onb finished
+                }
+                
             }) {
                 Text("Next")
             }
@@ -25,5 +28,5 @@ struct UserOnboardingStep7: View {
 }
 
 #Preview {
-    UserOnboardingStep7()
+    UserOnboardingSuccess()
 }
