@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct UserOnboardingStep3: View {
+    @State var selection: Int = 30
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 20) {
+            Text("Step3")
+            Text("Please enter your age")
+            
+            Picker("", selection: $selection) {
+                ForEach(18...100, id: \.self) {
+                    Text(String($0))
+                }
+            }
+            .pickerStyle(InlinePickerStyle())
+
+            Text("Visible to other users and cannot be changed after registration")
+            NavigationLink(destination: { UserOnboardingStep4() }) {
+                Text("Next")
+            }
+        }
     }
 }
 
