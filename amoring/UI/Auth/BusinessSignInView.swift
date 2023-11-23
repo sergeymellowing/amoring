@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BusinessSignInView: View {
+    @EnvironmentObject var sessionManager: SessionManager
     @State var email: String = ""
     @State var password: String = ""
     
@@ -22,7 +23,10 @@ struct BusinessSignInView: View {
             Spacer()
             
             Button(action: {
-                // business sign in
+                withAnimation {
+                    sessionManager.isBusiness = true
+                    sessionManager.signedIn = true
+                }
             }) {
                 Text("Business sign in")
             }

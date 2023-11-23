@@ -9,22 +9,18 @@ import SwiftUI
 
 class SessionManager: ObservableObject {
     ///Publishing changes from background threads is not allowed; make sure to publish values from the main thread (via operators like receive(on:)) on model updates.
-    @Published var signedIn: Bool = false
     @Published var isLoading: Bool = true
+    @Published var signedIn: Bool = false
     @Published var isBusiness: Bool = true
     
-    init() {
+    @MainActor func getCurrentSession() {
         Task {
-            await getCurrentSession()
+            isLoading = true
+            sleep(2)
+            isLoading = false
+    //        await signIn()
+            print("current session")
         }
-    }
-    
-    func getCurrentSession() async {
-        isLoading = true
-        sleep(2)
-        isLoading = false
-//        await signIn()
-        print("current session")
     }
     
     func signIn() async {

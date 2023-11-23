@@ -264,9 +264,9 @@
 			isa = PBXGroup;
 			children = (
 				850A30102B0AEE1F003B12B7 /* SignInView.swift */,
+				850A303F2B0B2DEF003B12B7 /* BusinessSignInView.swift */,
 				85FC20752B0C510100DC1950 /* UserOnboarding */,
 				85FC20A02B0D951C00DC1950 /* BusinessRegistration */,
-				850A303F2B0B2DEF003B12B7 /* BusinessSignInView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";

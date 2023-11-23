@@ -12,12 +12,13 @@ struct amoringApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(.dark)
                 .onAppear {
                     setupUI()
                 }
         }
     }
-    
+
     func setupUI() {
         /// Hides native TabBar
         UITabBar.appearance().isHidden = true
