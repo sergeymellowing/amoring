@@ -10,6 +10,9 @@
     "AccountView" : {
 
     },
+    "Address" : {
+
+    },
     "AMORING" : {
       "localizations" : {
         "ko" : {
@@ -32,6 +35,15 @@
     "Cancel" : {
 
     },
+    "Company Registration Number" : {
+
+    },
+    "Contact" : {
+
+    },
+    "Done" : {
+
+    },
     "Facebook" : {
 
     },
@@ -41,7 +53,7 @@
     "Google" : {
 
     },
-    "Hello, World!" : {
+    "I agree with terms" : {
 
     },
     "Input your name" : {
@@ -54,6 +66,9 @@
 
     },
     "MessagesView" : {
+
+    },
+    "Name" : {
 
     },
     "Naver" : {
@@ -133,7 +148,7 @@
     "Next" : {
 
     },
-    "pick-your-birthday" : {
+    "PLANS!" : {
 
     },
     "Please add photo" : {
@@ -148,7 +163,16 @@
     "Please select gender" : {
 
     },
+    "QR CODE" : {
+
+    },
     "Remove this picture?" : {
+
+    },
+    "Representative" : {
+
+    },
+    "SKIP" : {
 
     },
     "Step1" : {
@@ -176,6 +200,18 @@
 
     },
     "TERMS and AGREEMENTS" : {
+
+    },
+    "Type" : {
+
+    },
+    "upload business reg photo" : {
+
+    },
+    "upload images" : {
+
+    },
+    "Users currently logged in" : {
 
     },
     "Visible to other users and cannot be changed after registration" : {

@@ -12,10 +12,11 @@ public struct User: Codable, Equatable {
     var name: String?
     var birthDate: Date?
     var bio: String?
-    var isMale: Bool?
+    var gender: String?
     var pictures: [String]?
     var liked: [String]?
     var passed: [String]?
+    var terms: Bool?
     
     //TODO: fix it
     var age: Int {
@@ -27,9 +28,10 @@ public struct User: Codable, Equatable {
         case name
         case birthDate
         case bio
-        case isMale = "male"
+        case gender
         case pictures
         case liked
         case passed
+        case terms
     }
 }

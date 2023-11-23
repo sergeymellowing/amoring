@@ -1,5 +1,5 @@
 //
-//  UserOnboardingStep4.swift
+//  UserOnboardingPhoto.swift
 //  amoring
 //
 //  Created by 이준녕 on 11/21/23.
@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct UserOnboardingPhoto: View {
+    @EnvironmentObject var controller: UserOnboardingController
+    
     @State private var pictures: [PictureModel] = []
     
     @State private var droppedOutside: Bool = false
@@ -40,6 +42,7 @@ struct UserOnboardingPhoto: View {
             
             Button(action: {
                 // TODO: Save images to db at this point
+                controller.user.pictures = pictures.map({ $0.picture.description })
                 print("\(pictures.count) pictures saved!")
                 goToStep5 = true
             }) {
@@ -47,12 +50,6 @@ struct UserOnboardingPhoto: View {
             }
             .disabled(pictures.count < 3)
             .opacity(pictures.count < 3 ? 0.5 : 1)
-//            .onChange(of: images, perform: { newImages in
-//                print(newImages)
-////                images.forEach{ image in
-////                    pictures.append(PictureModel.newPicture(image))
-////                }
-//            })
             .sheet(isPresented: $showContentTypeSheet) {
                 ImagePicker(pictures: $pictures)
             }
@@ -62,6 +59,7 @@ struct UserOnboardingPhoto: View {
                 Button("Cancel", role: .cancel, action: {})
             })
         }
+        .textFieldStyle(.roundedBorder)
     }
     
     private func removePicture() {
@@ -69,6 +67,6 @@ struct UserOnboardingPhoto: View {
     }
 }
 
-#Preview {
-    UserOnboardingPhoto()
-}
+//#Preview {
+//    UserOnboardingPhoto()
+//}

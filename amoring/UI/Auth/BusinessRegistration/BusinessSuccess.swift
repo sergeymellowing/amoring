@@ -1,30 +1,24 @@
 //
-//  UserOnboardingSuccess.swift
+//  BusinessSuccess.swift
 //  amoring
 //
-//  Created by 이준녕 on 11/21/23.
+//  Created by 이준녕 on 11/22/23.
 //
 
 import SwiftUI
 
-struct UserOnboardingSuccess: View {
+struct BusinessSuccess: View {
     @EnvironmentObject var sessionManager: SessionManager
-    @EnvironmentObject var controller: UserOnboardingController
-    
     var body: some View {
         VStack(spacing: 20) {
-            Text("Step7")
             Text("SUCCESS!")
             
             Button(action: {
-//                save user to db
-                print(controller.user)
                 withAnimation {
-                    sessionManager.isBusiness = false
+                    sessionManager.isBusiness = true
                     sessionManager.signedIn = true
                     // user onb finished
                 }
-                
             }) {
                 Text("Next")
             }
@@ -33,6 +27,6 @@ struct UserOnboardingSuccess: View {
     }
 }
 
-//#Preview {
-//    UserOnboardingSuccess()
-//}
+#Preview {
+    BusinessSuccess()
+}

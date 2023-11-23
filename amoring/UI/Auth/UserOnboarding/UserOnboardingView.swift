@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct UserOnboardingView: View {
-    @State var user: User = User()
+    @StateObject var controller: UserOnboardingController = UserOnboardingController()
     
     var body: some View {
         NavigationView {
-            UserOnboardingName(user: user)
+            UserOnboardingName()
+           
+//                .onChange(of: user) { changed in
+//                    print(changed)
+//                }
         }
+        .environmentObject(controller)
     }
+}
+
+class UserOnboardingController: ObservableObject {
+    @Published var user: User = User()
 }
 
 #Preview {

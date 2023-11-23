@@ -11,14 +11,17 @@ struct ContentView: View {
     @StateObject var sessionManager = SessionManager()
     
     var body: some View {
-        if sessionManager.isLoading {
-            ProgressView()
-        } else if !sessionManager.signedIn {
-            SignInView().environmentObject(sessionManager)
-        } else {
-            /// pass user here
-            SessionView().environmentObject(sessionManager).transition(.move(edge: .trailing))
-        }
+        BusinessSessionView()
+//        if sessionManager.isLoading {
+//            ProgressView()
+//        } else if !sessionManager.signedIn {
+//            SignInView().environmentObject(sessionManager)
+//        } else if sessionManager.isBusiness {
+//            BusinessSessionView()
+//        } else {
+//            /// pass user here
+//            SessionView().environmentObject(sessionManager).transition(.move(edge: .trailing))
+//        }
     }
 }
 

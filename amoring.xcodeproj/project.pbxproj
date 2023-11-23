@@ -54,6 +54,13 @@
 		85FC209B2B0D717700DC1950 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC209A2B0D717700DC1950 /* Constants.swift */; };
 		85FC209D2B0D729300DC1950 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC209C2B0D729300DC1950 /* Extensions.swift */; };
 		85FC209F2B0D75AB00DC1950 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC209E2B0D75AB00DC1950 /* UserManager.swift */; };
+		85FC20A22B0D95A500DC1950 /* BusinessSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20A12B0D95A500DC1950 /* BusinessSignUp.swift */; };
+		85FC20A42B0D964800DC1950 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20A32B0D964800DC1950 /* OTPView.swift */; };
+		85FC20A62B0D9DC700DC1950 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20A52B0D9DC700DC1950 /* Business.swift */; };
+		85FC20A82B0DAAFF00DC1950 /* BusinessSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20A72B0DAAFF00DC1950 /* BusinessSessionView.swift */; };
+		85FC20AA2B0DB29000DC1950 /* BusinessTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20A92B0DB29000DC1950 /* BusinessTermsView.swift */; };
+		85FC20AC2B0DB31B00DC1950 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20AB2B0DB31B00DC1950 /* PlansView.swift */; };
+		85FC20AE2B0DB38F00DC1950 /* BusinessSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20AD2B0DB38F00DC1950 /* BusinessSuccess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +133,13 @@
 		85FC209A2B0D717700DC1950 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		85FC209C2B0D729300DC1950 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		85FC209E2B0D75AB00DC1950 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		85FC20A12B0D95A500DC1950 /* BusinessSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSignUp.swift; sourceTree = "<group>"; };
+		85FC20A32B0D964800DC1950 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		85FC20A52B0D9DC700DC1950 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		85FC20A72B0DAAFF00DC1950 /* BusinessSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSessionView.swift; sourceTree = "<group>"; };
+		85FC20A92B0DB29000DC1950 /* BusinessTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessTermsView.swift; sourceTree = "<group>"; };
+		85FC20AB2B0DB31B00DC1950 /* PlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
+		85FC20AD2B0DB38F00DC1950 /* BusinessSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSuccess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,9 +254,9 @@
 		850A300C2B0AEDD6003B12B7 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				85FC20752B0C510100DC1950 /* UserOnboarding */,
 				850A30102B0AEE1F003B12B7 /* SignInView.swift */,
-				850A303D2B0B2C61003B12B7 /* BusinessOnboardingView.swift */,
+				85FC20752B0C510100DC1950 /* UserOnboarding */,
+				85FC20A02B0D951C00DC1950 /* BusinessRegistration */,
 				850A303F2B0B2DEF003B12B7 /* BusinessSignInView.swift */,
 			);
 			path = Auth;
@@ -252,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				850A300E2B0AEDF8003B12B7 /* SessionView.swift */,
+				85FC20A72B0DAAFF00DC1950 /* BusinessSessionView.swift */,
 				850A302A2B0B0D62003B12B7 /* NavigatorView.swift */,
 				850A302C2B0B1BA5003B12B7 /* Nearby */,
 				850A302D2B0B1BAE003B12B7 /* Amoring */,
@@ -323,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				85FC20972B0D70E300DC1950 /* User.swift */,
+				85FC20A52B0D9DC700DC1950 /* Business.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,6 +369,19 @@
 				85FC20892B0C514400DC1950 /* ImagePicker.swift */,
 			);
 			path = ImageHelper;
+			sourceTree = "<group>";
+		};
+		85FC20A02B0D951C00DC1950 /* BusinessRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				85FC20A12B0D95A500DC1950 /* BusinessSignUp.swift */,
+				85FC20A32B0D964800DC1950 /* OTPView.swift */,
+				850A303D2B0B2C61003B12B7 /* BusinessOnboardingView.swift */,
+				85FC20A92B0DB29000DC1950 /* BusinessTermsView.swift */,
+				85FC20AB2B0DB31B00DC1950 /* PlansView.swift */,
+				85FC20AD2B0DB38F00DC1950 /* BusinessSuccess.swift */,
+			);
+			path = BusinessRegistration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,6 +473,9 @@
 				ko,
 			);
 			mainGroup = 850A2FD02B0AE54B003B12B7;
+			packageReferences = (
+				85FC20AF2B0EC38000DC1950 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			productRefGroup = 850A2FDA2B0AE54B003B12B7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -496,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85FC20AE2B0DB38F00DC1950 /* BusinessSuccess.swift in Sources */,
 				85FC20962B0C96E800DC1950 /* UserOnboardingView.swift in Sources */,
 				850A30372B0B1CF0003B12B7 /* AccountView.swift in Sources */,
 				85FC208E2B0C514400DC1950 /* ReordableForEach.swift in Sources */,
@@ -504,16 +537,20 @@
 				85FC209B2B0D717700DC1950 /* Constants.swift in Sources */,
 				85FC209F2B0D75AB00DC1950 /* UserManager.swift in Sources */,
 				850A2FDF2B0AE54B003B12B7 /* ContentView.swift in Sources */,
+				85FC20A62B0D9DC700DC1950 /* Business.swift in Sources */,
 				850A30332B0B1CD6003B12B7 /* AmoringView.swift in Sources */,
 				850A2FDD2B0AE54B003B12B7 /* amoringApp.swift in Sources */,
+				85FC20A82B0DAAFF00DC1950 /* BusinessSessionView.swift in Sources */,
 				85FC20982B0D70E300DC1950 /* User.swift in Sources */,
 				85FC207E2B0C510100DC1950 /* UserOnboardingAge.swift in Sources */,
 				850A30282B0AEFA9003B12B7 /* ScreenHelper.swift in Sources */,
 				85FC20942B0C514400DC1950 /* PictureGridView.swift in Sources */,
 				850A302B2B0B0D62003B12B7 /* NavigatorView.swift in Sources */,
+				85FC20AC2B0DB31B00DC1950 /* PlansView.swift in Sources */,
 				85FC20842B0C510100DC1950 /* UserOnboardingTerms.swift in Sources */,
 				85FC20912B0C514400DC1950 /* AddImageView.swift in Sources */,
 				850A30402B0B2DEF003B12B7 /* BusinessSignInView.swift in Sources */,
+				85FC20A42B0D964800DC1950 /* OTPView.swift in Sources */,
 				85FC20902B0C514400DC1950 /* ImagePicker.swift in Sources */,
 				85FC207F2B0C510100DC1950 /* UserOnboardingName.swift in Sources */,
 				85FC209D2B0D729300DC1950 /* Extensions.swift in Sources */,
@@ -523,11 +560,13 @@
 				850A303E2B0B2C61003B12B7 /* BusinessOnboardingView.swift in Sources */,
 				85FC20802B0C510100DC1950 /* UserOnboardingBio.swift in Sources */,
 				850A300F2B0AEDF8003B12B7 /* SessionView.swift in Sources */,
+				85FC20AA2B0DB29000DC1950 /* BusinessTermsView.swift in Sources */,
 				850A30312B0B1CC7003B12B7 /* NearbyView.swift in Sources */,
 				850A30112B0AEE1F003B12B7 /* SignInView.swift in Sources */,
 				85FC20812B0C510100DC1950 /* UserOnboardingSuccess.swift in Sources */,
 				85FC208F2B0C514400DC1950 /* AddedImageView.swift in Sources */,
 				85FC20852B0C510100DC1950 /* UserOnboardingPhoto.swift in Sources */,
+				85FC20A22B0D95A500DC1950 /* BusinessSignUp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,6 +927,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		85FC20AF2B0EC38000DC1950 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 850A2FD12B0AE54B003B12B7 /* Project object */;
 }

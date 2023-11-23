@@ -1,5 +1,5 @@
 //
-//  UserOnboardingStep2.swift
+//  UserOnboardingGender.swift
 //  amoring
 //
 //  Created by 이준녕 on 11/21/23.
@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct UserOnboardingGender: View {
-    @State private var gender: String = ""
+    @EnvironmentObject var controller: UserOnboardingController
     
     var body: some View {
         VStack(spacing: 20) {
             Text("Step2")
             Text("Please select gender")
             
-            Picker("", selection: $gender) {
+            Picker("", selection: $controller.user.gender ?? "") {
                 ForEach(Constants.genderOptions, id: \.self) {
                     Text(LocalizedStringKey($0)).tag($0)
                 }
@@ -31,6 +31,6 @@ struct UserOnboardingGender: View {
     }
 }
 
-#Preview {
-    UserOnboardingGender()
-}
+//#Preview {
+//    UserOnboardingGender(user: <#Binding<User>#>)
+//}

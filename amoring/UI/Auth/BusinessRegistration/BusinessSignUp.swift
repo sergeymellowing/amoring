@@ -1,18 +1,18 @@
 //
-//  BusinessSignIn.swift
+//  BusinessSignUp.swift
 //  amoring
 //
-//  Created by 이준녕 on 11/20/23.
+//  Created by 이준녕 on 11/22/23.
 //
 
 import SwiftUI
 
-struct BusinessSignInView: View {
+struct BusinessSignUp: View {
     @State var email: String = ""
     @State var password: String = ""
     
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             Spacer()
             
             TextField("", text: $email)
@@ -21,24 +21,18 @@ struct BusinessSignInView: View {
                 .textFieldStyle(.roundedBorder)
             Spacer()
             
-            Button(action: {
-                // business sign in
+            NavigationLink(destination: {
+                OTPView()
             }) {
-                Text("Business sign in")
+                Text("Next")
             }
             
             Spacer()
-            
-            NavigationLink(destination: {
-                BusinessSignUp()
-            }) {
-                Text("Business sign Up")
-            }
         }
         .padding(16)
     }
 }
 
 #Preview {
-    BusinessSignInView()
+    BusinessSignUp()
 }

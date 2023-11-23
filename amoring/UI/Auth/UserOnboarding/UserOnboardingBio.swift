@@ -1,5 +1,5 @@
 //
-//  UserOnboardingStep5.swift
+//  UserOnboardingBio.swift
 //  amoring
 //
 //  Created by 이준녕 on 11/21/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserOnboardingBio: View {
-    @State var text = ""
+    @EnvironmentObject var controller: UserOnboardingController
     
     private let charLimit: Int = 200
     
@@ -17,25 +17,26 @@ struct UserOnboardingBio: View {
             Text("Step5")
             Text("Lastly, please explain yourself\n(40 characters or less)")
             
-            TextEditor(text: $text)
-                .onChange(of: text, perform: { newValue in
+            TextEditor(text: $controller.user.bio ?? "")
+                .onChange(of: controller.user.bio ?? "", perform: { newValue in
                 if(newValue.count >= charLimit){
-                    text = String(newValue.prefix(charLimit))
+                    controller.user.bio = String(newValue.prefix(charLimit))
                 }
             })
             
             HStack{
                 Spacer()
-                Text("\(charLimit - text.count)").foregroundColor(.gray).font(.headline).bold()
+                Text("\(charLimit - (controller.user.bio?.count ?? 0))").foregroundColor(.gray).font(.headline).bold()
             }
 
             NavigationLink(destination: { UserOnboardingTerms() }) {
                 Text("Next")
             }
         }
+        .padding(16)
     }
 }
 
-#Preview {
-    UserOnboardingBio()
-}
+//#Preview {
+//    UserOnboardingBio()
+//}
