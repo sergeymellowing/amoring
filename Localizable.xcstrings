@@ -7,10 +7,16 @@
     "%lld" : {
 
     },
+    "Account Information" : {
+
+    },
     "AccountView" : {
 
     },
     "Address" : {
+
+    },
+    "admin@pumpkin.com" : {
 
     },
     "AMORING" : {
@@ -26,6 +32,9 @@
     "Apple" : {
 
     },
+    "Basic Information" : {
+
+    },
     "Business sign in" : {
 
     },
@@ -38,10 +47,19 @@
     "Company Registration Number" : {
 
     },
+    "contact" : {
+
+    },
     "Contact" : {
 
     },
+    "Delete account" : {
+
+    },
     "Done" : {
+
+    },
+    "Edit" : {
 
     },
     "Facebook" : {
@@ -56,6 +74,9 @@
     "I agree with terms" : {
 
     },
+    "images" : {
+
+    },
     "Input your name" : {
 
     },
@@ -63,6 +84,15 @@
 
     },
     "Lastly, please explain yourself\n(40 characters or less)" : {
+
+    },
+    "Listing Settings" : {
+
+    },
+    "LOGO" : {
+
+    },
+    "Logout" : {
 
     },
     "MessagesView" : {
@@ -157,10 +187,19 @@
     "Please enter your age" : {
 
     },
+    "Please enter your business information" : {
+
+    },
     "Please select at least 3" : {
 
     },
     "Please select gender" : {
+
+    },
+    "Please upload a photo of your business that you are proud of. This photo will be registered on the list." : {
+
+    },
+    "Pumpkin" : {
 
     },
     "QR CODE" : {
@@ -169,7 +208,28 @@
     "Remove this picture?" : {
 
     },
+    "representative" : {
+
+    },
     "Representative" : {
+
+    },
+    "Reset password" : {
+
+    },
+    "Sectors" : {
+
+    },
+    "Show distance" : {
+
+    },
+    "Show gender ratio" : {
+
+    },
+    "Show matching probability" : {
+
+    },
+    "Show number of people" : {
 
     },
     "SKIP" : {
@@ -196,10 +256,16 @@
     "Step7" : {
 
     },
+    "Subscription Settings" : {
+
+    },
     "SUCCESS!" : {
 
     },
     "TERMS and AGREEMENTS" : {
+
+    },
+    "To change settings Please re-enter your password" : {
 
     },
     "Type" : {
@@ -215,6 +281,9 @@
 
     },
     "Visible to other users and cannot be changed after registration" : {
+
+    },
+    "Wrong password!" : {
 
     },
     "Yes" : {

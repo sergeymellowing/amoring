@@ -52,11 +52,12 @@ struct BusinessSessionView: View {
                 Spacer()
             }
             .navigationBarItems(trailing:
-                                    Button(action: {}) {
+                                    NavigationLink(destination: {
+                MenuView()
+            }) {
                 Image(systemName: "line.3.horizontal")
                     .foregroundColor(.gray600)
-            }
-            )
+            })
         }
     }
     
