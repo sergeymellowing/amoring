@@ -19,6 +19,7 @@ struct BusinessEnterView: View {
             Text("admin@pumpkin.com")
             SecureField("", text: $password)
                 .textFieldStyle(.roundedBorder)
+                
             
             Text("Wrong password!")
                 .foregroundColor(.red)

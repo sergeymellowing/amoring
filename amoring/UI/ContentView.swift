@@ -13,17 +13,18 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             //        BusinessSessionView()
-                    if sessionManager.isLoading {
-                        ProgressView()
-                    } else if !sessionManager.signedIn {
-                        SignInView().environmentObject(sessionManager)
-                    } else if sessionManager.isBusiness {
-                        BusinessSessionView()
-                    } else {
+//                    if sessionManager.isLoading {
+//                        ProgressView()
+//                    } else if !sessionManager.signedIn {
+//                        SignInView()
+//                    } else if sessionManager.isBusiness {
+//                        BusinessSessionView()
+//                    } else {
                         /// pass user here
-                        SessionView().environmentObject(sessionManager).transition(.move(edge: .trailing))
-                    }
+                        SessionView().transition(.move(edge: .trailing))
+//                    }
         }
+        .environmentObject(sessionManager)
         .onAppear(perform: { sessionManager.getCurrentSession() })
     }
 }

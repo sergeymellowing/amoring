@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BusnessSettings: View {
+    @EnvironmentObject var sessionManager: SessionManager
+    
     @State var someText = ""
     @State var showDistacne = false
     @State var showNumber = false
@@ -56,7 +58,10 @@ struct BusnessSettings: View {
                 }
                 
                 Button(action: {
-                    // log out
+                    withAnimation {
+                        sessionManager.signedIn = false
+                        sessionManager.isBusiness = false
+                    }
                 }) {
                     Text("Logout")
                 }

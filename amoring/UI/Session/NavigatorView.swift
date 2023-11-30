@@ -31,24 +31,18 @@ struct TabBarBottomView: View {
     let tabbarTitles: [String]
     @Binding var selectedIndex: Int
     
-    let height = Size.h(70) + (Size.safeArea().bottom != 0 ? Size.safeArea().bottom : 5)
+    let height = Size.h(55)
     
     var body: some View {
-        
         VStack {
             Spacer()
-            ZStack {
-                VStack(spacing: 10) {
-//                    Divider()
                     HStack(alignment: .bottom) {
                         ForEach(0..<tabbarTitles.count, id: \.self) { index in
                             tabButton(index: index)
                         }
-                    }
-                    Spacer()
-                }
             }
             .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: height)
+            .padding(.bottom, (Size.safeArea().bottom != 0 ? Size.safeArea().bottom : 5))
         }
     }
     

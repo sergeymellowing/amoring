@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct AccountView: View {
+    @EnvironmentObject var sessionManager: SessionManager
+    
     var body: some View {
-        Text("AccountView")
+        VStack(spacing: 30) {
+            Text("AccountView")
+            Button(action: {
+                withAnimation {
+                    sessionManager.signedIn = false
+                    sessionManager.isBusiness = false
+                }
+            }) {
+                Text("LOGOUT")
+            }
+        }
+        
     }
 }
 

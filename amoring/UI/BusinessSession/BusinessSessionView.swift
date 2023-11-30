@@ -11,8 +11,8 @@ struct BusinessSessionView: View {
     @State var xOffset: CGFloat = 0
     
     var body: some View {
-        NavigationView {
-            GeometryReader { geometry in
+        GeometryReader { geometry in
+            NavigationView {
                 VStack {
                     Spacer()
                     
@@ -47,45 +47,33 @@ struct BusinessSessionView: View {
                             xOffset = -size * Double(images.count)
                         }
                     }
+                    Spacer()
                 }
-                
-                Spacer()
-            }
-            .navigationBarItems(trailing:
-                                    NavigationLink(destination: {
-                MenuView()
-            }) {
-                Image(systemName: "line.3.horizontal")
-                    .foregroundColor(.gray600)
-            })
-        }
+                .navigationBarItems(trailing:
+                                        NavigationLink(destination: {
+                    MenuView()
+                }) {
+                    Image(systemName: "line.3.horizontal")
+                        .foregroundColor(.gray600)
+                })
+            } //navigationView
+        } //  geometryreader
     }
     
     func list(images: [String], size: CGFloat) -> some View {
-        ForEach(0..<images.count, id: \.self) {
+        let inSize = size < 20 ? size : (size - 20)
+        return ForEach(0..<images.count, id: \.self) {
             Image(images[$0])
                 .resizable()
                 .scaledToFill()
                 .blur(radius: 6)
-                .frame(width: size - 20, height: size - 20)
+                .frame(width: inSize, height: inSize)
                 .background(Color.gray)
                 .cornerRadius(15)
                 .frame(width: size, height: size)
         }
     }
 }
-
-
-func random(randomOpacity: Bool = false) -> Color {
-    Color(
-        red: .random(in: 0...1),
-        green: .random(in: 0...1),
-        blue: .random(in: 0...1),
-        opacity: randomOpacity ? .random(in: 0...1) : 1
-    )
-}
-
-
 
 #Preview {
     BusinessSessionView()
