@@ -63,7 +63,7 @@ struct TabBarBottomView: View {
                     .padding(.top, Size.h(3))
                 Text(LocalizedStringKey(title))
                     .foregroundColor(isSelected ? .yellow200 : .gray600)
-                    .font(medium14Font)
+                    .font(regular14Font)
             }.frame(maxWidth: .infinity)
         }
     }
