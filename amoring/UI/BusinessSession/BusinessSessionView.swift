@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import NavigationStackBackport
 
 struct BusinessSessionView: View {
     @State var xOffset: CGFloat = 0
     
     var body: some View {
         GeometryReader { geometry in
-            NavigationView {
+            NavigationStackBackport.NavigationStack {
                 VStack {
                     Spacer()
                     

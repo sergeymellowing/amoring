@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import NavigationStackBackport
 
 struct SignInView: View {
     @EnvironmentObject var sessionManager: SessionManager
+    @StateObject var navigator = NavigationAuthController()
     
     @State var goToUserOnboarding = false
     
@@ -18,7 +20,7 @@ struct SignInView: View {
                 UserOnboardingView()
                     .transition(.move(edge: .trailing))
             } else {
-                NavigationView {
+                NavigationStackBackport.NavigationStack(path: $navigator.path) {
                     VStack(alignment: .center, spacing: 20) {
                         Spacer()
                         
@@ -46,11 +48,14 @@ struct SignInView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination: {
-                                BusinessSignInView()
+                        Button(action: {
+                            navigator.toBusinessSignIn()
                         }) {
                             Text("Go To Business Sign In")
                         }
+                    }
+                    .backport.navigationDestination(for: AuthPath.self) { screen in
+                        navigator.navigate(screen: screen)
                     }
                 }
             }

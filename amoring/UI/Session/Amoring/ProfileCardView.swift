@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileCardView: View {
+    @EnvironmentObject var navigator: NavigationAmoringController
     let user: User
     
     var body: some View {
@@ -70,6 +71,9 @@ struct ProfileCardView: View {
             }
             .cornerRadius(24)
             .padding(.bottom, 40)
+            .onTapGesture {
+                navigator.selectUser(user: user)
+            }
             
             HStack {
                 Button(action: {

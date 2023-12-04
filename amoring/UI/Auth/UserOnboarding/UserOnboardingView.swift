@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import NavigationStackBackport
 
 struct UserOnboardingView: View {
     @StateObject var controller: UserOnboardingController = UserOnboardingController()
     
     var body: some View {
-        NavigationView {
+        NavigationStackBackport.NavigationStack {
             UserOnboardingName()
            
 //                .onChange(of: user) { changed in
