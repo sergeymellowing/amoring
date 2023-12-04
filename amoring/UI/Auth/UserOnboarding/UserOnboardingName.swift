@@ -14,8 +14,8 @@ struct UserOnboardingName: View {
         VStack(spacing: 20) {
             Text("Step1")
             Text("Input your name")
-            TextField("", text: $controller.user.name ?? "")
-                .textFieldStyle(.roundedBorder)
+            CustomTextField(text: $controller.user.name ?? "")
+
             Text("Visible to other users and cannot be changed after registration")
             NavigationLink(destination: {
                 UserOnboardingGender()

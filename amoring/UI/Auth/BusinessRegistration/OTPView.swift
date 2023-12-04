@@ -14,8 +14,8 @@ struct OTPView: View {
         VStack(spacing: 20) {
             Spacer()
             
-            TextField("", text: $otp)
-                .textFieldStyle(.roundedBorder)
+            CustomTextField("", text: $otp)
+                
             Spacer()
             
             NavigationLink(destination: {

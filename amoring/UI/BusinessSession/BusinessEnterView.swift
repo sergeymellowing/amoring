@@ -17,8 +17,7 @@ struct BusinessEnterView: View {
             Text("LOGO")
             Text("To change settings Please re-enter your password")
             Text("admin@pumpkin.com")
-            SecureField("", text: $password)
-                .textFieldStyle(.roundedBorder)
+            CustomSecureField(text: $password)
                 
             
             Text("Wrong password!")

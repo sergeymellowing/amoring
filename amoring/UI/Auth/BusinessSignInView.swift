@@ -16,10 +16,9 @@ struct BusinessSignInView: View {
         VStack {
             Spacer()
             
-            TextField("", text: $email)
-                .textFieldStyle(.roundedBorder)
-            SecureField("", text: $password)
-                .textFieldStyle(.roundedBorder)
+            CustomTextField(text: $email)
+            CustomSecureField(text: $password)
+            
             Spacer()
             
             Button(action: {
@@ -45,4 +44,5 @@ struct BusinessSignInView: View {
 
 #Preview {
     BusinessSignInView()
+        .preferredColorScheme(.dark)
 }

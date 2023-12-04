@@ -13,12 +13,12 @@ struct BusinessOnboardingView: View {
     var body: some View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    TextField("Name", text: $business.name ?? "")
-                    TextField("Address", text: $business.address ?? "")
-                    TextField("Type", text: $business.type ?? "")
-                    TextField("Representative", text: $business.representative ?? "")
-                    TextField("Contact", text: $business.contact ?? "")
-                    TextField("Company Registration Number", text: $business.number ?? "")
+                    CustomTextField("Name", text: $business.name ?? "")
+                    CustomTextField("Address", text: $business.address ?? "")
+                    CustomTextField("Type", text: $business.type ?? "")
+                    CustomTextField("Representative", text: $business.representative ?? "")
+                    CustomTextField("Contact", text: $business.contact ?? "")
+                    CustomTextField("Company Registration Number", text: $business.number ?? "")
                     Button(action: {}) {
                         Text("upload business reg photo")
                     }

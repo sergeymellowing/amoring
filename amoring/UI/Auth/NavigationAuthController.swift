@@ -21,7 +21,7 @@ class NavigationAuthController: ObservableObject {
     
     func navigate(screen: AuthPath) -> some View {
         switch screen {
-        case .businessSignIn: BusinessSignInView().environmentObject(self)
+        case .businessSignIn: return  BusinessSignInView().environmentObject(self)
         }
     }
 }

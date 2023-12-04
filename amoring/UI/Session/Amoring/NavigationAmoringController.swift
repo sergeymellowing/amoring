@@ -19,7 +19,7 @@ class NavigationAmoringController: ObservableObject {
     
     func navigate(screen: AmoringPath) -> some View {
         switch screen {
-        case .details: DetailsView().environmentObject(self)
+        case .details: return DetailsView().environmentObject(self)
         }
     }
 }

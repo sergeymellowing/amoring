@@ -59,7 +59,7 @@ struct UserOnboardingPhoto: View {
                 Button("Cancel", role: .cancel, action: {})
             })
         }
-        .textFieldStyle(.roundedBorder)
+//        .textFieldStyle(.roundedBorder)
     }
     
     private func removePicture() {

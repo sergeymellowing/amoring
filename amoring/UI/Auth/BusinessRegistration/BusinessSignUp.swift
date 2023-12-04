@@ -15,10 +15,10 @@ struct BusinessSignUp: View {
         VStack(spacing: 20) {
             Spacer()
             
-            TextField("", text: $email)
-                .textFieldStyle(.roundedBorder)
-            SecureField("", text: $password)
-                .textFieldStyle(.roundedBorder)
+            CustomTextField(text: $email)
+                
+            CustomSecureField(text: $password)
+                
             Spacer()
             
             NavigationLink(destination: {

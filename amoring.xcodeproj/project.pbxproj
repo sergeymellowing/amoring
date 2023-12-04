@@ -40,6 +40,7 @@
 		853AFD4E2B1DB2150020A570 /* NavigationAmoringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AFD4D2B1DB2150020A570 /* NavigationAmoringController.swift */; };
 		853AFD502B1DB36E0020A570 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AFD4F2B1DB36E0020A570 /* DetailsView.swift */; };
 		853AFD522B1DBD7F0020A570 /* NavigationAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AFD512B1DBD7F0020A570 /* NavigationAuthController.swift */; };
+		853AFD542B1DC6BF0020A570 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AFD532B1DC6BF0020A570 /* CustomTextField.swift */; };
 		854C7B032B180C5D0060CE03 /* CoctailToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B022B180C5D0060CE03 /* CoctailToggle.swift */; };
 		854C7B052B1815EE0060CE03 /* LikesLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B042B1815EE0060CE03 /* LikesLeftView.swift */; };
 		854C7B072B1818AB0060CE03 /* LikesFromMaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */; };
@@ -130,6 +131,7 @@
 		853AFD4D2B1DB2150020A570 /* NavigationAmoringController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAmoringController.swift; sourceTree = "<group>"; };
 		853AFD4F2B1DB36E0020A570 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		853AFD512B1DBD7F0020A570 /* NavigationAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAuthController.swift; sourceTree = "<group>"; };
+		853AFD532B1DC6BF0020A570 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		854C7B022B180C5D0060CE03 /* CoctailToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailToggle.swift; sourceTree = "<group>"; };
 		854C7B042B1815EE0060CE03 /* LikesLeftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesLeftView.swift; sourceTree = "<group>"; };
 		854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesFromMaxView.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				854C7B022B180C5D0060CE03 /* CoctailToggle.swift */,
 				854C7B042B1815EE0060CE03 /* LikesLeftView.swift */,
 				854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */,
+				853AFD532B1DC6BF0020A570 /* CustomTextField.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				850A30372B0B1CF0003B12B7 /* AccountView.swift in Sources */,
 				85FC208E2B0C514400DC1950 /* ReordableForEach.swift in Sources */,
 				854C7B072B1818AB0060CE03 /* LikesFromMaxView.swift in Sources */,
+				853AFD542B1DC6BF0020A570 /* CustomTextField.swift in Sources */,
 				853AFD4E2B1DB2150020A570 /* NavigationAmoringController.swift in Sources */,
 				85FC20832B0C510100DC1950 /* UserOnboardingGender.swift in Sources */,
 				850A30262B0AEF6C003B12B7 /* DesignSystem.swift in Sources */,
