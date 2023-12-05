@@ -46,6 +46,13 @@ struct SignInView: View {
                             }
                         }
                         
+                        Button(action: {
+                            sessionManager.isBusiness = false
+                            sessionManager.signedIn = true
+                        }) {
+                            Text("SESSION")
+                        }
+                        
                         Spacer()
                         
                         Button(action: {

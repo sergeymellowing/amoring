@@ -45,6 +45,8 @@
 		854C7B052B1815EE0060CE03 /* LikesLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B042B1815EE0060CE03 /* LikesLeftView.swift */; };
 		854C7B072B1818AB0060CE03 /* LikesFromMaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */; };
 		854C7B092B181B1C0060CE03 /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B082B181B1C0060CE03 /* ProfileCardView.swift */; };
+		85D26F632B1EF12600E3C55F /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D26F622B1EF12600E3C55F /* SwipeAction.swift */; };
+		85D26F652B1F07C000E3C55F /* SwipibleProfileVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D26F642B1F07C000E3C55F /* SwipibleProfileVIew.swift */; };
 		85D36AEC2B0F25BC00106BC0 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D36AEB2B0F25BC00106BC0 /* MenuView.swift */; };
 		85D36AEE2B0F261F00106BC0 /* BusinessEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D36AED2B0F261F00106BC0 /* BusinessEnterView.swift */; };
 		85D36AF02B0F26DB00106BC0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D36AEF2B0F26DB00106BC0 /* SettingsView.swift */; };
@@ -136,6 +138,8 @@
 		854C7B042B1815EE0060CE03 /* LikesLeftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesLeftView.swift; sourceTree = "<group>"; };
 		854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesFromMaxView.swift; sourceTree = "<group>"; };
 		854C7B082B181B1C0060CE03 /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
+		85D26F622B1EF12600E3C55F /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
+		85D26F642B1F07C000E3C55F /* SwipibleProfileVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipibleProfileVIew.swift; sourceTree = "<group>"; };
 		85D36AEB2B0F25BC00106BC0 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		85D36AED2B0F261F00106BC0 /* BusinessEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessEnterView.swift; sourceTree = "<group>"; };
 		85D36AEF2B0F26DB00106BC0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -341,6 +345,7 @@
 		850A302D2B0B1BAE003B12B7 /* Amoring */ = {
 			isa = PBXGroup;
 			children = (
+				85D26F612B1EF11300E3C55F /* Swipe */,
 				850A30322B0B1CD6003B12B7 /* AmoringView.swift */,
 				854C7B082B181B1C0060CE03 /* ProfileCardView.swift */,
 				853AFD4D2B1DB2150020A570 /* NavigationAmoringController.swift */,
@@ -374,6 +379,15 @@
 				853AFD532B1DC6BF0020A570 /* CustomTextField.swift */,
 			);
 			path = Elements;
+			sourceTree = "<group>";
+		};
+		85D26F612B1EF11300E3C55F /* Swipe */ = {
+			isa = PBXGroup;
+			children = (
+				85D26F622B1EF12600E3C55F /* SwipeAction.swift */,
+				85D26F642B1F07C000E3C55F /* SwipibleProfileVIew.swift */,
+			);
+			path = Swipe;
 			sourceTree = "<group>";
 		};
 		85D36AEA2B0F25A000106BC0 /* BusinessSession */ = {
@@ -589,9 +603,11 @@
 				854C7B052B1815EE0060CE03 /* LikesLeftView.swift in Sources */,
 				853AFD522B1DBD7F0020A570 /* NavigationAuthController.swift in Sources */,
 				85D36AF22B0F285300106BC0 /* BusnessSettings.swift in Sources */,
+				85D26F652B1F07C000E3C55F /* SwipibleProfileVIew.swift in Sources */,
 				85FC20AE2B0DB38F00DC1950 /* BusinessSuccess.swift in Sources */,
 				85FC20962B0C96E800DC1950 /* UserOnboardingView.swift in Sources */,
 				850A30372B0B1CF0003B12B7 /* AccountView.swift in Sources */,
+				85D26F632B1EF12600E3C55F /* SwipeAction.swift in Sources */,
 				85FC208E2B0C514400DC1950 /* ReordableForEach.swift in Sources */,
 				854C7B072B1818AB0060CE03 /* LikesFromMaxView.swift in Sources */,
 				853AFD542B1DC6BF0020A570 /* CustomTextField.swift in Sources */,

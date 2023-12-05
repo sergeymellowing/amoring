@@ -9,7 +9,12 @@ import SwiftUI
 
 struct MessagesView: View {
     var body: some View {
-        Text("MessagesView")
+        VStack {
+            Text("MessagesView")
+                .foregroundColor(.white)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.gray1000)
     }
 }
 

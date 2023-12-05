@@ -36,12 +36,14 @@ struct TabBarBottomView: View {
     var body: some View {
         VStack {
             Spacer()
-                    HStack(alignment: .bottom) {
-                        ForEach(0..<tabbarTitles.count, id: \.self) { index in
-                            tabButton(index: index)
-                        }
+            HStack(alignment: .bottom) {
+                ForEach(0..<tabbarTitles.count, id: \.self) { index in
+                    tabButton(index: index)
+                }
             }
             .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: height)
+            .background(Color.gray1000)
+            .zIndex(2)
             .padding(.bottom, (Size.safeArea().bottom != 0 ? Size.safeArea().bottom : 5))
         }
     }

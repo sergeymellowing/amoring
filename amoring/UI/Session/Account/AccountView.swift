@@ -22,7 +22,8 @@ struct AccountView: View {
                 Text("LOGOUT")
             }
         }
-        
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.gray1000)
     }
 }
 
