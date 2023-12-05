@@ -16,8 +16,7 @@ struct ProfileCardView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack {
-                // TODO: pass from user
-                Image("person-0")
+                Image(user.fakeImage  ?? "")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(24)

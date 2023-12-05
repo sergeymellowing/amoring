@@ -17,6 +17,7 @@ public struct User: Codable, Equatable {
     var liked: [String]?
     var passed: [String]?
     var terms: Bool?
+    var fakeImage: String?
     
     //TODO: fix it
     var age: Int {
@@ -33,5 +34,6 @@ public struct User: Codable, Equatable {
         case liked
         case passed
         case terms
+        case fakeImage
     }
 }

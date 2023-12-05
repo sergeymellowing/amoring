@@ -16,16 +16,16 @@ struct AmoringView: View {
     
     @State var swipeAction: SwipeAction = .doNothing
     @State var users: [User] = [
-        User(id: "asdasdsa", name: "Eugene"),
-        User(id: "asdasdsa", name: "Eugene"),
-        User(id: "asdasdsa", name: "Eugene"),
-        User(id: "asdasdsa", name: "Eugene"),
+        User(id: "1", name: "Eugene Krabs", fakeImage: "person-0"),
+        User(id: "2", name: "SpongeBob SquarePants", fakeImage: "person-1"),
+        User(id: "3", name: "Patric Star", fakeImage: "person-2"),
+        User(id: "4", name: "Squidward", fakeImage: "person-3"),
+        User(id: "5", name: "Sandy Cheeks", fakeImage: "person-4")
     ]
-    put different people
+    
 //    var onSwiped: (User, Bool) -> ()
     
-    
-    // height of bottom bar + padding inside bottom bar + padding
+    /// height of bottom bar + padding inside bottom bar + padding
     let bottomSpacing = Size.h(55 + 18 + 16)
     
     var body: some View {
@@ -113,7 +113,15 @@ struct AmoringView: View {
                 .font(bold20Font)
                 .foregroundColor(.yellow300)
                                 , trailing:
-                                    Button(action: {}) {
+                                    Button(action: {
+                self.users = [
+                    User(id: "1", name: "Eugene Krabs", fakeImage: "person-0"),
+                    User(id: "2", name: "SpongeBob SquarePants", fakeImage: "person-1"),
+                    User(id: "3", name: "Patric Star", fakeImage: "person-2"),
+                    User(id: "4", name: "Squidward", fakeImage: "person-3"),
+                    User(id: "5", name: "Sandy Cheeks", fakeImage: "person-4")
+                ]
+            }) {
                 Image("ic-leave-room")
                     .resizable()
                     .scaledToFit()
