@@ -23,21 +23,35 @@ struct SwipibleProfileVIew: View {
         ProfileCardView(user: user)
             .overlay(
                 HStack{
-                    Text(like).font(.largeTitle).bold().foregroundGradient(colors: [Color.green200]).padding().overlay(
+                    Text(like)
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundGradient(colors: [Color.yellow500, Color.yellow200])
+                        .padding()
+                        .overlay(
                         RoundedRectangle(cornerRadius: 8)
-                            .stroke(LinearGradient(gradient: .init(colors: [Color.green200]),
+                            .stroke(LinearGradient(gradient: .init(colors: [Color.yellow200, Color.yellow500]),
                                                    startPoint: .topLeading,
                                                    endPoint: .bottomTrailing), lineWidth: 4)
-                    ).rotationEffect(.degrees(-30)).opacity(getLikeOpacity())
+                    )
+                    .rotationEffect(.degrees(-30))
+                    .opacity(getLikeOpacity())
                     Spacer()
-                    Text(nope).font(.largeTitle).bold().foregroundGradient(colors: [Color.red200]).padding().overlay(
+                    Text(nope)
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundGradient(colors: [Color.red500, Color.red200])
+                        .padding()
+                        .overlay(
                         RoundedRectangle(cornerRadius: 8)
-                            .stroke(LinearGradient(gradient: .init(colors: [Color.red200]),
+                            .stroke(LinearGradient(gradient: .init(colors: [Color.red200, Color.red500]),
                                                    startPoint: .topLeading,
                                                    endPoint: .bottomTrailing), lineWidth: 4)
-                    ).rotationEffect(.degrees(30)).opacity(getDislikeOpacity())
+                    )
+                        .rotationEffect(.degrees(30))
+                        .opacity(getDislikeOpacity())
 
-                }.padding(.top, 45).padding(.leading, 20).padding(.trailing, 20)
+                }.padding(.top, Size.w(45)).padding(.horizontal, Size.w(45))
                 ,alignment: .top)
             .offset(x: self.dragOffset.width,y: self.dragOffset.height)
             .rotationEffect(.degrees(self.dragOffset.width * 0.06), anchor: .center)

@@ -20,13 +20,14 @@ struct AmoringView: View {
         User(id: "2", name: "SpongeBob SquarePants", fakeImage: "person-1"),
         User(id: "3", name: "Patric Star", fakeImage: "person-2"),
         User(id: "4", name: "Squidward", fakeImage: "person-3"),
-        User(id: "5", name: "Sandy Cheeks", fakeImage: "person-4")
+        User(id: "5", name: "Sandy Cheeks", fakeImage: "person-4"),
+//        User(id: "6", name: "Eugene Krabs", fakeImage: "person-0")
     ]
     
 //    var onSwiped: (User, Bool) -> ()
     
     /// height of bottom bar + padding inside bottom bar + padding
-    let bottomSpacing = Size.h(55 + 18 + 16)
+    let bottomSpacing = Size.safeArea().bottom + Size.h(18 + 16)
     
     var body: some View {
         NavigationStackBackport.NavigationStack(path: $navigator.path) {
@@ -43,7 +44,13 @@ struct AmoringView: View {
                 .zIndex(2)
                 
                 ZStack(alignment: .bottom) {
-                    Text("no-more-profiles").font(.title3).fontWeight(.medium).foregroundColor(Color(UIColor.systemGray)).multilineTextAlignment(.center)
+                    VStack {
+                        Text("🙈 no-more-profiles")
+                            .font(semiBold16Font)
+                            .foregroundColor(.gray400)
+                            .multilineTextAlignment(.center)
+                    }
+                    .frame(maxHeight: .infinity, alignment: .center)
                     
                     ForEach(users.indices, id: \.self){ index  in
                         let user: User = users[index]
@@ -55,55 +62,41 @@ struct AmoringView: View {
                         }
                     }
                     
-//                    ProfileCardView(user: user)
-//                        // mutate it while swiping to 22
-//                        .padding(44)
-//                        .zIndex(0)
-//                    // mutate it while swiping to 0
-//                        .offset(x: 100)
-//                    
-//                    Color.gray1000.opacity(0.7)
-//                    
-//                    ProfileCardView(user: user)
-//                        .padding(.horizontal, 22)
-//                        .zIndex(1)
-                    
-                    
-                    
-                    HStack {
-                        Button(action: {
-                            swipeAction = .swipeLeft
-                        }) {
-                            ZStack {
-                                Circle().frame(width: 76, height: 76)
-                                    .foregroundColor(.gray900)
-                                Image("dislike-cross")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 29, height: 29)
+                    if !self.users.isEmpty {
+                        HStack {
+                            Button(action: {
+                                swipeAction = .swipeLeft
+                            }) {
+                                ZStack {
+                                    Circle().frame(width: Size.w(76), height: Size.w(76))
+                                        .foregroundColor(.gray900)
+                                    Image("dislike-cross")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: Size.w(29), height: Size.w(29))
+                                }
+                            }
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                swipeAction = .swipeRight
+                            }) {
+                                ZStack {
+                                    Circle().frame(width: Size.w(76), height: Size.w(76))
+                                        .foregroundColor(.gray900)
+                                    Image("ic-heart-fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: Size.w(34), height: Size.w(30))
+                                        .foregroundColor(.yellow200)
+                                }
                             }
                         }
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            swipeAction = .swipeRight
-                        }) {
-                            ZStack {
-                                Circle().frame(width: 76, height: 76)
-                                    .foregroundColor(.gray900)
-                                Image("ic-heart-fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 34, height: 30)
-                                    .foregroundColor(.yellow200)
-                            }
-                        }
+                        .padding(.horizontal, Size.w(44 + 22))
+                        .zIndex(2)
                     }
-                    .padding(.horizontal, Size.w(44 + 22))
-                    .zIndex(2)
                 }
-                .frame(minHeight: 500, maxHeight: 600)
             }
             .padding(.bottom, bottomSpacing)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
@@ -119,13 +112,14 @@ struct AmoringView: View {
                     User(id: "2", name: "SpongeBob SquarePants", fakeImage: "person-1"),
                     User(id: "3", name: "Patric Star", fakeImage: "person-2"),
                     User(id: "4", name: "Squidward", fakeImage: "person-3"),
-                    User(id: "5", name: "Sandy Cheeks", fakeImage: "person-4")
+                    User(id: "5", name: "Sandy Cheeks", fakeImage: "person-4"),
+//                    User(id: "6", name: "Eugene Krabs", fakeImage: "person-0"),
                 ]
             }) {
                 Image("ic-leave-room")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 32, height: 32)
+                    .frame(width: Size.w(32), height: Size.w(32))
             }
             )
             .environmentObject(navigator)
@@ -146,5 +140,5 @@ struct AmoringView: View {
 }
 
 #Preview {
-    AmoringView()
+    SessionView()
 }

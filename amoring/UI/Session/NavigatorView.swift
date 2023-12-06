@@ -31,7 +31,7 @@ struct TabBarBottomView: View {
     let tabbarTitles: [String]
     @Binding var selectedIndex: Int
     
-    let height = Size.h(55)
+    let height = Size.w(55)
     
     var body: some View {
         VStack {
@@ -42,9 +42,9 @@ struct TabBarBottomView: View {
                 }
             }
             .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: height)
+            .padding(.bottom, (Size.safeArea().bottom != 0 ? Size.safeArea().bottom : 5))
             .background(Color.gray1000)
             .zIndex(2)
-            .padding(.bottom, (Size.safeArea().bottom != 0 ? Size.safeArea().bottom : 5))
         }
     }
     
