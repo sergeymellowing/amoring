@@ -4,9 +4,6 @@
     "" : {
 
     },
-    " 남 " : {
-
-    },
     " 의" : {
 
     },
@@ -31,13 +28,16 @@
     "🙈 no more profiles" : {
 
     },
+    "2" : {
+
+    },
     "26세" : {
 
     },
-    "Account Information" : {
+    "Account" : {
 
     },
-    "AccountView" : {
+    "Account Information" : {
 
     },
     "Address" : {
@@ -56,10 +56,19 @@
         }
       }
     },
+    "Amoring Community" : {
+
+    },
+    "Amoring Settings" : {
+
+    },
     "Apple" : {
 
     },
     "Basic Information" : {
+
+    },
+    "Bio" : {
 
     },
     "Business sign in" : {
@@ -71,6 +80,9 @@
     "Cancel" : {
 
     },
+    "Check out people you like" : {
+
+    },
     "Company Registration Number" : {
 
     },
@@ -78,6 +90,12 @@
 
     },
     "Contact" : {
+
+    },
+    "Contact Us/ Report" : {
+
+    },
+    "Deete account" : {
 
     },
     "Delete account" : {
@@ -121,6 +139,9 @@
     "Google" : {
 
     },
+    "Hide my profile" : {
+
+    },
     "I agree with terms" : {
 
     },
@@ -134,6 +155,9 @@
 
     },
     "Lastly, please explain yourself\n(40 characters or less)" : {
+
+    },
+    "Likes: " : {
 
     },
     "Listing Settings" : {
@@ -272,7 +296,13 @@
     "Please upload a photo of your business that you are proud of. This photo will be registered on the list." : {
 
     },
+    "Privacy Policy" : {
+
+    },
     "Pumpkin" : {
+
+    },
+    "Purchse" : {
 
     },
     "QR CODE" : {
@@ -342,6 +372,12 @@
 
     },
     "TERMS and AGREEMENTS" : {
+
+    },
+    "Terms of Service" : {
+
+    },
+    "Terms of use" : {
 
     },
     "To change settings Please re-enter your password" : {

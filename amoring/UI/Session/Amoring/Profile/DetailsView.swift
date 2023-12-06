@@ -39,7 +39,7 @@ struct DetailsView: View {
                         
                         VStack(spacing: 10) {
                             HStack {
-                                Text(" 남 ")
+                                Text("MALE")
                                     .foregroundColor(.white)
                                     .padding(.horizontal, 12)
                                     .padding(.vertical, 6)

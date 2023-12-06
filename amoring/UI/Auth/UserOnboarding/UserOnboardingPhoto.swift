@@ -17,7 +17,6 @@ struct UserOnboardingPhoto: View {
     @State private var showRemoveConfirmation: Bool = false
     @State private var showContentTypeSheet: Bool = false
     @State private var showPermissionDenied: Bool = false
-    @State private var showImagePicker: Bool = false
     @State private var goToStep5: Bool = false
     
     var body: some View {

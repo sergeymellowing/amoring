@@ -16,8 +16,7 @@ struct ProfilesView: View {
     @State var likes2: Int = 2
     
     @State var swipeAction: SwipeAction = .doNothing
-    @State var users: [User] = Dummy.users
-    
+    @State var users: [User] = []
     //    var onSwiped: (User, Bool) -> ()
     
     
@@ -28,6 +27,9 @@ struct ProfilesView: View {
         VStack(alignment: .center, spacing: 0) {
             HStack {
                 CoctailToggle(isOn: $isOn)
+                    .onChange(of: isOn) { on in
+                        self.users = on ? Dummy.users : []
+                    }
                 Spacer()
                 LikesFromMaxView(likes: likes2)
                 LikesLeftView(likes: likes)
