@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var sessionManager = SessionManager()
+    @StateObject var userManager = UserManager()
     
     var body: some View {
         ZStack {
@@ -24,6 +25,7 @@ struct ContentView: View {
             }
         }
         .environmentObject(sessionManager)
+        .environmentObject(userManager)
         .onAppear(perform: { sessionManager.getCurrentSession() })
     }
 }

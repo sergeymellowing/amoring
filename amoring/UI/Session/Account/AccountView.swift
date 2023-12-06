@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AccountView: View {
     @EnvironmentObject var sessionManager: SessionManager
+    @EnvironmentObject var userManager: UserManager
     
     @State private var pictures: [PictureModel] = []
     
@@ -128,6 +129,11 @@ struct AccountView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.gray1000)
+        .onAppear {
+            if let user = userManager.user {
+                self.user = user
+            }
+        }
     }
     
     private func removePicture() {

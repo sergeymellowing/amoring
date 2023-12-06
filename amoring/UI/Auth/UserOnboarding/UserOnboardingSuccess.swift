@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserOnboardingSuccess: View {
     @EnvironmentObject var sessionManager: SessionManager
+    @EnvironmentObject var userManager: UserManager
     @EnvironmentObject var controller: UserOnboardingController
     
     var body: some View {
@@ -19,6 +20,7 @@ struct UserOnboardingSuccess: View {
             Button(action: {
 //                save user to db
                 print(controller.user)
+                userManager.user = controller.user
                 withAnimation {
                     sessionManager.isBusiness = false
                     sessionManager.signedIn = true
