@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum SwipeAction{
+    case swipeLeft, swipeRight, doNothing
+}
+
 struct SwipibleProfileVIew: View {
     
     private let nope = "NOPE"
@@ -24,14 +28,14 @@ struct SwipibleProfileVIew: View {
             .overlay(
                 HStack{
                     Text(like)
-                        .font(semiBold30Font)
+                        .font(bold38Font)
                         .foregroundGradient(colors: [Color.yellow500, Color.yellow200])
                         .padding()
                         .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(LinearGradient(gradient: .init(colors: [Color.yellow200, Color.yellow500]),
                                                    startPoint: .topLeading,
-                                                   endPoint: .bottomTrailing), lineWidth: 4)
+                                                   endPoint: .bottomTrailing), lineWidth: 5)
                     )
                     .rotationEffect(.degrees(-30))
                     .opacity(getLikeOpacity())
@@ -39,18 +43,17 @@ struct SwipibleProfileVIew: View {
                     Spacer()
                     
                     Text(nope)
-                        .font(semiBold30Font)
+                        .font(bold38Font)
                         .foregroundGradient(colors: [Color.red500, Color.red200])
                         .padding()
                         .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(LinearGradient(gradient: .init(colors: [Color.red200, Color.red500]),
                                                    startPoint: .topLeading,
-                                                   endPoint: .bottomTrailing), lineWidth: 4)
+                                                   endPoint: .bottomTrailing), lineWidth: 5)
                     )
                         .rotationEffect(.degrees(30))
                         .opacity(getDislikeOpacity())
-
                 }
                     .padding(.top, Size.w(45))
                     .padding(.horizontal, Size.w(45))
@@ -85,7 +88,7 @@ struct SwipibleProfileVIew: View {
     
     private func performDragEnd(_ translation: CGSize){
         let translationX = translation.width
-        if(hasLiked(translationX)){
+        if (hasLiked(translationX)) {
             withAnimation(.linear(duration: 0.3)){
                 self.dragOffset = translation
                 self.dragOffset.width += screenWidthLimit
@@ -108,12 +111,12 @@ struct SwipibleProfileVIew: View {
         }
     }
     
-    private func hasLiked(_ value: Double) -> Bool{
+    private func hasLiked(_ value: Double) -> Bool {
         let ratio: Double = dragOffset.width / screenWidthLimit
         return ratio >= 1
     }
     
-    private func hasDisliked(_ value: Double) -> Bool{
+    private func hasDisliked(_ value: Double) -> Bool {
         let ratio: Double = -dragOffset.width / screenWidthLimit
         return ratio >= 1
     }

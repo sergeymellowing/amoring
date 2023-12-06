@@ -11,6 +11,7 @@ import NavigationStackBackport
 class NavigationAmoringController: ObservableObject {
     @Published var path = NavigationStackBackport.NavigationPath()
     @Published var selectedUser: User? = nil
+    @Published var amoring: Bool = false
     
     func selectUser(user: User) {
         self.selectedUser = user

@@ -45,8 +45,12 @@
 		854C7B052B1815EE0060CE03 /* LikesLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B042B1815EE0060CE03 /* LikesLeftView.swift */; };
 		854C7B072B1818AB0060CE03 /* LikesFromMaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */; };
 		854C7B092B181B1C0060CE03 /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B082B181B1C0060CE03 /* ProfileCardView.swift */; };
-		85D26F632B1EF12600E3C55F /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D26F622B1EF12600E3C55F /* SwipeAction.swift */; };
 		85D26F652B1F07C000E3C55F /* SwipibleProfileVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D26F642B1F07C000E3C55F /* SwipibleProfileVIew.swift */; };
+		85D26F672B2015FE00E3C55F /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D26F662B2015FE00E3C55F /* CheckInView.swift */; };
+		85D26F6C2B20198B00E3C55F /* CodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D26F692B20198A00E3C55F /* CodeScanner.swift */; };
+		85D26F6D2B20198B00E3C55F /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D26F6A2B20198A00E3C55F /* QRCodeGenerator.swift */; };
+		85D26F6E2B20198B00E3C55F /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D26F6B2B20198A00E3C55F /* ScannerViewController.swift */; };
+		85D26F702B20306500E3C55F /* ProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D26F6F2B20306500E3C55F /* ProfilesView.swift */; };
 		85D36AEC2B0F25BC00106BC0 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D36AEB2B0F25BC00106BC0 /* MenuView.swift */; };
 		85D36AEE2B0F261F00106BC0 /* BusinessEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D36AED2B0F261F00106BC0 /* BusinessEnterView.swift */; };
 		85D36AF02B0F26DB00106BC0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D36AEF2B0F26DB00106BC0 /* SettingsView.swift */; };
@@ -138,8 +142,12 @@
 		854C7B042B1815EE0060CE03 /* LikesLeftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesLeftView.swift; sourceTree = "<group>"; };
 		854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesFromMaxView.swift; sourceTree = "<group>"; };
 		854C7B082B181B1C0060CE03 /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
-		85D26F622B1EF12600E3C55F /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
 		85D26F642B1F07C000E3C55F /* SwipibleProfileVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipibleProfileVIew.swift; sourceTree = "<group>"; };
+		85D26F662B2015FE00E3C55F /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
+		85D26F692B20198A00E3C55F /* CodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeScanner.swift; sourceTree = "<group>"; };
+		85D26F6A2B20198A00E3C55F /* QRCodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
+		85D26F6B2B20198A00E3C55F /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		85D26F6F2B20306500E3C55F /* ProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesView.swift; sourceTree = "<group>"; };
 		85D36AEB2B0F25BC00106BC0 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		85D36AED2B0F261F00106BC0 /* BusinessEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessEnterView.swift; sourceTree = "<group>"; };
 		85D36AEF2B0F26DB00106BC0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -327,6 +335,7 @@
 		850A30292B0AEFBB003B12B7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				85D26F682B20198A00E3C55F /* CodeScanner */,
 				85FC20862B0C514400DC1950 /* ImageHelper */,
 				850A30272B0AEFA9003B12B7 /* ScreenHelper.swift */,
 				850A30252B0AEF6C003B12B7 /* DesignSystem.swift */,
@@ -345,11 +354,11 @@
 		850A302D2B0B1BAE003B12B7 /* Amoring */ = {
 			isa = PBXGroup;
 			children = (
-				85D26F612B1EF11300E3C55F /* Swipe */,
 				850A30322B0B1CD6003B12B7 /* AmoringView.swift */,
-				854C7B082B181B1C0060CE03 /* ProfileCardView.swift */,
+				85D26F662B2015FE00E3C55F /* CheckInView.swift */,
+				85D26F6F2B20306500E3C55F /* ProfilesView.swift */,
 				853AFD4D2B1DB2150020A570 /* NavigationAmoringController.swift */,
-				853AFD4F2B1DB36E0020A570 /* DetailsView.swift */,
+				85D26F612B1EF11300E3C55F /* Profile */,
 			);
 			path = Amoring;
 			sourceTree = "<group>";
@@ -381,13 +390,24 @@
 			path = Elements;
 			sourceTree = "<group>";
 		};
-		85D26F612B1EF11300E3C55F /* Swipe */ = {
+		85D26F612B1EF11300E3C55F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				85D26F622B1EF12600E3C55F /* SwipeAction.swift */,
 				85D26F642B1F07C000E3C55F /* SwipibleProfileVIew.swift */,
+				854C7B082B181B1C0060CE03 /* ProfileCardView.swift */,
+				853AFD4F2B1DB36E0020A570 /* DetailsView.swift */,
 			);
-			path = Swipe;
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		85D26F682B20198A00E3C55F /* CodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				85D26F692B20198A00E3C55F /* CodeScanner.swift */,
+				85D26F6A2B20198A00E3C55F /* QRCodeGenerator.swift */,
+				85D26F6B2B20198A00E3C55F /* ScannerViewController.swift */,
+			);
+			path = CodeScanner;
 			sourceTree = "<group>";
 		};
 		85D36AEA2B0F25A000106BC0 /* BusinessSession */ = {
@@ -605,9 +625,10 @@
 				85D36AF22B0F285300106BC0 /* BusnessSettings.swift in Sources */,
 				85D26F652B1F07C000E3C55F /* SwipibleProfileVIew.swift in Sources */,
 				85FC20AE2B0DB38F00DC1950 /* BusinessSuccess.swift in Sources */,
+				85D26F6D2B20198B00E3C55F /* QRCodeGenerator.swift in Sources */,
 				85FC20962B0C96E800DC1950 /* UserOnboardingView.swift in Sources */,
+				85D26F6E2B20198B00E3C55F /* ScannerViewController.swift in Sources */,
 				850A30372B0B1CF0003B12B7 /* AccountView.swift in Sources */,
-				85D26F632B1EF12600E3C55F /* SwipeAction.swift in Sources */,
 				85FC208E2B0C514400DC1950 /* ReordableForEach.swift in Sources */,
 				854C7B072B1818AB0060CE03 /* LikesFromMaxView.swift in Sources */,
 				853AFD542B1DC6BF0020A570 /* CustomTextField.swift in Sources */,
@@ -627,6 +648,7 @@
 				85FC20942B0C514400DC1950 /* PictureGridView.swift in Sources */,
 				850A302B2B0B0D62003B12B7 /* NavigatorView.swift in Sources */,
 				853AFD502B1DB36E0020A570 /* DetailsView.swift in Sources */,
+				85D26F672B2015FE00E3C55F /* CheckInView.swift in Sources */,
 				854C7B032B180C5D0060CE03 /* CoctailToggle.swift in Sources */,
 				85FC20AC2B0DB31B00DC1950 /* PlansView.swift in Sources */,
 				85FC20842B0C510100DC1950 /* UserOnboardingTerms.swift in Sources */,
@@ -639,6 +661,7 @@
 				85D36AEC2B0F25BC00106BC0 /* MenuView.swift in Sources */,
 				85D36AEE2B0F261F00106BC0 /* BusinessEnterView.swift in Sources */,
 				85FC209D2B0D729300DC1950 /* Extensions.swift in Sources */,
+				85D26F6C2B20198B00E3C55F /* CodeScanner.swift in Sources */,
 				850A300B2B0AEA09003B12B7 /* SessionManager.swift in Sources */,
 				85FC20922B0C514400DC1950 /* DragRelocateDelegate.swift in Sources */,
 				850A30352B0B1CE3003B12B7 /* MessagesView.swift in Sources */,
@@ -649,6 +672,7 @@
 				850A30312B0B1CC7003B12B7 /* NearbyView.swift in Sources */,
 				850A30112B0AEE1F003B12B7 /* SignInView.swift in Sources */,
 				85FC20812B0C510100DC1950 /* UserOnboardingSuccess.swift in Sources */,
+				85D26F702B20306500E3C55F /* ProfilesView.swift in Sources */,
 				85FC208F2B0C514400DC1950 /* AddedImageView.swift in Sources */,
 				85FC20852B0C510100DC1950 /* UserOnboardingPhoto.swift in Sources */,
 				854C7B092B181B1C0060CE03 /* ProfileCardView.swift in Sources */,
@@ -819,6 +843,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = amoring/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera for scanning QR Code.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -858,6 +883,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = amoring/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera for scanning QR Code.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

@@ -20,6 +20,7 @@ let pretendardThin = "Pretendard-Thin"
 let extraBold46Font: Font = Font.custom(pretendardExtraBold, size: Size.w(46))
 let extraBold40Font: Font = Font.custom(pretendardExtraBold, size: Size.w(40))
 let extraBold32Font: Font = Font.custom(pretendardExtraBold, size: Size.w(32))
+let extraBold28Font: Font = Font.custom(pretendardExtraBold, size: Size.w(28))
 let extraBold20Font: Font = Font.custom(pretendardExtraBold, size: Size.w(20))
 
 let bold52Font: Font = Font.custom(pretendardBold, size: Size.w(52))
@@ -56,6 +57,7 @@ let semiBold13Font: Font = Font.custom(pretendardSemiBold, size: Size.w(13))
 let semiBold12Font: Font = Font.custom(pretendardSemiBold, size: Size.w(12))
 
 let regular60Font: Font = Font.custom(pretendardRegular, size: Size.w(60))
+let regular28Font: Font = Font.custom(pretendardRegular, size: Size.w(28))
 let regular22Font: Font = Font.custom(pretendardRegular, size: Size.w(22))
 let regular20Font: Font = Font.custom(pretendardRegular, size: Size.w(20))
 let regular18Font: Font = Font.custom(pretendardRegular, size: Size.w(18))
