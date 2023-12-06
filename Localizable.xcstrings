@@ -110,7 +110,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "여"
+            "value" : " 여 "
           }
         }
       }
@@ -163,7 +163,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "남"
+            "value" : " 남 "
           }
         }
       }
