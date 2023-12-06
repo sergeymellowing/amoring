@@ -24,8 +24,7 @@ struct SwipibleProfileVIew: View {
             .overlay(
                 HStack{
                     Text(like)
-                        .font(.largeTitle)
-                        .bold()
+                        .font(semiBold30Font)
                         .foregroundGradient(colors: [Color.yellow500, Color.yellow200])
                         .padding()
                         .overlay(
@@ -36,10 +35,11 @@ struct SwipibleProfileVIew: View {
                     )
                     .rotationEffect(.degrees(-30))
                     .opacity(getLikeOpacity())
+                    
                     Spacer()
+                    
                     Text(nope)
-                        .font(.largeTitle)
-                        .bold()
+                        .font(semiBold30Font)
                         .foregroundGradient(colors: [Color.red500, Color.red200])
                         .padding()
                         .overlay(
@@ -51,7 +51,9 @@ struct SwipibleProfileVIew: View {
                         .rotationEffect(.degrees(30))
                         .opacity(getDislikeOpacity())
 
-                }.padding(.top, Size.w(45)).padding(.horizontal, Size.w(45))
+                }
+                    .padding(.top, Size.w(45))
+                    .padding(.horizontal, Size.w(45))
                 ,alignment: .top)
             .offset(x: self.dragOffset.width,y: self.dragOffset.height)
             .rotationEffect(.degrees(self.dragOffset.width * 0.06), anchor: .center)

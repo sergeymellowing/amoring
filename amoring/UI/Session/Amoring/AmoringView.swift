@@ -15,23 +15,17 @@ struct AmoringView: View {
     @State var likes2: Int = 2
     
     @State var swipeAction: SwipeAction = .doNothing
-    @State var users: [User] = [
-        User(id: "1", name: "Eugene Krabs", fakeImage: "person-0"),
-        User(id: "2", name: "SpongeBob SquarePants", fakeImage: "person-1"),
-        User(id: "3", name: "Patric Star", fakeImage: "person-2"),
-        User(id: "4", name: "Squidward", fakeImage: "person-3"),
-        User(id: "5", name: "Sandy Cheeks", fakeImage: "person-4"),
-//        User(id: "6", name: "Eugene Krabs", fakeImage: "person-0")
-    ]
+    @State var users: [User] = Dummy.users
     
 //    var onSwiped: (User, Bool) -> ()
+    
     
     /// height of bottom bar + padding inside bottom bar + padding
     let bottomSpacing = Size.safeArea().bottom + Size.h(18 + 16)
     
     var body: some View {
         NavigationStackBackport.NavigationStack(path: $navigator.path) {
-            VStack(spacing: 0) {
+            VStack(alignment: .center, spacing: 0) {
                 HStack {
                     CoctailToggle(isOn: $isOn)
                     Spacer()
@@ -44,6 +38,7 @@ struct AmoringView: View {
                 .zIndex(2)
                 
                 ZStack(alignment: .bottom) {
+                
                     VStack {
                         Text("🙈 no-more-profiles")
                             .font(semiBold16Font)
@@ -52,12 +47,12 @@ struct AmoringView: View {
                     }
                     .frame(maxHeight: .infinity, alignment: .center)
                     
-                    ForEach(users.indices, id: \.self){ index  in
+                    ForEach(users.indices, id: \.self) { index  in
                         let user: User = users[index]
                         
-                        if(index == users.count - 1){
+                        if (index == users.count - 1) {
                             SwipibleProfileVIew(user: user, swipeAction: $swipeAction, onSwiped: performSwipe)
-                        } else if(index == users.count - 2){
+                        } else if (index == users.count - 2) {
                             ProfileCardView(user: user)
                         }
                     }
@@ -99,22 +94,16 @@ struct AmoringView: View {
                 }
             }
             .padding(.bottom, bottomSpacing)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .background(.gray1000)
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading:
                                     Text("AMORING")
                 .font(bold20Font)
                 .foregroundColor(.yellow300)
                                 , trailing:
                                     Button(action: {
-                self.users = [
-                    User(id: "1", name: "Eugene Krabs", fakeImage: "person-0"),
-                    User(id: "2", name: "SpongeBob SquarePants", fakeImage: "person-1"),
-                    User(id: "3", name: "Patric Star", fakeImage: "person-2"),
-                    User(id: "4", name: "Squidward", fakeImage: "person-3"),
-                    User(id: "5", name: "Sandy Cheeks", fakeImage: "person-4"),
-//                    User(id: "6", name: "Eugene Krabs", fakeImage: "person-0"),
-                ]
+                self.users = Dummy.users
             }) {
                 Image("ic-leave-room")
                     .resizable()
@@ -134,7 +123,7 @@ struct AmoringView: View {
 //        onSwiped(userProfile, hasLiked)
     }
     
-    private func removeTopItem(){
+    private func removeTopItem() {
         users.removeLast()
     }
 }
