@@ -31,7 +31,7 @@ struct TabBarBottomView: View {
     let tabbarTitles: [String]
     @Binding var selectedIndex: Int
     
-    let height = Size.w(55)
+    let height = Size.w(75)
     
     var body: some View {
         VStack {

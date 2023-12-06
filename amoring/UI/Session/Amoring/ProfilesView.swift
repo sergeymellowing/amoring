@@ -21,8 +21,8 @@ struct ProfilesView: View {
     //    var onSwiped: (User, Bool) -> ()
     
     
-    /// height of bottom bar + padding inside bottom bar + padding
-    let bottomSpacing = Size.safeArea().bottom + Size.h(18 + 16)
+    /// height of bottom bar + padding
+    let bottomSpacing = Size.w(75) + Size.w(16)
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -39,11 +39,21 @@ struct ProfilesView: View {
             
             ZStack(alignment: .bottom) {
                 
-                VStack {
-                    Text("🙈 no-more-profiles")
+                VStack(spacing: 30) {
+                    Text("🙈 no more profiles")
                         .font(semiBold16Font)
                         .foregroundColor(.gray400)
                         .multilineTextAlignment(.center)
+                    Button(action: {
+                        withAnimation {
+                            self.users = Dummy.users
+                        }
+                    }) {
+                        Image(systemName: "arrow.clockwise.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                    }
                 }
                 .frame(maxHeight: .infinity, alignment: .center)
                 
@@ -122,6 +132,11 @@ struct ProfilesView: View {
     
     private func performSwipe(userProfile: User, hasLiked: Bool) {
         removeTopItem()
+        if hasLiked {
+            withAnimation {
+                self.likes -= 1
+            }
+        }
         //        onSwiped(userProfile, hasLiked)
     }
     

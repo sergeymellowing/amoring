@@ -15,7 +15,8 @@ struct CheckInView: View {
     @State var haveTable = false
     @State var resultString: String? = nil
     
-    let bottomSpacing = Size.safeArea().bottom + Size.h(18 + 16)
+    /// height of bottom bar + padding
+    let bottomSpacing = Size.w(75) + Size.w(16)
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -51,13 +52,15 @@ struct CheckInView: View {
                 }
                 .foregroundColor(.green200)
                 .padding(Size.w(19))
-                .background(Color.green100.opacity(0.15))
+                .background(Color.green300.opacity(haveTable ? 0.15 : 0.01))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay(
                     RoundedRectangle(cornerRadius: 10).stroke(Color.green700)
                 )
                 .onTapGesture {
-                    self.haveTable.toggle()
+                    withAnimation {
+                        self.haveTable.toggle()
+                    }
                 }
                 
                 Spacer()
@@ -84,7 +87,7 @@ struct CheckInView: View {
             .foregroundColor(.yellow600)
             .padding(.vertical, Size.w(16))
             
-            if let resultString {
+            if resultString != nil {
                 HStack(alignment: .center, spacing: Size.w(22)) {
                     Button(action: {
                         withAnimation {
@@ -118,6 +121,7 @@ struct CheckInView: View {
             }
         }
         .padding(.horizontal, Size.w(22))
+        .padding(.bottom, Size.w(10))
         .padding(.bottom, bottomSpacing)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(.gray1000)
