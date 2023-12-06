@@ -98,6 +98,23 @@
     "Facebook" : {
 
     },
+    "FEMALE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "female"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "여"
+          }
+        }
+      }
+    },
     "Go To Business Sign In" : {
 
     },
@@ -133,6 +150,23 @@
     },
     "male" : {
 
+    },
+    "MALE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "male"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "남"
+          }
+        }
+      }
     },
     "MessagesView" : {
 

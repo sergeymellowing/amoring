@@ -12,6 +12,9 @@ struct LikesLeftView: View {
     var body: some View {
         HStack {
             Image("ic-heart-fill")
+                .resizable()
+                .scaledToFit()
+                .frame(width: Size.w(14), height: Size.w(12))
             likes > 0 ?
             (Text("+") + Text(likes.description))
             : Text(likes.description)

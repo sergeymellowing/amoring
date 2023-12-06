@@ -13,6 +13,8 @@ struct amoringApp: App {
         WindowGroup {
             ContentView()
                 .preferredColorScheme(.dark)
+            // TODO: remove for different languages
+                .environment(\.locale, .init(identifier: "ko"))
                 .onAppear {
                     setupUI()
                 }

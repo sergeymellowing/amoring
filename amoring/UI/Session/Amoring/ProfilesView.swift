@@ -94,7 +94,7 @@ struct ProfilesView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: Size.w(34), height: Size.w(30))
-                                    .foregroundColor(.yellow200)
+                                    .foregroundColor(.yellow300)
                             }
                         }
                     }
