@@ -10,6 +10,16 @@
     "/" : {
 
     },
+    "%lf meters / %lld kg" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lf meters / %2$lld kg"
+          }
+        }
+      }
+    },
     "%lld" : {
 
     },
@@ -275,6 +285,9 @@
     "Next" : {
 
     },
+    "PAST" : {
+
+    },
     "PLANS!" : {
 
     },
@@ -321,6 +334,9 @@
 
     },
     "Reset password" : {
+
+    },
+    "ROCKETS by Elon!" : {
 
     },
     "Sectors" : {
@@ -384,6 +400,9 @@
 
     },
     "Type" : {
+
+    },
+    "UPCOMING" : {
 
     },
     "upload business reg photo" : {

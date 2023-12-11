@@ -57,6 +57,7 @@ struct AccountView: View {
                         user.bio = String(newValue.prefix(charLimit))
                     }
                 })
+                    .frame(height: 300)
                 
                 HStack{
                     Spacer()

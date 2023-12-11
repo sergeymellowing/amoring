@@ -6,18 +6,19 @@
 //
 
 import SwiftUI
-
 @main
 struct amoringApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .preferredColorScheme(.dark)
-            // TODO: remove for different languages
-                .environment(\.locale, .init(identifier: "ko"))
-                .onAppear {
-                    setupUI()
-                }
+            RocketListView()
+            
+//            ContentView()
+//                .preferredColorScheme(.dark)
+//            // TODO: remove for different languages
+//                .environment(\.locale, .init(identifier: "ko"))
+//                .onAppear {
+//                    setupUI()
+//                }
         }
     }
 
