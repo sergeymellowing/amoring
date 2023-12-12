@@ -14,11 +14,11 @@ struct AmoringView: View {
     var body: some View {
         NavigationStackBackport.NavigationStack(path: $navigator.path) {
             Group {
-                if navigator.amoring {
+//                if navigator.amoring {
                     ProfilesView()
-                } else {
-                    CheckInView()
-                }
+//                } else {
+//                    CheckInView()
+//                }
             }
             .environmentObject(navigator)
         }

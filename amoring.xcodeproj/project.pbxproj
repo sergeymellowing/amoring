@@ -10,6 +10,8 @@
 		85064AE02B26880A0074E45A /* LaunchesQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 85064ADF2B26880A0074E45A /* LaunchesQuery.graphql */; };
 		85064AE32B2690DD0074E45A /* SpaceXAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 85064AE22B2690DD0074E45A /* SpaceXAPI */; };
 		85064AE52B269D2A0074E45A /* launchFragment.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 85064AE42B269D2A0074E45A /* launchFragment.graphql */; };
+		85064AE72B26F2FB0074E45A /* SpaceXAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 85064AE62B26F2FB0074E45A /* SpaceXAPI */; };
+		85064AEA2B26F35A0074E45A /* SpaceXAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 85064AE92B26F35A0074E45A /* SpaceXAPI */; };
 		850A2FDD2B0AE54B003B12B7 /* amoringApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A2FDC2B0AE54B003B12B7 /* amoringApp.swift */; };
 		850A2FDF2B0AE54B003B12B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A2FDE2B0AE54B003B12B7 /* ContentView.swift */; };
 		850A2FE12B0AE54D003B12B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 850A2FE02B0AE54D003B12B7 /* Assets.xcassets */; };
@@ -202,7 +204,9 @@
 				853AFD4C2B1DB0890020A570 /* NavigationStackBackport in Frameworks */,
 				85806C512B22F90E0077D12C /* Apollo in Frameworks */,
 				85806C4C2B22F7AB0077D12C /* SpaceXAPI in Frameworks */,
+				85064AE72B26F2FB0074E45A /* SpaceXAPI in Frameworks */,
 				85064AE32B2690DD0074E45A /* SpaceXAPI in Frameworks */,
+				85064AEA2B26F35A0074E45A /* SpaceXAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +227,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85064AEB2B27D9DB0074E45A /* CheckIn */ = {
+			isa = PBXGroup;
+			children = (
+				85D26F662B2015FE00E3C55F /* CheckInView.swift */,
+			);
+			path = CheckIn;
+			sourceTree = "<group>";
+		};
 		850A2FD02B0AE54B003B12B7 = {
 			isa = PBXGroup;
 			children = (
@@ -375,9 +387,8 @@
 			isa = PBXGroup;
 			children = (
 				850A30322B0B1CD6003B12B7 /* AmoringView.swift */,
-				85D26F662B2015FE00E3C55F /* CheckInView.swift */,
-				85D26F6F2B20306500E3C55F /* ProfilesView.swift */,
 				853AFD4D2B1DB2150020A570 /* NavigationAmoringController.swift */,
+				85064AEB2B27D9DB0074E45A /* CheckIn */,
 				85D26F612B1EF11300E3C55F /* Profile */,
 			);
 			path = Amoring;
@@ -433,6 +444,7 @@
 		85D26F612B1EF11300E3C55F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				85D26F6F2B20306500E3C55F /* ProfilesView.swift */,
 				85D26F642B1F07C000E3C55F /* SwipibleProfileVIew.swift */,
 				854C7B082B181B1C0060CE03 /* ProfileCardView.swift */,
 				853AFD4F2B1DB36E0020A570 /* DetailsView.swift */,
@@ -533,6 +545,8 @@
 				85806C4B2B22F7AB0077D12C /* SpaceXAPI */,
 				85806C502B22F90E0077D12C /* Apollo */,
 				85064AE22B2690DD0074E45A /* SpaceXAPI */,
+				85064AE62B26F2FB0074E45A /* SpaceXAPI */,
+				85064AE92B26F35A0074E45A /* SpaceXAPI */,
 			);
 			productName = amoring;
 			productReference = 850A2FD92B0AE54B003B12B7 /* amoring.app */;
@@ -610,7 +624,7 @@
 			packageReferences = (
 				85FC20AF2B0EC38000DC1950 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				853AFD4A2B1DB0890020A570 /* XCRemoteSwiftPackageReference "navigation-stack-backport" */,
-				85064AE12B2690DD0074E45A /* XCLocalSwiftPackageReference "SpaceXAPI" */,
+				85064AE82B26F35A0074E45A /* XCLocalSwiftPackageReference "SpaceXAPI" */,
 			);
 			productRefGroup = 850A2FDA2B0AE54B003B12B7 /* Products */;
 			projectDirPath = "";
@@ -1091,7 +1105,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		85064AE12B2690DD0074E45A /* XCLocalSwiftPackageReference "SpaceXAPI" */ = {
+		85064AE82B26F35A0074E45A /* XCLocalSwiftPackageReference "SpaceXAPI" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = SpaceXAPI;
 		};
@@ -1118,6 +1132,14 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		85064AE22B2690DD0074E45A /* SpaceXAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SpaceXAPI;
+		};
+		85064AE62B26F2FB0074E45A /* SpaceXAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SpaceXAPI;
+		};
+		85064AE92B26F35A0074E45A /* SpaceXAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SpaceXAPI;
 		};

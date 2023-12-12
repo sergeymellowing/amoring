@@ -10,15 +10,16 @@ import SwiftUI
 struct amoringApp: App {
     var body: some Scene {
         WindowGroup {
-            RocketListView()
+            /// graphql demo
+//            RocketListView()
             
-//            ContentView()
-//                .preferredColorScheme(.dark)
-//            // TODO: remove for different languages
-//                .environment(\.locale, .init(identifier: "ko"))
-//                .onAppear {
-//                    setupUI()
-//                }
+            ContentView()
+                .preferredColorScheme(.dark)
+            // TODO: remove for different languages
+                .environment(\.locale, .init(identifier: "ko"))
+                .onAppear {
+                    setupUI()
+                }
         }
     }
 

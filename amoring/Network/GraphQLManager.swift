@@ -16,7 +16,7 @@ class GraphQLManager: ObservableObject {
     
     func fetchRockets() {
         let query = RocketsQuery()
-        NetworkService.shared.apollo.fetch(query: query) { [weak self] result in
+        NetworkService.shared.apollo.fetch(query: query, cachePolicy: .returnCacheDataAndFetch) { [weak self] result in
             switch result {
             case .success(let value):
                 self?.rockets = value.data?.rockets?.compactMap { $0 } ?? []
@@ -26,14 +26,14 @@ class GraphQLManager: ObservableObject {
         }
     }
     
-    func fetchLaunches(rocket: RocketsQuery.Data.Rocket, completion: @escaping (([LaunchesQuery.Data.LaunchesUpcoming], [LaunchesQuery.Data.LaunchesPast]) -> Void)) {
+    func fetchLaunches(rocket: RocketsQuery.Data.Rocket, completion: @escaping (([LaunchFragment], [LaunchFragment]) -> Void)) {
         let launchFind = LaunchFind(rocket_id: rocket.id ?? .none)
         let query = LaunchesQuery(upcomingFind: .some(launchFind), pastFind: .some(launchFind))
         
         NetworkService.shared.apollo.fetch(query: query) { result in
             switch result {
             case .success(let value):
-                    completion(value.data?.launchesUpcoming?.compactMap { $0 } ?? [], value.data?.launchesPast?.compactMap { $0 } ?? [])
+                completion(value.data?.launchesUpcoming?.compactMap { $0?.fragments.launchFragment } ?? [], value.data?.launchesPast?.compactMap { $0?.fragments.launchFragment } ?? [])
             case .failure(let error):
                 debugPrint(error.localizedDescription)
             }
@@ -62,11 +62,11 @@ struct RocketListView: View {
             }
             .navigationTitle("ROCKETS by Elon!")
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     withAnimation {
                         manager.fetchRockets()
                     }
-                }
+//                }
             }
         }
     }
@@ -75,40 +75,43 @@ struct RocketListView: View {
 struct RocketDetail: View {
     @EnvironmentObject var manager: GraphQLManager
     let rocket: RocketsQuery.Data.Rocket
-    @State var launchesUpcoming: [LaunchesQuery.Data.LaunchesUpcoming] = []
-    @State var launchesPast: [LaunchesQuery.Data.LaunchesPast] = []
+    @State var launches: [[LaunchFragment]] = [[]]
+    
     
     var body: some View {
         VStack(spacing: 30) {
             Text(rocket.name ?? "Noname")
-            List {
-                Section(header: Text("UPCOMING")) {
-                    ForEach(launchesUpcoming, id:\.self.id) { launch in
-                        VStack {
-                            Text(launch.id?.description ?? "")
-                            Text(launch.mission_name ?? "")
-                            Text(launch.launch_date_utc ?? Date())
+            if launches.count > 1 {
+                List {
+                    Section(header: Text("UPCOMING")) {
+                        ForEach(launches.first!, id:\.self.id) { launch in
+                            VStack {
+                                Text(launch.id?.description ?? "")
+                                Text(launch.mission_name ?? "")
+                                Text(launch.launch_date_utc ?? Date())
+                            }
                         }
                     }
-                }
-                
-                Section(header: Text("PAST")) {
-                    ForEach(launchesPast, id:\.self.id) { launch in
-                        VStack {
-                            Text(launch.id?.description ?? "")
-                            Text(launch.mission_name ?? "")
-                            Text(launch.launch_date_utc ?? Date())
+                    
+                    Section(header: Text("PAST")) {
+                        ForEach(launches.last!, id:\.self.id) { launch in
+                            VStack {
+                                Text(launch.id?.description ?? "")
+                                Text(launch.mission_name ?? "")
+                                Text(launch.launch_date_utc ?? Date())
+                            }
                         }
                     }
                 }
             }
+            
         }
             .onAppear {
                 manager.fetchLaunches(rocket: rocket) { upcoming, past in
-                    self.launchesUpcoming = upcoming
-                    self.launchesPast = past
+                    self.launches.removeAll()
+                    self.launches.append(upcoming)
+                    self.launches.append(past)
                 }
-                
             }
     }
 }

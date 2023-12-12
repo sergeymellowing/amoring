@@ -144,9 +144,9 @@ struct CheckInView: View {
         }
         )
         .environmentObject(navigator)
-        .backport.navigationDestination(for: AmoringPath.self) { screen in
-            navigator.navigate(screen: screen)
-        }
+//        .backport.navigationDestination(for: AmoringPath.self) { screen in
+//            navigator.navigate(screen: screen)
+//        }
     }
     
     func handleScan(result: Result<ScanResult, ScanError>) {

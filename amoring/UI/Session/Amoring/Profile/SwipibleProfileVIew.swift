@@ -12,7 +12,7 @@ enum SwipeAction{
 }
 
 struct SwipibleProfileVIew: View {
-    
+    @EnvironmentObject var navigator: NavigationAmoringController
     private let nope = "NOPE"
     private let like = "LIKE"
     private let screenWidthLimit = UIScreen.main.bounds.width * 0.5
@@ -20,11 +20,20 @@ struct SwipibleProfileVIew: View {
     let user: User
     @State private var dragOffset = CGSize.zero
     @Binding var swipeAction: SwipeAction
-    
+    let animation: Namespace.ID
     var onSwiped: (User, Bool) -> ()
     
     var body: some View {
-        ProfileCardView(user: user)
+        GeometryReader { reader in
+            let size = CGSize(width: reader.size.width - Size.w(44), height: reader.size.height)
+            ZStack(alignment: .top) {
+                ProfileCardView(user: user, animation: animation, size: size)
+                    .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
+            }.frame(maxWidth: .infinity)
+                .padding(.bottom, Size.w(40))
+                
+        }
+        
             .overlay(
                 HStack{
                     Text(like)
@@ -60,11 +69,11 @@ struct SwipibleProfileVIew: View {
                 ,alignment: .top)
             .offset(x: self.dragOffset.width,y: self.dragOffset.height)
             .rotationEffect(.degrees(self.dragOffset.width * 0.06), anchor: .center)
-            .simultaneousGesture(DragGesture(minimumDistance: 0.0).onChanged{ value in
+            .simultaneousGesture(DragGesture(minimumDistance: 5).onChanged{ value in
                 self.dragOffset = value.translation
             }.onEnded{ value in
                 performDragEnd(value.translation)
-                print("onEnd: \(value.location)")
+//                print("onEnd: \(value.location)")
             }).onChange(of: swipeAction, perform: { newValue in
                 if newValue != .doNothing {
                     performSwipe(newValue)
