@@ -13,6 +13,7 @@ class NavigationAmoringController: ObservableObject {
     @Published var selectedUser: User? = nil
     @Published var amoring: Bool = false
     @Published var showDetails: Bool = false
+    @Published var hidePanel: Bool = false
     
 //    func selectUser(user: User) {
 //        self.selectedUser = user

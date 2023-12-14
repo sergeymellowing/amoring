@@ -17,7 +17,7 @@ struct ProfilesView: View {
     
     @State var swipeAction: SwipeAction = .doNothing
     @State var users: [User] = Dummy.users
-
+    
     //    var onSwiped: (User, Bool) -> ()
     
     
@@ -26,7 +26,7 @@ struct ProfilesView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            if !navigator.showDetails {
+            if !navigator.hidePanel {
                 HStack {
                     CoctailToggle(isOn: $isOn)
                         .onChange(of: isOn) { on in
@@ -69,16 +69,24 @@ struct ProfilesView: View {
                     if (index == users.count - 1) {
                         SwipibleProfileVIew(user: user, swipeAction: $swipeAction, onSwiped: performSwipe)
                     } else if (index == users.count - 2) {
-                        ZStack {
-                            ProfileCardView(user: user, width: UIScreen.main.bounds.width - Size.w(44))
+                        GeometryReader { reader in
+                            ZStack {
+                                
+                                ProfileCardView(user: user,
+                                                width: reader.size.width - Size.w(44),
+                                                height: reader.size.height - (Size.w(75 + 56))
+                                )
                                 .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
-                        }.frame(maxHeight: .infinity, alignment: .top)
+                            }
+                            .frame(width: reader.size.width)
+                            .frame(maxHeight: .infinity, alignment: .top)
                             .opacity(navigator.showDetails ? 0 : 1)
+                        }
                     }
                 }
             }
         }
-//        .padding(.bottom, bottomSpacing)
+        //        .padding(.bottom, bottomSpacing)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(.gray1000)
         .navigationBarTitleDisplayMode(.inline)
@@ -100,9 +108,9 @@ struct ProfilesView: View {
         }
         )
         .environmentObject(navigator)
-//        .backport.navigationDestination(for: AmoringPath.self) { screen in
-//            navigator.navigate(screen: screen)
-//        }
+        //        .backport.navigationDestination(for: AmoringPath.self) { screen in
+        //            navigator.navigate(screen: screen)
+        //        }
     }
     
     private func performSwipe(userProfile: User, hasLiked: Bool) {

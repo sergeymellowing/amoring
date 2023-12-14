@@ -13,11 +13,13 @@ enum SwipeAction{
 
 struct SwipibleProfileVIew: View {
     @EnvironmentObject var navigator: NavigationAmoringController
-    
+    @Namespace var animation
     let user: User
     @State private var dragOffset = CGSize.zero
     @Binding var swipeAction: SwipeAction
     @State private var fitInScreen = false
+    @State private var scrollOffset: CGFloat = 0
+    @State private var showButtons: Bool = false
     
     var onSwiped: (User, Bool) -> ()
     
@@ -28,9 +30,13 @@ struct SwipibleProfileVIew: View {
     var body: some View {
         ZStack {
             GeometryReader { reader in
-                ScrollView(showsIndicators: false) {
+//                ScrollView(showsIndicators: false) {
+                TrackableScrollView(showIndicators: false, contentOffset: $scrollOffset) {
                     VStack(spacing: 0) {
-                        ProfileCardView(user: user, width: reader.size.width - Size.w(navigator.showDetails ? 20 : 44))
+                        ProfileCardView(user: user, 
+                                        width: reader.size.width - Size.w(navigator.showDetails ? 20 : 44),
+                                        height: reader.size.height - (Size.w(75 + (navigator.hidePanel ? 0 : 56)))
+                        )
                         ZStack {
                             Color.yellow350
                             VStack {
@@ -60,13 +66,31 @@ struct SwipibleProfileVIew: View {
                     self.fitInScreen = $0 < reader.size.height    // << here !!
                 }
                 .disabled(self.fitInScreen)
+                .onChange(of: scrollOffset) { offset in
+                    if offset > Size.w(800) {
+                        if !showButtons {
+                            withAnimation {
+                                showButtons = true
+                            }
+                        }
+                    } else {
+                        if showButtons {
+                            withAnimation {
+                                showButtons = false
+                            }
+                        }
+                    }
+                }
             }
             .onTapGesture {
                 withAnimation {
+                    navigator.hidePanel.toggle()
+                }
+                withAnimation(.smooth) {
                     navigator.showDetails.toggle()
                 }
             }
-            add trackable scroller -> show buttons depends of the offset
+           
             .overlay(
                 HStack{
                     Text(like)
@@ -119,8 +143,9 @@ struct SwipibleProfileVIew: View {
                     }
                 }
             })
-            if !navigator.showDetails {
+            if !navigator.showDetails || showButtons {
                 LikeDisLikeButtons(swipeAction: $swipeAction)
+                    .transition(.move(edge: .bottom))
             }
             
         }.frame(alignment: .bottom)

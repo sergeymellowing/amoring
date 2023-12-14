@@ -18,6 +18,7 @@ class Dummy {
         User(id: "3", name: "Patric Star", birthDate: "1999-08-08".toDate(), bio: "저희 3명이고, 테이블 잡음, 술 있음", gender: "FEMALE", fakeImage: "person-2"),
         User(id: "4", name: "Squidward", birthDate: "1998-08-08".toDate(), bio: "저희 3명이고, 테이블 잡음, 술 있음", gender: "MALE", fakeImage: "person-3"),
         User(id: "5", name: "Sandy Cheeks", birthDate: "1997-08-08".toDate(), bio: "저희 3명이고, 테이블 잡음, 술 있음", gender: "FEMALE", fakeImage: "person-4"),
+        User(id: "6", name: "Eugene Krabs", birthDate: "2000-08-08".toDate(), bio: "저희 3명이고, 테이블 잡음, 술 있음", gender: "FEMALE", fakeImage: "person-0"),
     ]
 }
 
