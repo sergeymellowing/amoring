@@ -12,20 +12,28 @@ struct CoctailToggle: View {
 //    @State var isOn: Bool = false
     
     var body: some View {
-        ZStack(alignment: isOn ? .trailing : .leading) {
-            isOn ?
+        ZStack(alignment: self.isOn ? .trailing : .leading) {
+            self.isOn ?
             LinearGradient(colors: toggleGradient, startPoint: .topTrailing, endPoint: .bottomLeading) :
             LinearGradient(colors: [Color.gray700], startPoint: .topTrailing, endPoint: .bottomLeading)
             
             ZStack {
                 Color.gray900
-                Image(isOn ? "ic-heart-empty-rotated" : "ic-coctail")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.yellow200)
-                    .rotationEffect(.degrees(isOn ? 180 : 0))
-                    .frame(width: isOn ? 15 : 12, height: isOn ? 13 : 14)
+                self.isOn ?
+                    Image("ic-heart-empty-rotated")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(.yellow200)
+                        .frame(width: 15, height: 13)
+                :
+                    Image("ic-coctail")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(.yellow200)
+                        .frame(width: 12, height: 14)
+                
             }
+            .rotationEffect(.degrees(self.isOn ? 180 : 0))
             .frame(width: 30, height: 30)
             .cornerRadius(18)
             .padding(.horizontal, 1)
@@ -34,7 +42,7 @@ struct CoctailToggle: View {
         .cornerRadius(18)
         .onTapGesture {
             withAnimation {
-                isOn.toggle()
+                self.isOn.toggle()
             }
         }
     }

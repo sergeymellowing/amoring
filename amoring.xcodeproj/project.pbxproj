@@ -49,6 +49,11 @@
 		8522A5F42B2BE03D008AF703 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A5F32B2BE03D008AF703 /* Interest.swift */; };
 		8522A5F62B2BE831008AF703 /* mbti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A5F52B2BE831008AF703 /* mbti.swift */; };
 		8522A5F92B2BFA00008AF703 /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A5F82B2BFA00008AF703 /* PurchaseView.swift */; };
+		8522A5FB2B2C2F6A008AF703 /* PurchaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A5FA2B2C2F6A008AF703 /* PurchaseModel.swift */; };
+		8522A5FD2B2C4B4C008AF703 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A5FC2B2C4B4C008AF703 /* Data.swift */; };
+		8522A5FF2B2C4B6F008AF703 /* PurchaseSimpleWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A5FE2B2C4B6F008AF703 /* PurchaseSimpleWindow.swift */; };
+		8522A6012B2C4B96008AF703 /* PurchaseLoungeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A6002B2C4B96008AF703 /* PurchaseLoungeWindow.swift */; };
+		8522A6032B2C4BAD008AF703 /* PurchaseLikeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A6022B2C4BAD008AF703 /* PurchaseLikeWindow.swift */; };
 		853AFD4C2B1DB0890020A570 /* NavigationStackBackport in Frameworks */ = {isa = PBXBuildFile; productRef = 853AFD4B2B1DB0890020A570 /* NavigationStackBackport */; };
 		853AFD4E2B1DB2150020A570 /* NavigationAmoringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AFD4D2B1DB2150020A570 /* NavigationAmoringController.swift */; };
 		853AFD522B1DBD7F0020A570 /* NavigationAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AFD512B1DBD7F0020A570 /* NavigationAuthController.swift */; };
@@ -163,6 +168,11 @@
 		8522A5F32B2BE03D008AF703 /* Interest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		8522A5F52B2BE831008AF703 /* mbti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbti.swift; sourceTree = "<group>"; };
 		8522A5F82B2BFA00008AF703 /* PurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseView.swift; sourceTree = "<group>"; };
+		8522A5FA2B2C2F6A008AF703 /* PurchaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseModel.swift; sourceTree = "<group>"; };
+		8522A5FC2B2C4B4C008AF703 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		8522A5FE2B2C4B6F008AF703 /* PurchaseSimpleWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseSimpleWindow.swift; sourceTree = "<group>"; };
+		8522A6002B2C4B96008AF703 /* PurchaseLoungeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseLoungeWindow.swift; sourceTree = "<group>"; };
+		8522A6022B2C4BAD008AF703 /* PurchaseLikeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseLikeWindow.swift; sourceTree = "<group>"; };
 		853AFD4D2B1DB2150020A570 /* NavigationAmoringController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAmoringController.swift; sourceTree = "<group>"; };
 		853AFD512B1DBD7F0020A570 /* NavigationAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAuthController.swift; sourceTree = "<group>"; };
 		853AFD532B1DC6BF0020A570 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -439,6 +449,11 @@
 			isa = PBXGroup;
 			children = (
 				8522A5F82B2BFA00008AF703 /* PurchaseView.swift */,
+				8522A5FA2B2C2F6A008AF703 /* PurchaseModel.swift */,
+				8522A5FC2B2C4B4C008AF703 /* Data.swift */,
+				8522A5FE2B2C4B6F008AF703 /* PurchaseSimpleWindow.swift */,
+				8522A6002B2C4B96008AF703 /* PurchaseLoungeWindow.swift */,
+				8522A6022B2C4BAD008AF703 /* PurchaseLikeWindow.swift */,
 			);
 			path = Purchases;
 			sourceTree = "<group>";
@@ -727,12 +742,14 @@
 				85FC20AE2B0DB38F00DC1950 /* BusinessSuccess.swift in Sources */,
 				85D26F6D2B20198B00E3C55F /* QRCodeGenerator.swift in Sources */,
 				85FC20962B0C96E800DC1950 /* UserOnboardingView.swift in Sources */,
+				8522A6012B2C4B96008AF703 /* PurchaseLoungeWindow.swift in Sources */,
 				85D26F6E2B20198B00E3C55F /* ScannerViewController.swift in Sources */,
 				850A30372B0B1CF0003B12B7 /* AccountView.swift in Sources */,
 				85FC208E2B0C514400DC1950 /* ReordableForEach.swift in Sources */,
 				854C7B072B1818AB0060CE03 /* LikesFromMaxView.swift in Sources */,
 				853AFD542B1DC6BF0020A570 /* CustomTextField.swift in Sources */,
 				853AFD4E2B1DB2150020A570 /* NavigationAmoringController.swift in Sources */,
+				8522A5FD2B2C4B4C008AF703 /* Data.swift in Sources */,
 				85FC20832B0C510100DC1950 /* UserOnboardingGender.swift in Sources */,
 				8522A5EB2B2AA9EC008AF703 /* ExpandedView.swift in Sources */,
 				850A30262B0AEF6C003B12B7 /* DesignSystem.swift in Sources */,
@@ -750,6 +767,7 @@
 				85FC207E2B0C510100DC1950 /* UserOnboardingAge.swift in Sources */,
 				850A30282B0AEFA9003B12B7 /* ScreenHelper.swift in Sources */,
 				8522A5ED2B2AAE4F008AF703 /* TagCloudView.swift in Sources */,
+				8522A5FB2B2C2F6A008AF703 /* PurchaseModel.swift in Sources */,
 				85FC20942B0C514400DC1950 /* PictureGridView.swift in Sources */,
 				85806C4F2B22F8650077D12C /* NetworkService.swift in Sources */,
 				850A302B2B0B0D62003B12B7 /* NavigatorView.swift in Sources */,
@@ -770,11 +788,13 @@
 				85FC209D2B0D729300DC1950 /* Extensions.swift in Sources */,
 				85D26F6C2B20198B00E3C55F /* CodeScanner.swift in Sources */,
 				850A300B2B0AEA09003B12B7 /* SessionManager.swift in Sources */,
+				8522A5FF2B2C4B6F008AF703 /* PurchaseSimpleWindow.swift in Sources */,
 				85FC20922B0C514400DC1950 /* DragRelocateDelegate.swift in Sources */,
 				850A30352B0B1CE3003B12B7 /* MessagesView.swift in Sources */,
 				850A303E2B0B2C61003B12B7 /* BusinessOnboardingView.swift in Sources */,
 				8522A5F22B2BDFE7008AF703 /* Dummy.swift in Sources */,
 				85FC20802B0C510100DC1950 /* UserOnboardingBio.swift in Sources */,
+				8522A6032B2C4BAD008AF703 /* PurchaseLikeWindow.swift in Sources */,
 				850A300F2B0AEDF8003B12B7 /* SessionView.swift in Sources */,
 				85FC20AA2B0DB29000DC1950 /* BusinessTermsView.swift in Sources */,
 				850A30312B0B1CC7003B12B7 /* NearbyView.swift in Sources */,

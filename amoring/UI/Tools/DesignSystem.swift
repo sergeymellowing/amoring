@@ -26,7 +26,9 @@ let extraBold20Font: Font = Font.custom(pretendardExtraBold, size: Size.w(20))
 let bold52Font: Font = Font.custom(pretendardBold, size: Size.w(52))
 let bold50Font: Font = Font.custom(pretendardBold, size: Size.w(50))
 let bold46Font: Font = Font.custom(pretendardBold, size: Size.w(46))
+let bold40Font: Font = Font.custom(pretendardBold, size: Size.w(40))
 let bold38Font: Font = Font.custom(pretendardBold, size: Size.w(38))
+let bold36Font: Font = Font.custom(pretendardBold, size: Size.w(36))
 let bold34Font: Font = Font.custom(pretendardBold, size: Size.w(34))
 let bold32Font: Font = Font.custom(pretendardBold, size: Size.w(32))
 let bold30Font: Font = Font.custom(pretendardBold, size: Size.w(30))
@@ -67,6 +69,7 @@ let regular15Font: Font = Font.custom(pretendardRegular, size: Size.w(15))
 let regular14Font: Font = Font.custom(pretendardRegular, size: Size.w(14))
 let regular12Font: Font = Font.custom(pretendardRegular, size: Size.w(12))
 
+let medium34Font: Font = Font.custom(pretendardMedium, size: Size.w(34))
 let medium30Font: Font = Font.custom(pretendardMedium, size: Size.w(30))
 let medium22Font: Font = Font.custom(pretendardMedium, size: Size.w(22))
 let medium20Font: Font = Font.custom(pretendardMedium, size: Size.w(20))
@@ -100,11 +103,21 @@ let likeGradient: [Color] = [
     Color("coctail-togge-1")
 ]
 
-
 let toggleGradient: [Color] = [
     Color("coctail-togge-1"),
     Color("coctail-togge-1"),
     Color("coctail-togge-2"),
     Color("coctail-togge-3"),
     Color("coctail-togge-4")
+]
+
+let transparentGradient: [Color] = [
+    Color("coctail-togge-1"),
+    Color("coctail-togge-1"),
+    Color("coctail-togge-2"),
+    Color("coctail-togge-2"),
+    Color("coctail-togge-3"),
+    Color("coctail-togge-2").opacity(0.7),
+    Color("coctail-togge-1").opacity(0.4),
+    Color("coctail-togge-1").opacity(0.3)
 ]

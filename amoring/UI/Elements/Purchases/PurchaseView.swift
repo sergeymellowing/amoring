@@ -8,35 +8,35 @@
 import SwiftUI
 
 struct PurchaseView: View {
-    let barTitle: String = "좋아요"
-    let title: String = "❤ + 좋아요"
-    let subtitle: String = "더 많은 좋아요로\n더 많은 인연을 만드세요"
-    let description: String = "좋아요가 부족해 아쉬운 순간이 있었나요?\n좋아요를 더 추가해 사용해보세요."
-    let description2: String = "이 특별한 좋아요는 하루가 지나도 사라지지 않으니\n중요한 순간을 위해서 미리 준비하세요!"
-    var description3: String? = "구매 시 유의사항"
-    var description4: String? = "• 결제 확정 시 귀하의 iTunes 계정에 요금이 청구됩니다.\n• 패스는 구입 시 자동으로 활성화 되며, 다음날 오후 12:00까지 유효합니다.\n• 패스가 활성화 된 기간 동안에는 중복구매 할 수 없습니다.\n• 패스의 잔여시간은 아모링 앱 > 내 계정 > 아모링 구매내역에서 확인이 가능합니다."
+    enum type {
+        case like, lounge, transparent, list
+    }
+    
+    let model: PurchaseModel
+    
+    @State var selectedPlan: Int = 1
     
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
                 HStack {
                     Button(action: {
-                        // close purchaseView
+                        //TODO: close purchaseView
                     }) {
                         Image(systemName: "xmark")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: Size.w(16), height: Size.w(16))
+                            .frame(width: Size.w(20), height: Size.w(20))
                             .foregroundColor(.yellow300)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
                 HStack {
-                    Text(barTitle)
-                        .font(bold20Font)
-                        .foregroundColor(.yellow300)
+                    Text(model.barTitle)
                 }
+                .font(bold20Font)
+                .foregroundColor(.yellow300)
                 .frame(maxWidth: .infinity, alignment: .center)
             }
             .frame(maxWidth: .infinity)
@@ -46,8 +46,14 @@ struct PurchaseView: View {
             VStack(spacing: 0) {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {
-                        Text(title)
-                            .font(medium20Font)
+                        HStack(spacing: 0) {
+                            if let titleImage = model.titleImage {
+                                Image(systemName: titleImage)
+                            }
+                            Text(model.title)
+                        }
+                            
+                            .font(medium22Font)
                             .foregroundColor(.yellow200)
                             .padding(.horizontal, Size.w(18))
                             .padding(.vertical, Size.w(10))
@@ -55,34 +61,45 @@ struct PurchaseView: View {
                             .clipShape(Capsule())
                             .padding(.top, Size.w(40))
                         
-                        Text(subtitle)
+                        Text(model.subtitle)
                             .font(bold26Font)
                             .lineSpacing(5)
                             .multilineTextAlignment(.center)
                             .padding(.top, Size.w(30))
                         
-                        Text(description)
+                        Text(model.description)
                             .font(medium16Font)
                             .lineSpacing(7)
                             .multilineTextAlignment(.center)
                             .padding(.top, Size.w(16))
                         
-                        PurchaseWindow()
+                        ZStack {
+                            switch model.type {
+                            case .like:
+                                PurchaseLikeWindow(selectedPlan: $selectedPlan)
+                            case .lounge:
+                                PurchaseLoungeWindow()
+                            case .transparent:
+                                PurchaseSimpleWindow(emoji: "😶‍🌫️")
+                            case .list:
+                                PurchaseSimpleWindow(emoji: "🧡👀")
+                            }
+                        }
                             .padding(.top, Size.w(36))
                         
-                        Text(description2)
+                        Text(model.description2)
                             .font(medium16Font)
                             .lineSpacing(7)
                             .multilineTextAlignment(.center)
                             .padding(.top, Size.w(40))
                         
-                        if let description3 {
+                        if let description3 = model.description3 {
                             Text(description3)
                                 .font(bold16Font)
                                 .multilineTextAlignment(.center)
                                 .padding(.top, Size.w(24))
                         }
-                        if let description4 {
+                        if let description4 = model.description4 {
                             Text(description4)
                                 .font(regular14Font)
                                 .lineSpacing(8)
@@ -95,11 +112,11 @@ struct PurchaseView: View {
                     .padding(.horizontal, Size.w(13))
                 }
                 .frame(maxWidth: .infinity)
-                .background(LinearGradient(colors: likeGradient, startPoint: .topTrailing, endPoint: .bottomLeading))
+                .background(LinearGradient(colors: bg(), startPoint: .topTrailing, endPoint: .bottomLeading))
              
                 
                 Button(action: {
-                    // buy and close
+                    //TODO: buy and close
                 }) {
                     Text("구매하기")
                         .font(semiBold22Font)
@@ -116,18 +133,21 @@ struct PurchaseView: View {
         }
         .background(Color.gray1000)
     }
-        
-    @ViewBuilder
-    private func PurchaseWindow() -> some View {
-        Text("W 15,000")
-            .frame(height: 240, alignment: .center)
-            .frame(maxWidth: .infinity)
-            .background(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius: 24))
-            .padding(.horizontal, Size.w(19))
+    
+    private func bg() -> [Color] {
+        switch model.type {
+        case .like:
+            likeGradient
+        case .lounge:
+            toggleGradient
+        case .transparent:
+            transparentGradient
+        case .list:
+            likeGradient
+        }
     }
 }
 
 #Preview {
-    PurchaseView()
+    PurchaseView(model: purchasesList.first!)
 }
