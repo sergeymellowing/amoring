@@ -15,6 +15,19 @@ extension String {
     }
 }
 
+extension Optional where Wrapped == Double {
+    var isNil: Bool {
+        return self == nil
+    }
+    
+    func toWeight() -> String? {
+        self.isNil ? nil : self!.description + "kg"
+    }
+    func toHeight() -> String? {
+        self.isNil ? nil : self!.description + "cm"
+    }
+}
+
 extension Date {
     func years(from date: Date) -> Int {
         return Calendar.current.dateComponents([.year], from: date, to: self).year ?? 0

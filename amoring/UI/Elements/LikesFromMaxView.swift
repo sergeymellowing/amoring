@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LikesFromMaxView: View {
     let likes: Int
-    let maxLikes: Int = 4
+    var maxLikes: Int = 4
     
     var body: some View {
         HStack {

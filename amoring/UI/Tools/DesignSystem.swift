@@ -68,6 +68,7 @@ let regular14Font: Font = Font.custom(pretendardRegular, size: Size.w(14))
 let regular12Font: Font = Font.custom(pretendardRegular, size: Size.w(12))
 
 let medium30Font: Font = Font.custom(pretendardMedium, size: Size.w(30))
+let medium22Font: Font = Font.custom(pretendardMedium, size: Size.w(22))
 let medium20Font: Font = Font.custom(pretendardMedium, size: Size.w(20))
 let medium18Font: Font = Font.custom(pretendardMedium, size: Size.w(18))
 let medium16Font: Font = Font.custom(pretendardMedium, size: Size.w(16))
@@ -88,3 +89,22 @@ let light11Font: Font = Font.custom(pretendardLight, size: Size.w(11))
 let light10Font: Font = Font.custom(pretendardLight, size: Size.w(10))
 
 let thin18Font: Font = Font.custom(pretendardThin, size: Size.w(18))
+
+let likeGradient: [Color] = [
+    Color("coctail-togge-1"),
+    Color("coctail-togge-1"),
+    Color("coctail-togge-2"),
+    Color("coctail-togge-2"),
+    Color("coctail-togge-3"),
+    Color("coctail-togge-2"),
+    Color("coctail-togge-1")
+]
+
+
+let toggleGradient: [Color] = [
+    Color("coctail-togge-1"),
+    Color("coctail-togge-1"),
+    Color("coctail-togge-2"),
+    Color("coctail-togge-3"),
+    Color("coctail-togge-4")
+]

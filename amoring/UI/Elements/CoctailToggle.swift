@@ -11,14 +11,6 @@ struct CoctailToggle: View {
     @Binding var isOn: Bool
 //    @State var isOn: Bool = false
     
-    let toggleGradient: [Color] = [
-        Color("coctail-togge-1"),
-        Color("coctail-togge-1"),
-        Color("coctail-togge-2"),
-        Color("coctail-togge-3"),
-        Color("coctail-togge-4")
-    ]
-    
     var body: some View {
         ZStack(alignment: isOn ? .trailing : .leading) {
             isOn ?

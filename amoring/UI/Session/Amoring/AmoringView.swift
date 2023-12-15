@@ -13,13 +13,13 @@ struct AmoringView: View {
 
     var body: some View {
         NavigationStackBackport.NavigationStack(path: $navigator.path) {
-//            Group {
+            Group {
 //                if navigator.amoring {
                     ProfilesView()
 //                } else {
 //                    CheckInView()
 //                }
-//            }
+            }
             .environmentObject(navigator)
         }
     }

@@ -20,7 +20,7 @@ struct SwipibleProfileVIew: View {
     @State private var fitInScreen = false
     @State private var scrollOffset: CGFloat = 0
     @State private var showButtons: Bool = false
-    
+    @State var heightPadding: CGFloat = Size.w(131)
     var onSwiped: (User, Bool) -> ()
     
     private let nope = "NOPE"
@@ -31,30 +31,23 @@ struct SwipibleProfileVIew: View {
         ZStack {
             GeometryReader { reader in
 //                ScrollView(showsIndicators: false) {
+                
                 TrackableScrollView(showIndicators: false, contentOffset: $scrollOffset) {
                     VStack(spacing: 0) {
                         ProfileCardView(user: user, 
                                         width: reader.size.width - Size.w(navigator.showDetails ? 20 : 44),
-                                        height: reader.size.height - (Size.w(75 + (navigator.hidePanel ? 0 : 56)))
+                                        height: reader.size.height - heightPadding
                         )
-                        ZStack {
-                            Color.yellow350
-                            VStack {
-                                ForEach(0..<20) {
-                                    Text("ITEM \($0)")
-                                        .foregroundColor(.white)
-                                        .padding(.bottom, 40)
-                                }
-                            }
-                        }
+                        ExpandedView(user: user)
                     }
+                    .background(Color.yellow350)
                     .frame(
                         maxWidth: reader.size.width - Size.w(navigator.showDetails ? 20 : 44),
                         /// bottom bar + 56paddiing + 44navbar + saveAreaBottom
-                        maxHeight: navigator.showDetails ? .infinity : reader.size.height - (Size.w(75 + 56)), alignment: .top)
-                    .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
+                        maxHeight: navigator.showDetails ? .infinity : reader.size.height - heightPadding, alignment: .top)
+                    .cornerRadius(24)
                     /// bottom bar + 56paddiing
-                    .padding(.bottom, navigator.showDetails ? Size.w(75 + 56) : 0)
+                    .padding(.bottom, navigator.showDetails ? Size.w(131) : 0)
                     .frame(maxWidth: reader.size.width)
                     .background(GeometryReader {
                         // calculate height by consumed background and store in
@@ -80,6 +73,9 @@ struct SwipibleProfileVIew: View {
                             }
                         }
                     }
+                }
+                .onChange(of: navigator.showDetails) { bool in
+                    self.heightPadding = bool ? Size.w(75) : Size.w(131)
                 }
             }
             .onTapGesture {
@@ -137,18 +133,20 @@ struct SwipibleProfileVIew: View {
                     print("onEnd: \(value.location)")
                 }
             }).onChange(of: swipeAction, perform: { newValue in
-                if !navigator.showDetails {
+//                if !navigator.showDetails {
                     if newValue != .doNothing {
                         performSwipe(newValue)
                     }
-                }
+//                }
             })
             if !navigator.showDetails || showButtons {
                 LikeDisLikeButtons(swipeAction: $swipeAction)
                     .transition(.move(edge: .bottom))
             }
             
-        }.frame(alignment: .bottom)
+        }
+        .frame(alignment: .bottom)
+        
     }
     
     
@@ -182,6 +180,10 @@ struct SwipibleProfileVIew: View {
                 self.dragOffset.width -= screenWidthLimit
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+//                withAnimation {
+//                    navigator.showDetails = false
+//                    navigator.hidePanel = false
+//                }
                 onSwiped(user, false)
             }
         } else{

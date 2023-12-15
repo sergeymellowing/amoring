@@ -13,7 +13,8 @@ struct ProfilesView: View {
     
     @State var isOn = false
     @State var likes: Int = 12
-    @State var likes2: Int = 2
+    @State var likes2: Int = 4
+    @State var maxLikes: Int = 4
     
     @State var swipeAction: SwipeAction = .doNothing
     @State var users: [User] = Dummy.users
@@ -30,10 +31,10 @@ struct ProfilesView: View {
                 HStack {
                     CoctailToggle(isOn: $isOn)
                         .onChange(of: isOn) { on in
-                            self.users = on ? Dummy.users : []
+//                            self.users = on ? Dummy.users : []
                         }
                     Spacer()
-                    LikesFromMaxView(likes: likes2)
+                    LikesFromMaxView(likes: likes2, maxLikes: maxLikes)
                     LikesLeftView(likes: likes)
                 }
                 .padding(.vertical, 16)
@@ -44,7 +45,6 @@ struct ProfilesView: View {
             }
             
             ZStack(alignment: .bottom) {
-                
                 VStack(spacing: 30) {
                     Text("🙈 no more profiles")
                         .font(semiBold16Font)
@@ -71,7 +71,6 @@ struct ProfilesView: View {
                     } else if (index == users.count - 2) {
                         GeometryReader { reader in
                             ZStack {
-                                
                                 ProfileCardView(user: user,
                                                 width: reader.size.width - Size.w(44),
                                                 height: reader.size.height - (Size.w(75 + 56))
@@ -80,7 +79,7 @@ struct ProfilesView: View {
                             }
                             .frame(width: reader.size.width)
                             .frame(maxHeight: .infinity, alignment: .top)
-                            .opacity(navigator.showDetails ? 0 : 1)
+//                            .opacity(navigator.showDetails ? 0 : 1)
                         }
                     }
                 }
@@ -112,12 +111,25 @@ struct ProfilesView: View {
         //            navigator.navigate(screen: screen)
         //        }
     }
-    
+//    fix aligning text
+//    change zindex ? likes/SwipedView/Cards
     private func performSwipe(userProfile: User, hasLiked: Bool) {
-        removeTopItem()
-        if hasLiked {
             withAnimation {
-                self.likes -= 1
+                navigator.showDetails = false
+                navigator.hidePanel = false
+            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            removeTopItem()
+            if hasLiked {
+                if self.likes2 > 0 {
+                    withAnimation {
+                        self.likes2 -= 1
+                    }
+                } else {
+                    withAnimation {
+                        self.likes -= 1
+                    }
+                }
             }
         }
         //        onSwiped(userProfile, hasLiked)

@@ -41,9 +41,6 @@
     "2" : {
 
     },
-    "26세" : {
-
-    },
     "Account" : {
 
     },
@@ -111,9 +108,6 @@
     "Delete account" : {
 
     },
-    "DETAILS" : {
-
-    },
     "Done" : {
 
     },
@@ -159,9 +153,6 @@
 
     },
     "Input your name" : {
-
-    },
-    "ITEM %lld" : {
 
     },
     "Kakao" : {
@@ -420,10 +411,22 @@
     "Visible to other users and cannot be changed after registration" : {
 
     },
+    "W 15,000" : {
+
+    },
     "Wrong password!" : {
 
     },
     "Yes" : {
+
+    },
+    "관심사" : {
+
+    },
+    "구매하기" : {
+
+    },
+    "기본정보" : {
 
     },
     "네" : {

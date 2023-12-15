@@ -20,7 +20,7 @@ struct AccountView: View {
     @State private var showImagePicker: Bool = false
     
     //TODO: pass real user here
-    @State var user = User(id: "asdasdsa", name: "Eugene Krabs", birthDate: "2000-01-01".toDate(), bio: "There is no knowledge\nThat is no power", gender: "MALE")
+    @State var user = User(id: "asdasdsa", name: "Eugene Krabs", birthDate: "2000-01-01".toDate(), bio: "There is no knowledge\nThat is no power", gender: "MALE", interests: [])
     
     var body: some View {
         ScrollView(showsIndicators: false) {

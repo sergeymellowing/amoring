@@ -8,6 +8,10 @@
 import Foundation
 
 public struct User: Codable, Equatable {
+    public static func == (lhs: User, rhs: User) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     var id: String?
     var name: String?
     var birthDate: Date?
@@ -18,6 +22,13 @@ public struct User: Codable, Equatable {
     var passed: [String]?
     var terms: Bool?
     var fakeImage: String?
+    var interests: [Interest]
+    var height: Double?
+    var weight: Double?
+    var mbti: mbti?
+    // FIXME: add real categories. and Enum?
+    var cat: String?
+    var cat2: String?
     
     //TODO: fix it
     var age: Int {
@@ -35,5 +46,11 @@ public struct User: Codable, Equatable {
         case passed
         case terms
         case fakeImage
+        case interests
+        case height
+        case weight
+        case mbti
+        case cat
+        case cat2
     }
 }

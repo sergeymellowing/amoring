@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct ProfileCardView: View {
     let user: User
@@ -18,11 +19,21 @@ struct ProfileCardView: View {
                 Color.yellow350
                 VStack {
                     let colors: [Color] = [.black, .black, .black, .black, .black, .black, .black, .black, .clear]
-                    Image(user.fakeImage  ?? "")
-                        .resizable()
-                        .scaledToFit()
+                    let url = user.pictures?.first
+                    CachedAsyncImage(url: URL(string: url ?? ""), content: { cont in
+                        cont
+                            .resizable()
+                            .scaledToFit()
+                    }, placeholder: {
+                        ZStack {
+                            ProgressView().progressViewStyle(CircularProgressViewStyle(tint: Color.gray1000))
+                        }.frame(width: width, height: height, alignment: .center)
+                    })
+                    
+//                    Image(user.fakeImage  ?? "")
+//                        .resizable()
+//                        .scaledToFit()
                         .mask(LinearGradient(gradient: Gradient(colors: colors), startPoint: .top, endPoint: .bottom))
-//                        .aspectRatio(contentMode: .fill)
                 }
                 .frame(width: width, height: height, alignment: .top)
                 

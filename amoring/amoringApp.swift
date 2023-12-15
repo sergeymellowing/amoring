@@ -11,6 +11,7 @@ struct amoringApp: App {
     var body: some Scene {
         WindowGroup {
             //            RocketListView()
+//            PurchaseView()
             
             ContentView()
                 .preferredColorScheme(.dark)
