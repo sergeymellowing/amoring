@@ -13,6 +13,7 @@ enum SwipeAction{
 
 struct SwipibleProfileVIew: View {
     @EnvironmentObject var navigator: NavigationAmoringController
+    @EnvironmentObject var sessionController: SessionController
     @Namespace var animation
     let user: User
     @State private var dragOffset = CGSize.zero
@@ -22,6 +23,9 @@ struct SwipibleProfileVIew: View {
     @State private var showButtons: Bool = false
     @State var heightPadding: CGFloat = Size.w(131)
     var onSwiped: (User, Bool) -> ()
+    
+    @Binding var likes: Int
+    @Binding var purchasedLikes: Int
     
     private let nope = "NOPE"
     private let like = "LIKE"
@@ -86,7 +90,6 @@ struct SwipibleProfileVIew: View {
                     navigator.showDetails.toggle()
                 }
             }
-           
             .overlay(
                 HStack{
                     Text(like)
@@ -133,17 +136,22 @@ struct SwipibleProfileVIew: View {
                     print("onEnd: \(value.location)")
                 }
             }).onChange(of: swipeAction, perform: { newValue in
-//                if !navigator.showDetails {
-                    if newValue != .doNothing {
+                if newValue != .doNothing {
+                    if newValue == .swipeRight && self.purchasedLikes <= 0 && self.likes <= 0 {
+                        sessionController.openPurchase(purchaseType: .like)
+                        withAnimation(.default){
+                            self.dragOffset = .zero
+                        }
+                        swipeAction = .doNothing
+                    } else {
                         performSwipe(newValue)
                     }
-//                }
+                }
             })
             if !navigator.showDetails || showButtons {
                 LikeDisLikeButtons(swipeAction: $swipeAction)
                     .transition(.move(edge: .bottom))
             }
-            
         }
         .frame(alignment: .bottom)
         
@@ -164,26 +172,35 @@ struct SwipibleProfileVIew: View {
         self.swipeAction = .doNothing
     }
     
-    private func performDragEnd(_ translation: CGSize){
+    private func performDragEnd(_ translation: CGSize) {
+        print("performDragEnd")
         let translationX = translation.width
         if (hasLiked(translationX)) {
-            withAnimation(.linear(duration: 0.3)){
-                self.dragOffset = translation
-                self.dragOffset.width += screenWidthLimit
+            if self.purchasedLikes <= 0 && self.likes <= 0 {
+                sessionController.openPurchase(purchaseType: .like)
+                withAnimation(.default){
+                    self.dragOffset = .zero
+                }
+            } else {
+                withAnimation(.linear(duration: 0.3)){
+                    self.dragOffset = translation
+                    self.dragOffset.width += screenWidthLimit
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    onSwiped(user, true)
+                }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                onSwiped(user, true)
-            }
+            
         } else if(hasDisliked(translationX)){
             withAnimation(.linear(duration: 0.3)){
                 self.dragOffset = translation
                 self.dragOffset.width -= screenWidthLimit
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-//                withAnimation {
-//                    navigator.showDetails = false
-//                    navigator.hidePanel = false
-//                }
+                //                withAnimation {
+                //                    navigator.showDetails = false
+                //                    navigator.hidePanel = false
+                //                }
                 onSwiped(user, false)
             }
         } else{
@@ -226,6 +243,6 @@ struct SwipibleProfileVIew: View {
     }
 }
 
-#Preview {
-    SwipibleProfileVIew(user: Dummy.users.first!, swipeAction: .constant(.doNothing), onSwiped: { _,_  in })
-}
+//#Preview {
+//    SwipibleProfileVIew(user: Dummy.users.first!, swipeAction: .constant(.doNothing), onSwiped: { _,_  in })
+//}

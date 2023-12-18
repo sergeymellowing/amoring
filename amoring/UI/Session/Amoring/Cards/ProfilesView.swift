@@ -10,10 +10,11 @@ import NavigationStackBackport
 
 struct ProfilesView: View {
     @EnvironmentObject var navigator: NavigationAmoringController
+    @EnvironmentObject var sessionController: SessionController
     
     @State var isOn = false
-    @State var likes: Int = 12
-    @State var likes2: Int = 4
+    @State var purchasedLikes: Int = 1
+    @State var likes: Int = 2
     @State var maxLikes: Int = 4
     
     @State var swipeAction: SwipeAction = .doNothing
@@ -34,14 +35,19 @@ struct ProfilesView: View {
 //                            self.users = on ? Dummy.users : []
                         }
                     Spacer()
-                    LikesFromMaxView(likes: likes2, maxLikes: maxLikes)
-                    LikesLeftView(likes: likes)
+                    LikesFromMaxView(likes: likes, maxLikes: maxLikes)
+                    if purchasedLikes > 0 {
+                        PurchasedLikesView(likes: purchasedLikes)
+                    }
                 }
                 .padding(.vertical, 16)
                 .padding(.horizontal, 22)
                 .background(Color.gray1000)
                 .zIndex(2)
                 .transition(.move(edge: .top))
+                .onTapGesture {
+                    sessionController.openPurchase(purchaseType: .like)
+                }
             }
             
             ZStack(alignment: .bottom) {
@@ -67,7 +73,7 @@ struct ProfilesView: View {
                     let user: User = users[index]
                     
                     if (index == users.count - 1) {
-                        SwipibleProfileVIew(user: user, swipeAction: $swipeAction, onSwiped: performSwipe)
+                        SwipibleProfileVIew(user: user, swipeAction: $swipeAction, onSwiped: performSwipe, likes: $likes, purchasedLikes: $purchasedLikes)
                     } else if (index == users.count - 2) {
                         GeometryReader { reader in
                             ZStack {
@@ -111,28 +117,28 @@ struct ProfilesView: View {
         //            navigator.navigate(screen: screen)
         //        }
     }
-//    fix aligning text
-//    change zindex ? likes/SwipedView/Cards
+    //    fix aligning text
+    //    change zindex ? likes/SwipedView/Cards
     private func performSwipe(userProfile: User, hasLiked: Bool) {
             withAnimation {
                 navigator.showDetails = false
                 navigator.hidePanel = false
             }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            removeTopItem()
-            if hasLiked {
-                if self.likes2 > 0 {
-                    withAnimation {
-                        self.likes2 -= 1
-                    }
-                } else {
-                    withAnimation {
-                        self.likes -= 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                removeTopItem()
+                if hasLiked {
+                    if self.likes > 0 {
+                        withAnimation {
+                            self.likes -= 1
+                        }
+                    } else {
+                        withAnimation {
+                            self.purchasedLikes -= 1
+                        }
                     }
                 }
             }
-        }
-        //        onSwiped(userProfile, hasLiked)
+            //        onSwiped(userProfile, hasLiked)
     }
     
     private func removeTopItem() {

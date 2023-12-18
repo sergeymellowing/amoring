@@ -10,6 +10,7 @@ import SwiftUI
 struct AccountView: View {
     @EnvironmentObject var sessionManager: SessionManager
     @EnvironmentObject var userManager: UserManager
+    @EnvironmentObject var sessionController: SessionController
     
     @State private var pictures: [PictureModel] = []
     
@@ -73,7 +74,7 @@ struct AccountView: View {
                     Text("Likes: ")
                     Text("2")
                     Spacer()
-                    Button(action: {}) {
+                    Button(action: { sessionController.openPurchase(purchaseType: .like) }) {
                         Text("Purchse")
                     }
                 }
@@ -81,7 +82,7 @@ struct AccountView: View {
                 HStack {
                     Text("Hide my profile")
                     Spacer()
-                    Button(action: {}) {
+                    Button(action: { sessionController.openPurchase(purchaseType: .transparent) }) {
                         Text("Purchse")
                     }
                 }
@@ -89,7 +90,7 @@ struct AccountView: View {
                 HStack {
                     Text("Check out people you like")
                     Spacer()
-                    Button(action: {}) {
+                    Button(action: { sessionController.openPurchase(purchaseType: .list) }) {
                         Text("Purchse")
                     }
                 }
@@ -97,7 +98,7 @@ struct AccountView: View {
                 HStack {
                     Text("Amoring Community")
                     Spacer()
-                    Button(action: {}) {
+                    Button(action: { sessionController.openPurchase(purchaseType: .lounge) }) {
                         Text("Purchse")
                     }
                 }

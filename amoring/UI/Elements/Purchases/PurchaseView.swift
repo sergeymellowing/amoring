@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct PurchaseView: View {
-    enum type {
-        case like, lounge, transparent, list
-    }
-    
+    @Binding var purchaseType: PurchaseModel.type?
     let model: PurchaseModel
     
     @State var selectedPlan: Int = 1
@@ -21,7 +18,9 @@ struct PurchaseView: View {
             ZStack {
                 HStack {
                     Button(action: {
-                        //TODO: close purchaseView
+                        withAnimation {
+                            self.purchaseType = nil
+                        }
                     }) {
                         Image(systemName: "xmark")
                             .resizable()
@@ -113,10 +112,11 @@ struct PurchaseView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .background(LinearGradient(colors: bg(), startPoint: .topTrailing, endPoint: .bottomLeading))
-             
-                
                 Button(action: {
                     //TODO: buy and close
+                    withAnimation {
+                        self.purchaseType = nil
+                    }
                 }) {
                     Text("구매하기")
                         .font(semiBold22Font)
@@ -131,6 +131,7 @@ struct PurchaseView: View {
             .padding(.horizontal, Size.w(10))
             .padding(.top, Size.w(16))
         }
+        .foregroundColor(.black)
         .background(Color.gray1000)
     }
     
@@ -149,5 +150,5 @@ struct PurchaseView: View {
 }
 
 #Preview {
-    PurchaseView(model: purchasesList.first!)
+    PurchaseView(purchaseType: .constant(.like), model: purchasesList.first!)
 }

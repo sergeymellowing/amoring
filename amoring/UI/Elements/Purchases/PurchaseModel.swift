@@ -8,8 +8,11 @@
 import Foundation
 
 struct PurchaseModel {
-    enum type {
-        case like, lounge, transparent, list
+    enum type: Int {
+        case like = 0
+        case lounge
+        case transparent
+        case list
     }
     
     let barTitle: String

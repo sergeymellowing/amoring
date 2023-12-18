@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LikesLeftView: View {
+struct PurchasedLikesView: View {
     let likes: Int
     var body: some View {
         HStack {
@@ -31,7 +31,7 @@ struct LikesLeftView: View {
 
 #Preview {
     VStack {
-        LikesLeftView(likes: 12)
+        PurchasedLikesView(likes: 12)
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(Color.gray1000)

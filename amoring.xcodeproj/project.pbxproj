@@ -59,7 +59,7 @@
 		853AFD522B1DBD7F0020A570 /* NavigationAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AFD512B1DBD7F0020A570 /* NavigationAuthController.swift */; };
 		853AFD542B1DC6BF0020A570 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AFD532B1DC6BF0020A570 /* CustomTextField.swift */; };
 		854C7B032B180C5D0060CE03 /* CoctailToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B022B180C5D0060CE03 /* CoctailToggle.swift */; };
-		854C7B052B1815EE0060CE03 /* LikesLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B042B1815EE0060CE03 /* LikesLeftView.swift */; };
+		854C7B052B1815EE0060CE03 /* PurchasedLikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B042B1815EE0060CE03 /* PurchasedLikesView.swift */; };
 		854C7B072B1818AB0060CE03 /* LikesFromMaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */; };
 		854C7B092B181B1C0060CE03 /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B082B181B1C0060CE03 /* ProfileCardView.swift */; };
 		85806C472B22F6920077D12C /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 85806C462B22F6920077D12C /* schema.graphqls */; };
@@ -68,6 +68,7 @@
 		85806C4F2B22F8650077D12C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85806C4E2B22F8650077D12C /* NetworkService.swift */; };
 		85806C512B22F90E0077D12C /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 85806C502B22F90E0077D12C /* Apollo */; };
 		85806C532B22FBB90077D12C /* GraphQLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85806C522B22FBB90077D12C /* GraphQLManager.swift */; };
+		85B028A12B2FE7B300A738AB /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B028A02B2FE7B300A738AB /* SessionController.swift */; };
 		85D26F652B1F07C000E3C55F /* SwipibleProfileVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D26F642B1F07C000E3C55F /* SwipibleProfileVIew.swift */; };
 		85D26F672B2015FE00E3C55F /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D26F662B2015FE00E3C55F /* CheckInView.swift */; };
 		85D26F6C2B20198B00E3C55F /* CodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D26F692B20198A00E3C55F /* CodeScanner.swift */; };
@@ -177,13 +178,14 @@
 		853AFD512B1DBD7F0020A570 /* NavigationAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAuthController.swift; sourceTree = "<group>"; };
 		853AFD532B1DC6BF0020A570 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		854C7B022B180C5D0060CE03 /* CoctailToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailToggle.swift; sourceTree = "<group>"; };
-		854C7B042B1815EE0060CE03 /* LikesLeftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesLeftView.swift; sourceTree = "<group>"; };
+		854C7B042B1815EE0060CE03 /* PurchasedLikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedLikesView.swift; sourceTree = "<group>"; };
 		854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesFromMaxView.swift; sourceTree = "<group>"; };
 		854C7B082B181B1C0060CE03 /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
 		85806C462B22F6920077D12C /* schema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
 		85806C482B22F7330077D12C /* RocketsQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = RocketsQuery.graphql; sourceTree = "<group>"; };
 		85806C4E2B22F8650077D12C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		85806C522B22FBB90077D12C /* GraphQLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLManager.swift; sourceTree = "<group>"; };
+		85B028A02B2FE7B300A738AB /* SessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
 		85D26F642B1F07C000E3C55F /* SwipibleProfileVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipibleProfileVIew.swift; sourceTree = "<group>"; };
 		85D26F662B2015FE00E3C55F /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
 		85D26F692B20198A00E3C55F /* CodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeScanner.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 			children = (
 				850A300E2B0AEDF8003B12B7 /* SessionView.swift */,
 				850A302A2B0B0D62003B12B7 /* NavigatorView.swift */,
+				85B028A02B2FE7B300A738AB /* SessionController.swift */,
 				850A302C2B0B1BA5003B12B7 /* Nearby */,
 				850A302D2B0B1BAE003B12B7 /* Amoring */,
 				850A302E2B0B1C9A003B12B7 /* Messages */,
@@ -463,7 +466,7 @@
 			children = (
 				8522A5F72B2BF9C5008AF703 /* Purchases */,
 				854C7B022B180C5D0060CE03 /* CoctailToggle.swift */,
-				854C7B042B1815EE0060CE03 /* LikesLeftView.swift */,
+				854C7B042B1815EE0060CE03 /* PurchasedLikesView.swift */,
 				854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */,
 				853AFD532B1DC6BF0020A570 /* CustomTextField.swift */,
 				8522A5E82B2A7B39008AF703 /* TrackableScrollView.swift */,
@@ -735,7 +738,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				854C7B052B1815EE0060CE03 /* LikesLeftView.swift in Sources */,
+				854C7B052B1815EE0060CE03 /* PurchasedLikesView.swift in Sources */,
 				853AFD522B1DBD7F0020A570 /* NavigationAuthController.swift in Sources */,
 				85D36AF22B0F285300106BC0 /* BusnessSettings.swift in Sources */,
 				85D26F652B1F07C000E3C55F /* SwipibleProfileVIew.swift in Sources */,
@@ -751,6 +754,7 @@
 				853AFD4E2B1DB2150020A570 /* NavigationAmoringController.swift in Sources */,
 				8522A5FD2B2C4B4C008AF703 /* Data.swift in Sources */,
 				85FC20832B0C510100DC1950 /* UserOnboardingGender.swift in Sources */,
+				85B028A12B2FE7B300A738AB /* SessionController.swift in Sources */,
 				8522A5EB2B2AA9EC008AF703 /* ExpandedView.swift in Sources */,
 				850A30262B0AEF6C003B12B7 /* DesignSystem.swift in Sources */,
 				85FC209B2B0D717700DC1950 /* Constants.swift in Sources */,
