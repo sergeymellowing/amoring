@@ -101,6 +101,9 @@ struct UserInfoView: View {
             }
             .padding(.horizontal, Size.w(22))
             .padding(.top, Size.w(16))
+            .onChange(of: navigator.showDetails) { bool in
+                    print("navigator.showDetails: \(bool)")
+            }
 //            .padding(.bottom, Size.w(22 + 36))
         }
         .frame(height: Size.w(186), alignment: .top)

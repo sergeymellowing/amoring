@@ -25,8 +25,7 @@ struct SwipibleProfileVIew: View {
     var onSwiped: (User, Bool) -> ()
     
     @Binding var likes: Int
-    @Binding var purchasedLikes: Int
-    
+
     private let nope = "NOPE"
     private let like = "LIKE"
     private let screenWidthLimit = UIScreen.main.bounds.width * 0.5
@@ -137,7 +136,7 @@ struct SwipibleProfileVIew: View {
                 }
             }).onChange(of: swipeAction, perform: { newValue in
                 if newValue != .doNothing {
-                    if newValue == .swipeRight && self.purchasedLikes <= 0 && self.likes <= 0 {
+                    if newValue == .swipeRight && sessionController.purchasedLikes <= 0 && self.likes <= 0 {
                         sessionController.openPurchase(purchaseType: .like)
                         withAnimation(.default){
                             self.dragOffset = .zero
@@ -176,7 +175,7 @@ struct SwipibleProfileVIew: View {
         print("performDragEnd")
         let translationX = translation.width
         if (hasLiked(translationX)) {
-            if self.purchasedLikes <= 0 && self.likes <= 0 {
+            if sessionController.purchasedLikes <= 0 && self.likes <= 0 {
                 sessionController.openPurchase(purchaseType: .like)
                 withAnimation(.default){
                     self.dragOffset = .zero

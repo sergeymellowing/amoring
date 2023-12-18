@@ -72,7 +72,7 @@ struct AccountView: View {
                 
                 HStack {
                     Text("Likes: ")
-                    Text("2")
+                    Text(sessionController.purchasedLikes.description)
                     Spacer()
                     Button(action: { sessionController.openPurchase(purchaseType: .like) }) {
                         Text("Purchse")
@@ -82,24 +82,36 @@ struct AccountView: View {
                 HStack {
                     Text("Hide my profile")
                     Spacer()
-                    Button(action: { sessionController.openPurchase(purchaseType: .transparent) }) {
-                        Text("Purchse")
+                    if sessionController.isHidden {
+                        Image(systemName: "checkmark")
+                    } else {
+                        Button(action: { sessionController.openPurchase(purchaseType: .transparent) }) {
+                            Text("Purchse")
+                        }
                     }
                 }
                 
                 HStack {
                     Text("Check out people you like")
                     Spacer()
-                    Button(action: { sessionController.openPurchase(purchaseType: .list) }) {
-                        Text("Purchse")
+                    if sessionController.likeListEnabled {
+                        Image(systemName: "checkmark")
+                    } else {
+                        Button(action: { sessionController.openPurchase(purchaseType: .list) }) {
+                            Text("Purchse")
+                        }
                     }
                 }
                 
                 HStack {
                     Text("Amoring Community")
                     Spacer()
-                    Button(action: { sessionController.openPurchase(purchaseType: .lounge) }) {
-                        Text("Purchse")
+                    if sessionController.amoringCommunityIsOn {
+                        Image(systemName: "checkmark")
+                    } else {
+                        Button(action: { sessionController.openPurchase(purchaseType: .lounge) }) {
+                            Text("Purchse")
+                        }
                     }
                 }
                 

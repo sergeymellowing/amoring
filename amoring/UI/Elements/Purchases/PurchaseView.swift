@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PurchaseView: View {
+    @EnvironmentObject var sessionController: SessionController
     @Binding var purchaseType: PurchaseModel.type?
     let model: PurchaseModel
     
@@ -51,7 +52,6 @@ struct PurchaseView: View {
                             }
                             Text(model.title)
                         }
-                            
                             .font(medium22Font)
                             .foregroundColor(.yellow200)
                             .padding(.horizontal, Size.w(18))
@@ -113,10 +113,7 @@ struct PurchaseView: View {
                 .frame(maxWidth: .infinity)
                 .background(LinearGradient(colors: bg(), startPoint: .topTrailing, endPoint: .bottomLeading))
                 Button(action: {
-                    //TODO: buy and close
-                    withAnimation {
-                        self.purchaseType = nil
-                    }
+                    sessionController.purchase(selectedPlan)
                 }) {
                     Text("구매하기")
                         .font(semiBold22Font)

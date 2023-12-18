@@ -13,13 +13,12 @@ struct ProfilesView: View {
     @EnvironmentObject var sessionController: SessionController
     
     @State var isOn = false
-    @State var purchasedLikes: Int = 1
     @State var likes: Int = 2
     @State var maxLikes: Int = 4
     
     @State var swipeAction: SwipeAction = .doNothing
     @State var users: [User] = Dummy.users
-    
+
     //    var onSwiped: (User, Bool) -> ()
     
     
@@ -31,13 +30,10 @@ struct ProfilesView: View {
             if !navigator.hidePanel {
                 HStack {
                     CoctailToggle(isOn: $isOn)
-                        .onChange(of: isOn) { on in
-//                            self.users = on ? Dummy.users : []
-                        }
                     Spacer()
                     LikesFromMaxView(likes: likes, maxLikes: maxLikes)
-                    if purchasedLikes > 0 {
-                        PurchasedLikesView(likes: purchasedLikes)
+                    if sessionController.purchasedLikes > 0 {
+                        PurchasedLikesView(likes: sessionController.purchasedLikes)
                     }
                 }
                 .padding(.vertical, 16)
@@ -73,7 +69,7 @@ struct ProfilesView: View {
                     let user: User = users[index]
                     
                     if (index == users.count - 1) {
-                        SwipibleProfileVIew(user: user, swipeAction: $swipeAction, onSwiped: performSwipe, likes: $likes, purchasedLikes: $purchasedLikes)
+                        SwipibleProfileVIew(user: user, swipeAction: $swipeAction, onSwiped: performSwipe, likes: $likes)
                     } else if (index == users.count - 2) {
                         GeometryReader { reader in
                             ZStack {
@@ -133,7 +129,7 @@ struct ProfilesView: View {
                         }
                     } else {
                         withAnimation {
-                            self.purchasedLikes -= 1
+                            sessionController.purchasedLikes -= 1
                         }
                     }
                 }
