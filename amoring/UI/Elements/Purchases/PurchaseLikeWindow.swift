@@ -67,5 +67,5 @@ struct PurchaseLikePlan: View {
 }
 
 #Preview {
-    PurchaseLikeWindow()
+    PurchaseLikeWindow(selectedPlan: .constant(2))
 }

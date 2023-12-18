@@ -65,13 +65,13 @@ struct PurchaseView: View {
                             .font(bold26Font)
                             .lineSpacing(5)
                             .multilineTextAlignment(.center)
-                            .padding(.top, Size.w(30))
+                            .padding(.top, Size.w(34))
                         
                         Text(model.description)
                             .font(medium16Font)
                             .lineSpacing(7)
                             .multilineTextAlignment(.center)
-                            .padding(.top, Size.w(16))
+                            .padding(.top, Size.w(22))
                         
                         ZStack {
                             switch model.type {
@@ -91,13 +91,13 @@ struct PurchaseView: View {
                             .font(medium16Font)
                             .lineSpacing(7)
                             .multilineTextAlignment(.center)
-                            .padding(.top, Size.w(40))
+                            .padding(.top, Size.w(42))
                         
                         if let description3 = model.description3 {
                             Text(description3)
                                 .font(bold16Font)
                                 .multilineTextAlignment(.center)
-                                .padding(.top, Size.w(24))
+                                .padding(.top, Size.w(27))
                         }
                         if let description4 = model.description4 {
                             Text(description4)
@@ -121,7 +121,7 @@ struct PurchaseView: View {
                     Text("구매하기")
                         .font(semiBold22Font)
                         .foregroundColor(.yellow200)
-                        .padding(.vertical, Size.w(22))
+                        .padding(.vertical, Size.w(24))
                         .frame(maxWidth: .infinity)
                 }
                 .background(Color.black)

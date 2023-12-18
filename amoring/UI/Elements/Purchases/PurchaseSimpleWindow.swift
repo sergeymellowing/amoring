@@ -24,10 +24,10 @@ struct PurchaseSimpleWindow: View {
                 
             Text(emoji)
                 .font(bold36Font)
-                .padding(.vertical, Size.w(20))
+                .padding(.vertical, Size.w(18))
             
             Color.gray300.frame(width: Size.w(16), height: Size.w(2))
-                .padding(.bottom, Size.w(20))
+                .padding(.bottom, Size.w(18))
             
             Text(price)
                 .tracking(-0.5)
