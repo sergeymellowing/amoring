@@ -11,8 +11,9 @@ import Combine
 struct ConversationView: View {
     @EnvironmentObject var navigator: NavigationsMessagesController
     @EnvironmentObject var sessionController: SessionController
+    @EnvironmentObject var userManager: UserManager
     
-    var conversation: Conversation = Dummy.conversations.first!
+    @State var conversation: Conversation = Dummy.conversations.first!
     
     @State var newMessage = ""
     
@@ -25,19 +26,19 @@ struct ConversationView: View {
                 ScrollView {
                     LazyVStack {
                         ForEach(conversation.messages, id: \.self) { message in
-                            Text(message.body)
-                                .padding()
+                            MessageView(message: message)
                                 .id(message.id)
                         }
                     }
+                    .padding(.top, Size.w(30))
                     .onReceive(Just(conversation.messages)) { _ in
                         withAnimation {
-                            proxy.scrollTo(conversation.messages.last, anchor: .bottom)
+                            proxy.scrollTo(conversation.messages.last?.id, anchor: .bottom)
                         }
                         
                     }.onAppear {
                         withAnimation {
-                            proxy.scrollTo(conversation.messages.last, anchor: .bottom)
+                            proxy.scrollTo(conversation.messages.last?.id, anchor: .bottom)
                         }
                     }
                 }
@@ -45,7 +46,24 @@ struct ConversationView: View {
                 HStack {
                     TextField("Send a message", text: $newMessage)
                         .textFieldStyle(.roundedBorder)
-                    Button(action: sendMessage)   {
+                        .onSubmit {
+                            sendMessage(action: {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                    withAnimation {
+                                        proxy.scrollTo(conversation.messages.last?.id, anchor: .bottom)
+                                    }
+                                }
+                            })
+                        }
+                    Button(action: {
+                        sendMessage(action: {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                withAnimation {
+                                    proxy.scrollTo(conversation.messages.last?.id, anchor: .bottom)
+                                }
+                            }
+                        })
+                    }) {
                         Image(systemName: "paperplane")
                     }
                 }
@@ -64,11 +82,11 @@ struct ConversationView: View {
                             .resizable()
                             .scaledToFill()
                     }, placeholder: {ProgressView()})
-                    .frame(width: Size.w(32), height: Size.w(32))
+                    .frame(width: Size.w(20), height: Size.w(20))
                     .clipShape(Circle())
                         
                     Text(companion.name ?? "")
-                        .font(medium20Font)
+                        .font(medium16Font)
                         .foregroundColor(.yellow300)
                 }
             }
@@ -84,12 +102,34 @@ struct ConversationView: View {
         )
     }
     
-    func sendMessage() {
-        if !newMessage.isEmpty{
-            //                messages.append(Message(content: newMessage, isCurrentUser: true))
-            //                messages.append(Message(content: "Reply of " + newMessage , isCurrentUser: false))
-            newMessage = ""
+    func sendMessage(action: () -> Void) {
+        - doesn't work for second messaege
+        - need to move all navigation out or hide bottom bar?
+                            - implement swapActions instead of .onDelete ?
+        if !newMessage.isEmpty {
+            withAnimation {
+                conversation.messages.append(Message(id: Int.random(in: 99..<99999), body: newMessage, sender: userManager.user, senderId: userManager.user?.id ?? 0, recipients: [], createdAt: Date(), updatedAt: Date()))
+                newMessage = ""
+                    action()
+            }
         }
+    }
+}
+
+struct MessageView: View {
+    @EnvironmentObject var userManager: UserManager
+    let message: Message
+    
+    var body: some View {
+        let isOwner = message.senderId == userManager.user?.id
+        
+        Text(message.body)
+            .padding()
+            .background(isOwner ? Color.yellow350 : Color.gray800)
+            .cornerRadius(15, corners: isOwner ? [.bottomLeft, .topLeft, .topRight] : [.bottomRight, .topLeft, .topRight])
+            .padding(.horizontal)
+            .padding(isOwner ? .leading : .trailing, Size.w(20))
+            .frame(maxWidth: .infinity, alignment: !isOwner ? .leading : .trailing)
     }
 }
 

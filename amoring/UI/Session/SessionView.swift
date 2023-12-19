@@ -25,6 +25,10 @@ struct SessionView: View {
         .environmentObject(userManager)
         .environmentObject(sessionController)
         .environmentObject(messageNavigator)
+        .onAppear {
+            // MARK: TESTS
+            userManager.user = Dummy.users.first!
+        }
     }
     
     @ViewBuilder

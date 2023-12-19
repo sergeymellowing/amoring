@@ -15,7 +15,7 @@ struct Conversation: Hashable {
     
     let id: Int   //@id @default(autoincrement())
     let participants: [User]
-    let messages: [Message]
+    var messages: [Message]
 //    let status: ConversationStatus //@default(active)
     let createdAt: Date  //@default(now())
     let archivedAt: Date? //@default(now())
