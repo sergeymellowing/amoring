@@ -10,6 +10,7 @@ import SwiftUI
 struct SessionView: View {
     @StateObject var userManager = UserManager()
     @StateObject var sessionController = SessionController()
+    @StateObject var messageNavigator = NavigationsMessagesController()
     
     var body: some View {
         ZStack {
@@ -23,6 +24,7 @@ struct SessionView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .environmentObject(userManager)
         .environmentObject(sessionController)
+        .environmentObject(messageNavigator)
     }
     
     @ViewBuilder

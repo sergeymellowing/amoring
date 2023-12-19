@@ -24,7 +24,7 @@ struct UserOnboardingView: View {
 }
 
 class UserOnboardingController: ObservableObject {
-    @Published var user: User = User(interests: [])
+    @Published var user: User = User(id: 99, interests: [])
 }
 
 #Preview {

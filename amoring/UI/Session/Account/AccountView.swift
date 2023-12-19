@@ -21,7 +21,7 @@ struct AccountView: View {
     @State private var showImagePicker: Bool = false
     
     //TODO: pass real user here
-    @State var user = User(id: "asdasdsa", name: "Eugene Krabs", birthDate: "2000-01-01".toDate(), bio: "There is no knowledge\nThat is no power", gender: "MALE", interests: [])
+    @State var user = User(id: 1, name: "Eugene Krabs", birthDate: "2000-01-01".toDate(), bio: "There is no knowledge\nThat is no power", gender: "MALE", interests: [])
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -84,6 +84,10 @@ struct AccountView: View {
                     Spacer()
                     if sessionController.isHidden {
                         Image(systemName: "checkmark")
+                            /// for tests. remove it
+                            .onTapGesture {
+                                sessionController.isHidden = false
+                            }
                     } else {
                         Button(action: { sessionController.openPurchase(purchaseType: .transparent) }) {
                             Text("Purchse")
@@ -96,6 +100,10 @@ struct AccountView: View {
                     Spacer()
                     if sessionController.likeListEnabled {
                         Image(systemName: "checkmark")
+                        /// for tests. remove it
+                        .onTapGesture {
+                            sessionController.likeListEnabled = false
+                        }
                     } else {
                         Button(action: { sessionController.openPurchase(purchaseType: .list) }) {
                             Text("Purchse")
@@ -108,6 +116,10 @@ struct AccountView: View {
                     Spacer()
                     if sessionController.amoringCommunityIsOn {
                         Image(systemName: "checkmark")
+                        /// for tests. remove it
+                        .onTapGesture {
+                            sessionController.amoringCommunityIsOn = false
+                        }
                     } else {
                         Button(action: { sessionController.openPurchase(purchaseType: .lounge) }) {
                             Text("Purchse")

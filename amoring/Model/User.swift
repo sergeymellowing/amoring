@@ -7,12 +7,16 @@
 
 import Foundation
 
-public struct User: Codable, Equatable {
+public struct User: Codable, Equatable, Hashable {
     public static func == (lhs: User, rhs: User) -> Bool {
         lhs.id == rhs.id
     }
     
-    var id: String?
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    var id: Int
     var name: String?
     var birthDate: Date?
     var bio: String?
@@ -29,6 +33,7 @@ public struct User: Codable, Equatable {
     // FIXME: add real categories. and Enum?
     var cat: String?
     var cat2: String?
+    var isOnline: Bool?
     
     //TODO: fix it
     var age: Int {
@@ -52,5 +57,6 @@ public struct User: Codable, Equatable {
         case mbti
         case cat
         case cat2
+        case isOnline
     }
 }

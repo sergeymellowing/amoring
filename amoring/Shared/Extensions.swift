@@ -70,3 +70,11 @@ func ??<T>(lhs: Binding<Optional<T>>, rhs: T) -> Binding<T> {
         set: { lhs.wrappedValue = $0 }
     )
 }
+
+extension UINavigationController {
+    // MARK: Allows to Swipe to go back for Navigation View even when stock Back Button is hidden
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        interactivePopGestureRecognizer?.delegate = nil
+    }
+}

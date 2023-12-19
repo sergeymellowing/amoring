@@ -28,6 +28,8 @@ struct NavigatorView<Content: View>: View {
 }
 
 struct TabBarBottomView: View {
+    @EnvironmentObject var messageNavigator: NavigationsMessagesController
+    
     let tabbarTitles: [String]
     @Binding var selectedIndex: Int
     
@@ -52,7 +54,11 @@ struct TabBarBottomView: View {
     func tabButton(index: Int) -> some View {
         let title = tabbarTitles[index]
         Button {
-            selectedIndex = index
+            if selectedIndex == index {
+                messageNavigator.toRoot()
+            } else {
+                selectedIndex = index
+            }
         } label: {
             let isSelected = selectedIndex == index
             let selected: String = isSelected ? "-selected" : ""
