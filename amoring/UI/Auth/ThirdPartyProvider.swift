@@ -70,7 +70,6 @@ class ThirdPartyProvider {
             if let error {
                 print(error.localizedDescription)
             } else {
-                
                 print(result?.user.profile?.name)
                 print(result?.user.profile?.email)
                 print(result?.user.accessToken.tokenString)
@@ -79,7 +78,6 @@ class ThirdPartyProvider {
                 print(result?.user.idToken?.expirationDate)
                 print(result?.user.fetcherAuthorizer.description)
                 print(result?.user.userID)
-                
             }
         }
     }

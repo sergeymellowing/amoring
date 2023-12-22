@@ -9,17 +9,23 @@ import SwiftUI
 import KakaoSDKCommon
 import KakaoSDKAuth
 import GoogleSignIn
+//import NaverThirdPartyLogin
 
 @main
 struct amoringApp: App {
     init() {
         KakaoSDK.initSDK(appKey: "88a121ae97540f56f106e7f52609022c")
+        
+//        NaverThirdPartyLoginConnection
+//               .getSharedInstance()
+//               .receiveAccessToken(URLContexts.first?.url)
     }
     
     var body: some Scene {
         WindowGroup {
             //            RocketListView()
 //            PurchaseView(model: purchasesList[3])
+            
             
             ContentView()
                 .preferredColorScheme(.dark)
