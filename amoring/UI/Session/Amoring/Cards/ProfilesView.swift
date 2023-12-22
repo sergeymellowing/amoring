@@ -34,8 +34,14 @@ struct ProfilesView: View {
                     CoctailToggle(isOn: $isOn)
                     Spacer()
                     LikesFromMaxView(likes: likes, maxLikes: maxLikes)
+                        .onTapGesture {
+                            sessionController.openPurchase(purchaseType: .like)
+                        }
                     if sessionController.purchasedLikes > 0 {
                         PurchasedLikesView(likes: sessionController.purchasedLikes)
+                            .onTapGesture {
+                                sessionController.openPurchase(purchaseType: .like)
+                            }
                     }
                 }
                 .padding(.vertical, 16)
@@ -43,9 +49,6 @@ struct ProfilesView: View {
                 .background(Color.gray1000)
                 .zIndex(2)
                 .transition(.move(edge: .top))
-                .onTapGesture {
-                    sessionController.openPurchase(purchaseType: .like)
-                }
             }
             
             ZStack(alignment: .bottom) {

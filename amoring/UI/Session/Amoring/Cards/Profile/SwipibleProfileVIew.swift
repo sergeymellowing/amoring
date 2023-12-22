@@ -85,8 +85,10 @@ struct SwipibleProfileVIew: View {
                 withAnimation {
                     navigator.hidePanel.toggle()
                 }
-                withAnimation(.smooth) {
-                    navigator.showDetails.toggle()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    withAnimation(.smooth) {
+                        navigator.showDetails.toggle()
+                    }
                 }
             }
             .overlay(

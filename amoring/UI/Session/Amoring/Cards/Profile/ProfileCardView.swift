@@ -66,7 +66,7 @@ struct UserInfoView: View {
             //                            .aspectRatio(contentMode: .fit)
                 .frame(height: Size.w(165))
             
-            VStack(alignment: navigator.showDetails ? .leading : .center, spacing: Size.w(10)) {
+            VStack(spacing: Size.w(10)) {
                 HStack {
                     Text(LocalizedStringKey(user.gender ?? ""))
                         .font(semiBold12Font)
@@ -88,16 +88,19 @@ struct UserInfoView: View {
                         .padding(.horizontal, Size.w(12))
                         .padding(.vertical, Size.w(6))
                         .background(Capsule().fill(Color.green200))
-                }.frame(maxWidth: .infinity, alignment: navigator.showDetails ? .leading : .center)
+                }
+                .frame(maxWidth: .infinity, alignment: navigator.showDetails ? .leading : .center)
                 
                 Text(user.name ?? "")
                     .font(bold32Font)
                     .foregroundColor(.black)
                     .lineLimit(1)
+                    .frame(maxWidth: .infinity, alignment: navigator.showDetails ? .leading : .center)
                 Text(user.bio ?? "")
                     .font(medium16Font)
                     .foregroundColor(.black)
                     .lineLimit(1)
+                    .frame(maxWidth: .infinity, alignment: navigator.showDetails ? .leading : .center)
             }
             .padding(.horizontal, Size.w(22))
             .padding(.top, Size.w(16))
