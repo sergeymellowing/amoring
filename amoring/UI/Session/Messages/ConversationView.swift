@@ -103,9 +103,8 @@ struct ConversationView: View {
     }
     
     func sendMessage(action: () -> Void) {
-        - doesn't work for second messaege
-        - need to move all navigation out or hide bottom bar?
-                            - implement swapActions instead of .onDelete ?
+//        - doesn't work for second messaege
+//        - need to move all navigation out or hide bottom bar?
         if !newMessage.isEmpty {
             withAnimation {
                 conversation.messages.append(Message(id: Int.random(in: 99..<99999), body: newMessage, sender: userManager.user, senderId: userManager.user?.id ?? 0, recipients: [], createdAt: Date(), updatedAt: Date()))

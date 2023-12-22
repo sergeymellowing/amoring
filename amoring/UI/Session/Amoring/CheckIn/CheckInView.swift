@@ -10,6 +10,7 @@ import NavigationStackBackport
 
 struct CheckInView: View {
     @EnvironmentObject var navigator: NavigationAmoringController
+    @EnvironmentObject var userManager: UserManager
     
     @State var torchIsOn = false
     @State var haveTable = false
@@ -106,7 +107,8 @@ struct CheckInView: View {
                     
                     Button(action: {
                         withAnimation {
-                            navigator.amoring = true
+                            // TODO: pass business id here
+                            navigator.checkIn = CheckIn(userId: userManager.user?.id, businessId: resultString?.count, place: resultString, checkedInAt: Date(), checkedOutAt: nil)
                         }
                     }) {
                         Text("네")

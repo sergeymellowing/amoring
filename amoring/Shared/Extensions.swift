@@ -32,6 +32,10 @@ extension Date {
     func years(from date: Date) -> Int {
         return Calendar.current.dateComponents([.year], from: date, to: self).year ?? 0
     }
+    
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+    }
 }
 
 extension View {
@@ -76,5 +80,11 @@ extension UINavigationController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         interactivePopGestureRecognizer?.delegate = nil
+    }
+}
+
+extension Double {
+    func secondsToHMS() -> (Int, Int, Int) {
+        return (Int(self) / 3600, (Int(self) % 3600) / 60, (Int(self) % 3600) % 60)
     }
 }

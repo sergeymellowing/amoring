@@ -10,7 +10,7 @@ import SwiftUI
 struct UserOnboardingBio: View {
     @EnvironmentObject var controller: UserOnboardingController
     
-    private let charLimit: Int = 200
+    private let charLimit: Int = 40
     
     var body: some View {
         VStack(spacing: 20) {

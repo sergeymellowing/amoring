@@ -11,6 +11,8 @@ struct ListOfConversations: View {
     @EnvironmentObject var navigator: NavigationsMessagesController
     
     @State var conversations: [Conversation] = Dummy.conversations
+    @State var alertPresented = false
+    @State var selectedConversation: Conversation? = nil
     
     /// height of bottom bar + padding
     let bottomSpacing = Size.w(75) + Size.w(16)
@@ -52,16 +54,35 @@ struct ListOfConversations: View {
                             .onTapGesture {
                                 navigator.path.append(MessagesPath.conversation)
                             }
+                            .swipeActions {
+                                Button(action: {
+                                    self.selectedConversation = conversation
+                                    alertPresented = true
+                                }) {
+                                    Text("삭제")
+                                }
+                                
+                            }
                     }
-                    .onDelete(perform: delete)
                 }
                 .listStyle(.plain)
+                .alert(isPresented: $alertPresented) {
+                    Alert(
+                        title: Text("메시지 삭제하기"),
+                        message: Text("메시지를 삭제하면 서로 연락하거나 프로필을 확인 할 수 없습니다.\n메시지를 삭제 하시겠습니까?"),
+                        primaryButton: .destructive(Text("삭제"), action: { delete(conversation: self.selectedConversation) }),
+                        secondaryButton: .cancel(Text("취소")))
+                }
             }
         }
     }
     
-    func delete(at offsets: IndexSet) {
-        conversations.remove(atOffsets: offsets)
+    func delete(conversation: Conversation?) {
+        if let conversation {
+            withAnimation {
+                conversations.removeAll(where: { $0.id == conversation.id })
+            }
+        }
     }
 }
 

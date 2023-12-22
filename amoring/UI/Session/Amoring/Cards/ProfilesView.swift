@@ -13,12 +13,14 @@ struct ProfilesView: View {
     @EnvironmentObject var sessionController: SessionController
     
     @State var isOn = false
-    @State var likes: Int = 2
-    @State var maxLikes: Int = 4
+    @State var likes: Int = 20
+    @State var maxLikes: Int = 20
+    @State var countDown: TimeInterval? = nil
     
     @State var swipeAction: SwipeAction = .doNothing
     @State var users: [User] = Dummy.users
-
+    @State var timer: Timer? = nil
+    
     //    var onSwiped: (User, Bool) -> ()
     
     
@@ -81,7 +83,7 @@ struct ProfilesView: View {
                             }
                             .frame(width: reader.size.width)
                             .frame(maxHeight: .infinity, alignment: .top)
-//                            .opacity(navigator.showDetails ? 0 : 1)
+                            //                            .opacity(navigator.showDetails ? 0 : 1)
                         }
                     }
                 }
@@ -91,50 +93,75 @@ struct ProfilesView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(.gray1000)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(leading:
-                                Text("AMORING")
-            .font(bold20Font)
-            .foregroundColor(.yellow300)
-                            , trailing:
-                                Button(action: {
-            //                self.users = Dummy.users
-            withAnimation {
-                navigator.amoring = false
-            }
-        }) {
-            Image("ic-leave-room")
-                .resizable()
-                .scaledToFit()
-                .frame(width: Size.w(32), height: Size.w(32))
-        }
+        .navigationBarItems(
+            leading:
+                Text("AMORING")
+                .font(bold20Font)
+                .foregroundColor(.yellow300)
+            , trailing:
+                HStack {
+                    Text(timeIntervalToString())
+                        .font(medium16Font)
+                        .foregroundColor(.yellow300)
+                    Button(action: navigator.leave) {
+                        Image("ic-leave-room")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: Size.w(32), height: Size.w(32))
+                    }
+                }
         )
         .environmentObject(navigator)
         //        .backport.navigationDestination(for: AmoringPath.self) { screen in
         //            navigator.navigate(screen: screen)
         //        }
-    }
-    //    fix aligning text
-    //    change zindex ? likes/SwipedView/Cards
-    private func performSwipe(userProfile: User, hasLiked: Bool) {
-            withAnimation {
-                navigator.showDetails = false
-                navigator.hidePanel = false
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                removeTopItem()
-                if hasLiked {
-                    if self.likes > 0 {
-                        withAnimation {
-                            self.likes -= 1
-                        }
+        
+        .onAppear {
+            if let checkIn = navigator.checkIn {
+                self.countDown = checkIn.checkedInAt.addingTimeInterval(3 * 60 * 60) - Date()
+                self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
+                    if let countDown, countDown > 0 {
+                        self.countDown = countDown - 1
                     } else {
-                        withAnimation {
-                            sessionController.purchasedLikes -= 1
-                        }
+                        navigator.leave()
+                    }
+                })
+            }
+        }
+    }
+    
+    
+    private func timeIntervalToString() -> String {
+        if let countDown {
+            let HMS = countDown.secondsToHMS()
+            return "\(String(format: "%02d", HMS.0)):\(String(format: "%02d", HMS.1))"
+//            return "\(String(format: "%02d", HMS.0)):\(String(format: "%02d", HMS.1)):\(String(format: "%02d", HMS.2))"
+        } else {
+            return ""
+        }
+    }
+    
+    
+    private func performSwipe(userProfile: User, hasLiked: Bool) {
+        withAnimation {
+            navigator.showDetails = false
+            navigator.hidePanel = false
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            removeTopItem()
+            if hasLiked {
+                if self.likes > 0 {
+                    withAnimation {
+                        self.likes -= 1
+                    }
+                } else {
+                    withAnimation {
+                        sessionController.purchasedLikes -= 1
                     }
                 }
             }
-            //        onSwiped(userProfile, hasLiked)
+        }
+        //        onSwiped(userProfile, hasLiked)
     }
     
     private func removeTopItem() {

@@ -122,7 +122,8 @@ struct SwipibleProfileVIew: View {
                     .padding(.top, Size.w(45))
                     .padding(.horizontal, Size.w(45))
                 ,alignment: .top)
-            .offset(x: self.dragOffset.width,y: self.dragOffset.height)
+            .offset(x: self.dragOffset.width)
+//            .offset(x: self.dragOffset.width,y: self.dragOffset.height)
             .rotationEffect(.degrees(self.dragOffset.width * 0.06), anchor: .center)
             .simultaneousGesture(DragGesture(minimumDistance: 10).onChanged{ value in
                 if !navigator.showDetails {
