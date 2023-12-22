@@ -29,9 +29,7 @@ struct SignInView: View {
                             Button(action: goNext) {
                                 Text("Facebook")
                             }
-                            Button(action: goNext) {
-                                Text("Google")
-                            }
+                            ThirdPartyProvider.shared.googleButton()
                             ThirdPartyProvider.shared.appleButton()
                         }
                         
@@ -39,9 +37,7 @@ struct SignInView: View {
                             Button(action: goNext) {
                                 Text("Naver")
                             }
-                            Button(action: goNext) {
-                                Text("Kakao")
-                            }
+                            ThirdPartyProvider.shared.kakaoButton()
                         }
                         
                         Button(action: {
