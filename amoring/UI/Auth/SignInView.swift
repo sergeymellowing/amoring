@@ -32,9 +32,7 @@ struct SignInView: View {
                             Button(action: goNext) {
                                 Text("Google")
                             }
-                            Button(action: goNext) {
-                                Text("Apple")
-                            }
+                            ThirdPartyProvider.shared.appleButton()
                         }
                         
                         HStack(spacing: 20) {
