@@ -6,29 +6,27 @@
 //
 
 import SwiftUI
+import NavigationStackBackport
 
 struct SessionView: View {
     @StateObject var userManager = UserManager()
     @StateObject var sessionController = SessionController()
-    @StateObject var messageNavigator = NavigationsMessagesController()
+ 
     
     var body: some View {
-        ZStack {
-            NavigatorView { index in
-                getTabView(index: index)
+       
+            ZStack {
+                NavigatorView { index in
+                    getTabView(index: index)
+                }
+                .overlay(
+                    sessionController.purchaseType != nil ? PurchaseView(purchaseType: $sessionController.purchaseType, model: purchasesList[sessionController.purchaseType!.rawValue]).transition(.move(edge: .bottom)) : nil
+                )
             }
-            .overlay(
-                sessionController.purchaseType != nil ? PurchaseView(purchaseType: $sessionController.purchaseType, model: purchasesList[sessionController.purchaseType!.rawValue]).transition(.move(edge: .bottom)) : nil
-            )
-        }
+        
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .environmentObject(userManager)
         .environmentObject(sessionController)
-        .environmentObject(messageNavigator)
-        .onAppear {
-            // MARK: TESTS
-            userManager.user = Dummy.users.first!
-        }
     }
     
     @ViewBuilder

@@ -6,19 +6,17 @@
 //
 
 import SwiftUI
-import NavigationStackBackport
 
 struct MessagesView: View {
-    @EnvironmentObject var navigator: NavigationsMessagesController
+    @StateObject var messageController = MessagesController()
     
     @State var torchIsOn = false
     @State var haveTable = false
     @State var resultString: String? = nil
     
     var body: some View {
-        NavigationStackBackport.NavigationStack(path: $navigator.path) {
             VStack(alignment: .center, spacing: 0) {
-                if !navigator.reactions.isEmpty {
+                if !messageController.reactions.isEmpty {
                     ListOfPeopleLikesLink()
                 }
                 
@@ -44,11 +42,7 @@ struct MessagesView: View {
                     .frame(width: Size.w(32), height: Size.w(32))
             }
             )
-            .backport.navigationDestination(for: MessagesPath.self) { screen in
-                navigator.navigate(screen: screen)
-            }
-            
-        }
+            .environmentObject(messageController)
     }
 }
 

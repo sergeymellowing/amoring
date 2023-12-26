@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ListOfConversations: View {
-    @EnvironmentObject var navigator: NavigationsMessagesController
+    @EnvironmentObject var navigator: NavigationController
     
     @State var conversations: [Conversation] = Dummy.conversations
     @State var alertPresented = false
@@ -52,7 +52,7 @@ struct ListOfConversations: View {
                             .listRowInsets(EdgeInsets())
                             .listRowBackground(Color.clear)
                             .onTapGesture {
-                                navigator.path.append(MessagesPath.conversation)
+                                navigator.path.append(NavigatorPath.conversation)
                             }
                             .swipeActions {
                                 Button(action: {

@@ -28,7 +28,7 @@ struct NavigatorView<Content: View>: View {
 }
 
 struct TabBarBottomView: View {
-    @EnvironmentObject var messageNavigator: NavigationsMessagesController
+    @EnvironmentObject var navigator: NavigationController
     
     let tabbarTitles: [String]
     @Binding var selectedIndex: Int
@@ -55,7 +55,7 @@ struct TabBarBottomView: View {
         let title = tabbarTitles[index]
         Button {
             if selectedIndex == index {
-                messageNavigator.toRoot()
+                navigator.toRoot()
             } else {
                 selectedIndex = index
             }

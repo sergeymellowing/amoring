@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import NavigationStackBackport
 
 struct CheckInView: View {
     @EnvironmentObject var navigator: NavigationAmoringController

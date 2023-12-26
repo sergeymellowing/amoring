@@ -42,5 +42,8 @@ struct amoringApp: App {
     func setupUI() {
         /// Hides native TabBar
         UITabBar.appearance().isHidden = true
+        
+        /// TextField, TextEditor background to Clear
+//        UITextView.appearance().backgroundColor = .clear
     }
 }

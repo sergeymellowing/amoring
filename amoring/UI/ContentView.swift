@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import NavigationStackBackport
 
 struct ContentView: View {
     @StateObject var sessionManager = SessionManager()
     @StateObject var userManager = UserManager()
+    @StateObject var navigator = NavigationController()
     
     var body: some View {
         ZStack {
@@ -21,12 +23,23 @@ struct ContentView: View {
                 BusinessSessionView().transition(.move(edge: .trailing))
             } else {
                 /// pass user here
-                SessionView().transition(.move(edge: .trailing))
+                NavigationStackBackport.NavigationStack(path: $navigator.path) {
+                    SessionView().transition(.move(edge: .trailing))
+                        .environmentObject(navigator)
+                        .backport.navigationDestination(for: NavigatorPath.self) { screen in
+                            navigator.navigate(screen: screen)
+                        }
+                }
             }
         }
         .environmentObject(sessionManager)
         .environmentObject(userManager)
         .onAppear(perform: { sessionManager.getCurrentSession() })
+        
+        .onAppear {
+            // MARK: TESTS
+            userManager.user = Dummy.users.first!
+        }
     }
 }
 

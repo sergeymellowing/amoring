@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PeopleLikesView: View {
-    @EnvironmentObject var navigator: NavigationsMessagesController
+    @EnvironmentObject var navigator: NavigationController
+    @EnvironmentObject var messageController: MessagesController
     @EnvironmentObject var sessionController: SessionController
     
     var body: some View {
@@ -76,7 +77,7 @@ struct PeopleLikesView: View {
                         Section(header:
                                     HStack {
                             Text("메시지")
-                            Text("(\(navigator.reactions.count))")
+                            Text("(\(messageController.reactions.count))")
                         }
                             .font(medium18Font)
                             .foregroundColor(.yellow300)
@@ -86,7 +87,7 @@ struct PeopleLikesView: View {
                             .background(Color.gray1000)
                                 
                         ) {
-                            ForEach(navigator.reactions, id: \.self) { reaction in
+                            ForEach(messageController.reactions, id: \.self) { reaction in
                                 let user = Dummy.users.first(where: { $0.id == reaction.byUserId })
                                 let url = Dummy.users.first(where: { $0.id == reaction.byUserId })?.pictures?.first ?? ""
                                 ZStack(alignment: .bottom) {

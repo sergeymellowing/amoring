@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import NavigationStackBackport
 
 struct ProfilesView: View {
     @EnvironmentObject var navigator: NavigationAmoringController
