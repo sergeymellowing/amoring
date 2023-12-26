@@ -309,6 +309,7 @@
 				850A2FED2B0AE54D003B12B7 /* amoringTests */,
 				850A2FF72B0AE54D003B12B7 /* amoringUITests */,
 				850A2FDA2B0AE54B003B12B7 /* Products */,
+				AF0357FE6E3A0130D1AD662B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -620,6 +621,13 @@
 			path = BusinessRegistration;
 			sourceTree = "<group>";
 		};
+		AF0357FE6E3A0130D1AD662B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -656,6 +664,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 850A30012B0AE54D003B12B7 /* Build configuration list for PBXNativeTarget "amoringTests" */;
 			buildPhases = (
+				ACE3A6830FA86D121B3FFF0F /* [CP] Check Pods Manifest.lock */,
 				850A2FE62B0AE54D003B12B7 /* Sources */,
 				850A2FE72B0AE54D003B12B7 /* Frameworks */,
 				850A2FE82B0AE54D003B12B7 /* Resources */,
@@ -674,9 +683,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 850A30042B0AE54D003B12B7 /* Build configuration list for PBXNativeTarget "amoringUITests" */;
 			buildPhases = (
+				41346CD6E9324A3A03892E3D /* [CP] Check Pods Manifest.lock */,
 				850A2FF02B0AE54D003B12B7 /* Sources */,
 				850A2FF12B0AE54D003B12B7 /* Frameworks */,
 				850A2FF22B0AE54D003B12B7 /* Resources */,
+				E43CC32CD22D3389B714B2C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -728,7 +739,7 @@
 				8522A5EE2B2AC912008AF703 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 				85D0DECD2B352AE90029DA5D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				85D0DED22B3534840029DA5D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
-				85D0DED92B3551180029DA5D /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */,
+				85D0DEDE2B3A5B760029DA5D /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */,
 			);
 			productRefGroup = 850A2FDA2B0AE54B003B12B7 /* Products */;
 			projectDirPath = "";
@@ -780,6 +791,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		41346CD6E9324A3A03892E3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-amoring-amoringUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACE3A6830FA86D121B3FFF0F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-amoringTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E43CC32CD22D3389B714B2C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-amoring-amoringUITests/Pods-amoring-amoringUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-amoring-amoringUITests/Pods-amoring-amoringUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-amoring-amoringUITests/Pods-amoring-amoringUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		850A2FD52B0AE54B003B12B7 /* Sources */ = {
@@ -1272,7 +1347,7 @@
 				minimumVersion = 2.20.0;
 			};
 		};
-		85D0DED92B3551180029DA5D /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */ = {
+		85D0DEDE2B3A5B760029DA5D /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/naver/naveridlogin-sdk-ios.git";
 			requirement = {
