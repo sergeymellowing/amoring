@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct ListOfConversations: View {
     @EnvironmentObject var navigator: NavigationController
@@ -47,11 +48,12 @@ struct ListOfConversations: View {
                 .padding(.bottom, bottomSpacing)
             } else {
                 List {
-                    ForEach(conversations, id: \.self.id) { conversation in
+                    ForEach(conversations.filter { $0.createdAt > Date().addingTimeInterval(-86400) }, id: \.self.id) { conversation in
                         ChatRow(conversation: conversation)
                             .listRowInsets(EdgeInsets())
                             .listRowBackground(Color.clear)
                             .onTapGesture {
+                                navigator.selectedConversation = conversation
                                 navigator.path.append(NavigatorPath.conversation)
                             }
                             .swipeActions {
@@ -59,11 +61,39 @@ struct ListOfConversations: View {
                                     self.selectedConversation = conversation
                                     alertPresented = true
                                 }) {
+                                    // TODO: Customize ?
                                     Text("삭제")
                                 }
-                                
                             }
                     }
+                    
+                    Color.clear.frame(height: 40)
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
+                    
+                    Text("아래의 메시지들은 곧 삭제됩니다.")
+                        .font(regular14Font)
+                        .foregroundColor(.gray700)
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 22)
+                        .background(Color.gray900)
+                        .clipShape(Capsule())
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.bottom, 20)
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
+                    
+                    ForEach(conversations.filter { $0.createdAt < Date().addingTimeInterval(-86400) }, id: \.self.id) { conversation in
+                        ChatRow(conversation: conversation, expired: true)
+                            .listRowInsets(EdgeInsets())
+                            .listRowBackground(Color.clear)
+                    }
+                    
+                    Spacer(minLength: 200)
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
+                    
                 }
                 .listStyle(.plain)
                 .alert(isPresented: $alertPresented) {
@@ -88,12 +118,13 @@ struct ListOfConversations: View {
 
 struct ChatRow: View {
     let conversation: Conversation
+    var expired: Bool = false
     
     var body: some View {
         HStack(spacing: 0) {
             let user = conversation.participants.last
             let url = user?.pictures?.first ?? ""
-            AsyncImage(url: URL(string: url), content: { image in
+            CachedAsyncImage(url: URL(string: url), content: { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -101,34 +132,52 @@ struct ChatRow: View {
             .frame(width: Size.w(64), height: Size.w(64))
             .clipShape(Circle())
             .padding(.trailing, Size.w(12))
-            
+            .blur(radius: expired ? 6 : 0)
+    
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
                     Text(user?.name ?? "")
                         .font(medium16Font)
-                        .foregroundColor(.gray300)
-                    Circle().fill()
-                        .foregroundColor(user?.isOnline ?? false ? .green300 : .red400)
-                        .frame(width: Size.w(6), height: Size.w(6))
+                        .foregroundColor(expired ? .gray600 : .gray300)
+                    if expired {
+                        Circle().stroke(Color.gray300)
+                            .frame(width: Size.w(6), height: Size.w(6))
+                    } else {
+                        Circle().fill()
+                            .foregroundColor(user?.isOnline ?? false ? .green300 : .red400)
+                            .frame(width: Size.w(6), height: Size.w(6))
+                    }
                     
                     Spacer()
-                    Text("New")
-                        .font(semiBold12Font)
-                        .foregroundColor(.black)
-                        .padding(.vertical, Size.w(8))
-                        .padding(.horizontal, Size.w(10))
-                        .background(Color.yellow300)
-                        .clipShape(Capsule())
+                    if conversation.messages.isEmpty {
+                        Text("New")
+                            .font(semiBold12Font)
+                            .foregroundColor(.black)
+                            .padding(.vertical, Size.w(8))
+                            .padding(.horizontal, Size.w(10))
+                            .background(Color.yellow300)
+                            .clipShape(Capsule())
+                    } else {
+                        let diff = Date() - conversation.messages.last!.createdAt!
+                        Text(diff.toPassedTime())
+                            .font(regular14Font)
+                            .foregroundColor(expired ? .gray600 : (diff > 61 ? .gray700 : .yellow300))
+                    }
                 }
-                Text(conversation.messages.last?.body ?? "")
+                
+                Text(conversation.messages.last?.body ?? "👋 첫인사를 보내보세요!")
                     .font(regular14Font)
-                    .foregroundColor(.yellow600)
-                    .padding(.bottom, Size.w(6))
-                // TODO: implement real destroy time
-                let destroyTime = 24
-                Text("\(destroyTime)시간 후 메시지가 사라집니다.")
+                    .foregroundColor(expired ? .gray600 : (conversation.messages.isEmpty ? .yellow600 : .gray300))
+                    .padding(.vertical, Size.w(6))
+                
+                let diff = Date() - conversation.createdAt
+                let endTime: TimeInterval = 24 * 60 * 60
+                let eraseTime = endTime - diff
+                Text(eraseTime.toEraseTime())
                     .font(regular12Font)
                     .foregroundColor(.gray700)
+                    .opacity(expired ? 0 : 1)
+                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
         }
@@ -136,6 +185,8 @@ struct ChatRow: View {
         .padding(.horizontal, Size.w(22))
         .padding(.bottom, Size.w(12))
         .padding(.top, Size.w(10))
+        .background(Color.gray1000.opacity(0.01))
+        .opacity(expired ? 0.6 : 1)
     }
 }
 

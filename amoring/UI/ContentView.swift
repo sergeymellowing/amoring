@@ -12,6 +12,8 @@ struct ContentView: View {
     @StateObject var sessionManager = SessionManager()
     @StateObject var userManager = UserManager()
     @StateObject var navigator = NavigationController()
+    @StateObject var sessionController = SessionController()
+    @StateObject var messagesController = MessagesController()
     
     var body: some View {
         ZStack {
@@ -23,20 +25,20 @@ struct ContentView: View {
                 BusinessSessionView().transition(.move(edge: .trailing))
             } else {
                 /// pass user here
-                NavigationStackBackport.NavigationStack(path: $navigator.path) {
-                    SessionView().transition(.move(edge: .trailing))
-                        .environmentObject(navigator)
-                        .backport.navigationDestination(for: NavigatorPath.self) { screen in
-                            navigator.navigate(screen: screen)
-                        }
-                }
+                SessionView().transition(.move(edge: .trailing))
             }
         }
+        .overlay(
+            sessionController.purchaseType != nil ? PurchaseView(purchaseType: $sessionController.purchaseType, model: purchasesList[sessionController.purchaseType!.rawValue]).transition(.move(edge: .bottom)) : nil
+        )
+        .environmentObject(navigator)
+        .environmentObject(sessionController)
         .environmentObject(sessionManager)
         .environmentObject(userManager)
-        .onAppear(perform: { sessionManager.getCurrentSession() })
-        
+        .environmentObject(messagesController)
         .onAppear {
+            sessionManager.getCurrentSession()
+            
             // MARK: TESTS
             userManager.user = Dummy.users.first!
         }

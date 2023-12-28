@@ -9,39 +9,35 @@ import SwiftUI
 import NavigationStackBackport
 
 struct SessionView: View {
-    @StateObject var userManager = UserManager()
-    @StateObject var sessionController = SessionController()
- 
+    @EnvironmentObject var navigator: NavigationController
     
     var body: some View {
-       
-            ZStack {
-                NavigatorView { index in
-                    getTabView(index: index)
-                }
-                .overlay(
-                    sessionController.purchaseType != nil ? PurchaseView(purchaseType: $sessionController.purchaseType, model: purchasesList[sessionController.purchaseType!.rawValue]).transition(.move(edge: .bottom)) : nil
-                )
-            }
-        
+        NavigatorView { index in
+            getTabView(index: index)
+        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .environmentObject(userManager)
-        .environmentObject(sessionController)
     }
     
     @ViewBuilder
     func getTabView(index: Int) -> some View {
-        let type = TabBarType(rawValue: index) ?? .amoring
-        
-        switch type {
-        case .nearby :
-            NearbyView()
-        case .amoring:
-            AmoringView()
-        case .messages:
-            MessagesView()
-        case .account:
-            AccountView()
+        // FIXME: for now it's walk around. which hides bottom navigation if it navigates to child
+        NavigationStackBackport.NavigationStack(path: $navigator.path) {
+            ZStack {
+                let type = TabBarType(rawValue: index) ?? .amoring
+                switch type {
+                case .nearby :
+                    NearbyView()
+                case .amoring:
+                    AmoringView()
+                case .messages:
+                    MessagesView()
+                case .account:
+                    AccountView()
+                }
+            }
+            .backport.navigationDestination(for: NavigatorPath.self) { screen in
+                navigator.navigate(screen: screen)
+            }
         }
     }
 }

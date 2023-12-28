@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NavigatorView<Content: View>: View {
-    @State var selectedIndex: Int = 0
+    @State var selectedIndex: Int = 1
     let titles: [String] = TabBarType.allCases.map({ $0.tabTitle })
     
     @ViewBuilder let content: (Int) -> Content
@@ -48,6 +48,7 @@ struct TabBarBottomView: View {
             .background(Color.gray1000)
             .zIndex(2)
         }
+        .offset(y: navigator.path.isEmpty ? 0 : 100)
     }
     
     @ViewBuilder

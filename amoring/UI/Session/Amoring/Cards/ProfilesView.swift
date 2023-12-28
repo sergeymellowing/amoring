@@ -102,7 +102,7 @@ struct ProfilesView: View {
                 .foregroundColor(.yellow300)
             , trailing:
                 HStack {
-                    Text(timeIntervalToString())
+                    Text(countDown.toString())
                         .font(medium16Font)
                         .foregroundColor(.yellow300)
                     Button(action: navigator.leave) {
@@ -131,18 +131,6 @@ struct ProfilesView: View {
             }
         }
     }
-    
-    
-    private func timeIntervalToString() -> String {
-        if let countDown {
-            let HMS = countDown.secondsToHMS()
-            return "\(String(format: "%02d", HMS.0)):\(String(format: "%02d", HMS.1))"
-//            return "\(String(format: "%02d", HMS.0)):\(String(format: "%02d", HMS.1)):\(String(format: "%02d", HMS.2))"
-        } else {
-            return ""
-        }
-    }
-    
     
     private func performSwipe(userProfile: User, hasLiked: Bool) {
         withAnimation {

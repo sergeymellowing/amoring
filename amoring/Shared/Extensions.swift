@@ -13,7 +13,18 @@ extension String {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.date(from: self) ?? Date()
     }
+    
+    func timeToDate() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+
+//        let item = "7:00 PM"
+//        print("Start: \(date)") // Start: Optional(2000-01-01 19:00:00 +0000)
+        return dateFormatter.date(from: self ?? "")
+    }
 }
+
 
 extension Optional where Wrapped == Double {
     var isNil: Bool {
@@ -36,8 +47,6 @@ extension Date {
     static func - (lhs: Date, rhs: Date) -> TimeInterval {
         return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
     }
-    
-    
 }
 
 extension Optional where Wrapped == Date {
@@ -53,7 +62,7 @@ extension Optional where Wrapped == Date {
             formatter.timeZone = TimeZone.current
             formatter.amSymbol = "오전"
             formatter.pmSymbol = "오후"
-            return formatter.string(from: self as Date)
+            return formatter.string(from: self)
         } else {
             return ""
         }
@@ -108,5 +117,42 @@ extension UINavigationController {
 extension Double {
     func secondsToHMS() -> (Int, Int, Int) {
         return (Int(self) / 3600, (Int(self) % 3600) / 60, (Int(self) % 3600) % 60)
+    }
+}
+
+extension Optional where Wrapped == TimeInterval {
+    func toString() -> String {
+        if let self {
+            let HMS = self.secondsToHMS()
+            return "\(String(format: "%02d", HMS.0)):\(String(format: "%02d", HMS.1))"
+//            return "\(String(format: "%02d", HMS.0)):\(String(format: "%02d", HMS.1)):\(String(format: "%02d", HMS.2))"
+        } else {
+            return ""
+        }
+    }
+}
+
+extension TimeInterval {
+    func toPassedTime() -> String {
+        if self < 61 {
+            return "지금"
+        } else if self > 86400 {
+            return "만료됨"
+        } else {
+            let HMS = self.secondsToHMS()
+            let hours = HMS.0 > 0 ? "\(HMS.0)시간 " : ""
+            let minutes = HMS.1 > 0 ? "\(HMS.1)분 " : ""
+            return  hours + minutes + "전"
+        }
+    }
+    
+    func toEraseTime() -> String {
+        let HMS = self.secondsToHMS()
+        
+        if HMS.0 >= 0 {
+            return "\(HMS.0 + 1)시간 후 메시지가 사라집니다."
+        } else {
+            return "1 시간 후 메시지가 사라집니다."
+        }
     }
 }

@@ -18,6 +18,12 @@ public struct Business: Codable, Equatable {
     var registration: String?
     var images: [String]?
     var terms: Bool?
+    
+    var district: String?
+    var open: Date?
+    var close: Date?
+    var description: String?
+    var phone: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -30,5 +36,10 @@ public struct Business: Codable, Equatable {
         case registration
         case images
         case terms
+        case open
+        case close
+        case description
+        case phone
+        case district
     }
 }
