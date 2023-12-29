@@ -16,7 +16,7 @@ class SessionManager: ObservableObject {
     @MainActor func getCurrentSession() {
         Task {
             isLoading = true
-            sleep(2)
+            sleep(1)
             isLoading = false
     //        await signIn()
             print("current session")

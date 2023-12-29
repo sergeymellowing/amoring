@@ -10,7 +10,8 @@ import Foundation
 class Dummy {
     static let businesses = [
         Business(id: "1", name: "Pray Coffee Bar", address: "서울 성동구 성덕정길 152", type: "바", images: [
-            "https://firebasestorage.googleapis.com/v0/b/tinderdemo-497b9.appspot.com/o/dummy-biz1.jpg?alt=media&token=b4c0db02-c47f-46b4-9e45-616be0f08c52"
+            "https://firebasestorage.googleapis.com/v0/b/tinderdemo-497b9.appspot.com/o/dummy-biz1.jpg?alt=media&token=b4c0db02-c47f-46b4-9e45-616be0f08c52",
+            "https://firebasestorage.googleapis.com/v0/b/tinderdemo-497b9.appspot.com/o/dummy-biz1-1.jpg?alt=media&token=d581a138-28fd-468f-bed6-bd3e7a3bb6f3"
         ], district: "강남", open: "11:00 PM".timeToDate(), close: "10:00 AM".timeToDate(), description: "#프레이 #프레이커피바 #pray #coffee #bar", phone: "070 - 0000 - 0000"),
         Business(id: "2", name: "Seoul Bar Show", address: "서울 성동구 성덕정길 152", type: "바", images: [
             "https://firebasestorage.googleapis.com/v0/b/tinderdemo-497b9.appspot.com/o/dummy-biz2.png?alt=media&token=fdfc2cb2-46f5-46e7-af4d-8caca5f95d15"
