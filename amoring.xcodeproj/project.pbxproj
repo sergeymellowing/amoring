@@ -42,6 +42,9 @@
 		850A303E2B0B2C61003B12B7 /* BusinessOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A303D2B0B2C61003B12B7 /* BusinessOnboardingView.swift */; };
 		850A30402B0B2DEF003B12B7 /* BusinessSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A303F2B0B2DEF003B12B7 /* BusinessSignInView.swift */; };
 		851AF8F42B3D2495005A8DEB /* BusinessDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF8F32B3D2494005A8DEB /* BusinessDetailsView.swift */; };
+		851AF8F62B3E8D3B005A8DEB /* Launch Screen .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 851AF8F52B3E8D3B005A8DEB /* Launch Screen .storyboard */; };
+		851AF8F82B3E8E46005A8DEB /* LogoLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF8F72B3E8E46005A8DEB /* LogoLoadingView.swift */; };
+		851AF8FA2B3E9F3D005A8DEB /* SignInSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851AF8F92B3E9F3D005A8DEB /* SignInSheet.swift */; };
 		8522A5E92B2A7B39008AF703 /* TrackableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A5E82B2A7B39008AF703 /* TrackableScrollView.swift */; };
 		8522A5EB2B2AA9EC008AF703 /* ExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A5EA2B2AA9EC008AF703 /* ExpandedView.swift */; };
 		8522A5ED2B2AAE4F008AF703 /* TagCloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A5EC2B2AAE4F008AF703 /* TagCloudView.swift */; };
@@ -181,6 +184,9 @@
 		850A303D2B0B2C61003B12B7 /* BusinessOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessOnboardingView.swift; sourceTree = "<group>"; };
 		850A303F2B0B2DEF003B12B7 /* BusinessSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSignInView.swift; sourceTree = "<group>"; };
 		851AF8F32B3D2494005A8DEB /* BusinessDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailsView.swift; sourceTree = "<group>"; };
+		851AF8F52B3E8D3B005A8DEB /* Launch Screen .storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen .storyboard"; sourceTree = "<group>"; };
+		851AF8F72B3E8E46005A8DEB /* LogoLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoLoadingView.swift; sourceTree = "<group>"; };
+		851AF8F92B3E9F3D005A8DEB /* SignInSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSheet.swift; sourceTree = "<group>"; };
 		8522A5E82B2A7B39008AF703 /* TrackableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackableScrollView.swift; sourceTree = "<group>"; };
 		8522A5EA2B2AA9EC008AF703 /* ExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedView.swift; sourceTree = "<group>"; };
 		8522A5EC2B2AAE4F008AF703 /* TagCloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudView.swift; sourceTree = "<group>"; };
@@ -343,6 +349,7 @@
 				850A2FE22B0AE54D003B12B7 /* amoring.entitlements */,
 				850A2FE32B0AE54D003B12B7 /* Preview Content */,
 				85D0DEDA2B3564530029DA5D /* TestView.swift */,
+				851AF8F52B3E8D3B005A8DEB /* Launch Screen .storyboard */,
 			);
 			path = amoring;
 			sourceTree = "<group>";
@@ -402,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				850A30102B0AEE1F003B12B7 /* SignInView.swift */,
+				851AF8F92B3E9F3D005A8DEB /* SignInSheet.swift */,
 				850A303F2B0B2DEF003B12B7 /* BusinessSignInView.swift */,
 				853AFD512B1DBD7F0020A570 /* NavigationAuthController.swift */,
 				858862392B351782009CC600 /* ThirdPartyProvider.swift */,
@@ -518,6 +526,7 @@
 				853AFD532B1DC6BF0020A570 /* CustomTextField.swift */,
 				8522A5E82B2A7B39008AF703 /* TrackableScrollView.swift */,
 				8522A5EC2B2AAE4F008AF703 /* TagCloudView.swift */,
+				851AF8F72B3E8E46005A8DEB /* LogoLoadingView.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -777,6 +786,7 @@
 				85806C472B22F6920077D12C /* schema.graphqls in Resources */,
 				850A301E2B0AEF41003B12B7 /* Pretendard-Regular.ttf in Resources */,
 				850A2FE52B0AE54D003B12B7 /* Preview Assets.xcassets in Resources */,
+				851AF8F62B3E8D3B005A8DEB /* Launch Screen .storyboard in Resources */,
 				850A2FE12B0AE54D003B12B7 /* Assets.xcassets in Resources */,
 				850A30202B0AEF41003B12B7 /* Pretendard-Bold.ttf in Resources */,
 				850A30232B0AEF41003B12B7 /* Pretendard-Black.ttf in Resources */,
@@ -923,6 +933,7 @@
 				8522A5F92B2BFA00008AF703 /* PurchaseView.swift in Sources */,
 				85E8E93C2B3109EE0054EBCE /* Message.swift in Sources */,
 				850A30402B0B2DEF003B12B7 /* BusinessSignInView.swift in Sources */,
+				851AF8FA2B3E9F3D005A8DEB /* SignInSheet.swift in Sources */,
 				85FC20A42B0D964800DC1950 /* OTPView.swift in Sources */,
 				85FC20902B0C514400DC1950 /* ImagePicker.swift in Sources */,
 				85FC207F2B0C510100DC1950 /* UserOnboardingName.swift in Sources */,
@@ -930,6 +941,7 @@
 				85D36AEE2B0F261F00106BC0 /* BusinessEnterView.swift in Sources */,
 				85FC209D2B0D729300DC1950 /* Extensions.swift in Sources */,
 				85D26F6C2B20198B00E3C55F /* CodeScanner.swift in Sources */,
+				851AF8F82B3E8E46005A8DEB /* LogoLoadingView.swift in Sources */,
 				850A300B2B0AEA09003B12B7 /* SessionManager.swift in Sources */,
 				8522A5FF2B2C4B6F008AF703 /* PurchaseSimpleWindow.swift in Sources */,
 				85D0DEE02B3A6B130029DA5D /* NavigationController.swift in Sources */,
@@ -1129,6 +1141,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1169,6 +1182,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

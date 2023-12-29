@@ -32,11 +32,6 @@ struct BusinessSignInView: View {
             
             Spacer()
             
-            NavigationLink(destination: {
-                BusinessSignUp()
-            }) {
-                Text("Business sign Up")
-            }
         }
         .padding(16)
     }
@@ -44,5 +39,4 @@ struct BusinessSignInView: View {
 
 #Preview {
     BusinessSignInView()
-        .preferredColorScheme(.dark)
 }

@@ -19,13 +19,22 @@ class NavigationAuthController: ObservableObject {
         path.append(AuthPath.businessSignIn)
     }
     
+    func toBusinessSignUp() {
+        path.append(AuthPath.businessSignUp)
+    }
+    
     func navigate(screen: AuthPath) -> some View {
-        switch screen {
-        case .businessSignIn: return  BusinessSignInView().environmentObject(self)
+        ZStack {
+            switch screen {
+            case .businessSignIn:
+                BusinessSignInView().environmentObject(self)
+            case .businessSignUp:
+                BusinessSignUp().environmentObject(self)
+            }
         }
     }
 }
 
 enum AuthPath: Hashable {
-    case businessSignIn
+    case businessSignIn, businessSignUp
 }

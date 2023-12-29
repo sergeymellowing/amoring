@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BusinessSignUp: View {
+    @EnvironmentObject var sessionManager: SessionManager
     @State var email: String = ""
     @State var password: String = ""
     

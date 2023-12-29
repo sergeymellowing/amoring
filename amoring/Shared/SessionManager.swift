@@ -13,11 +13,15 @@ class SessionManager: ObservableObject {
     @Published var signedIn: Bool = false
     @Published var isBusiness: Bool = true
     
-    @MainActor func getCurrentSession() {
+//    @MainActor 
+    func getCurrentSession() {
         Task {
             isLoading = true
-            sleep(1)
-            isLoading = false
+            sleep(4)
+            withAnimation(.smooth) {
+                isLoading = false
+            }
+            
     //        await signIn()
             print("current session")
         }
