@@ -13,6 +13,7 @@ struct SignInView: View {
     @StateObject var navigator = NavigationAuthController()
     
     @State var goToUserOnboarding = false
+    @State var animate = false
     
     var body: some View {
         ZStack {
@@ -22,9 +23,13 @@ struct SignInView: View {
             } else {
                 NavigationStackBackport.NavigationStack(path: $navigator.path) {
                     ZStack {
-                        LogoLoadingView()
-                        
-                        if !sessionManager.isLoading {
+                        LogoLoadingView(animation1: true, animation2: true, animation3: true, animation4: true, animation5: true)
+                            .onAppear {
+                                withAnimation(.smooth) {
+                                    animate = true
+                                }
+                            }
+                        if animate {
                             SignInSheet(goToUserOnboarding: $goToUserOnboarding).environmentObject(navigator)
                         }
                     }
@@ -42,8 +47,6 @@ struct SignInView: View {
         }
     }
 }
-        create tooltips for every SNS
-                        remove animation for bg
                         
 #Preview {
     SignInView()

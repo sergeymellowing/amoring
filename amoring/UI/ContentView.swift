@@ -17,9 +17,9 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-//            if sessionManager.isLoading {
-//                LogoLoadingView()
-            if !sessionManager.signedIn {
+            if sessionManager.isLoading {
+                LogoLoadingView()
+            } else if !sessionManager.signedIn {
                 SignInView()
             } else if sessionManager.isBusiness {
                 BusinessSessionView().transition(.move(edge: .trailing))

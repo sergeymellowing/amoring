@@ -13,9 +13,9 @@ struct SignInSheet: View {
     @Binding var goToUserOnboarding: Bool
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             Spacer()
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 0) {
                 Text("시작하기")
                     .font(bold28Font)
                     .foregroundColor(.gray150)
@@ -52,11 +52,25 @@ struct SignInSheet: View {
                         .scaledToFit()
                 }
                 .frame(maxWidth: UIScreen.main.bounds.width - Size.w(60), maxHeight: Size.w(54))
-                .padding(.bottom, Size.w(152))
                 .onTapGesture {
                     sessionManager.isBusiness = false
                     sessionManager.signedIn = true
                 }
+                
+                (Text("가입함으로써, 귀하는 당사의 ") + 
+                 Text("이용약관").underline() +
+                 Text("에 동의하게됩니다.\n당사의 개인정보 사용방식에 관한 내용은 ") +
+                 Text("개인정보 취급방침").underline() +
+                 Text("에서\n확인하실 수 있습니다."))
+                    .font(light12Font)
+                    .foregroundColor(.gray600)
+                    .multilineTextAlignment(.center)
+                    .lineSpacing(6)
+                    .padding(.top, Size.w(50))
+                    .padding(.bottom, Size.w(42))
+                    .padding(.horizontal, Size.w(36))
+                    .fixedSize(horizontal: false, vertical: true)
+                
                 HStack {
                     Button(action: {
                         navigator.toBusinessSignUp()
@@ -64,7 +78,8 @@ struct SignInSheet: View {
                         Text("비즈니스 가입 ")
                     }
                     
-                    Divider().frame(height: Size.w(16))
+                    
+                    Text("  |  ")
                     
                     Button(action: {
                         navigator.toBusinessSignIn()
@@ -74,7 +89,7 @@ struct SignInSheet: View {
                 }
                 .font(medium16Font)
                 .foregroundColor(.gray600)
-                .padding(.bottom, Size.w(50))
+                .padding(.bottom, Size.w(48))
                 
                 //                    Button(action: goNext) {
                 //                        Text("Facebook")
