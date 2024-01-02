@@ -34,28 +34,33 @@ struct SignInSheet: View {
                     Image("SNS-google")
                         .resizable()
                         .scaledToFit()
-                    Spacer()
+                        .onTapGesture {
+                            sessionManager.signInWithGoogle()
+                        }
+                    Spacer().frame(maxWidth: Size.w(20))
                     Image("SNS-apple")
                         .resizable()
                         .scaledToFit()
-                    Spacer()
-                    Image("SNS-facebook")
-                        .resizable()
-                        .scaledToFit()
-                    Spacer()
-                    Image("SNS-naver")
-                        .resizable()
-                        .scaledToFit()
-                    Spacer()
+                        .onTapGesture {
+                            sessionManager.signInWithApple()
+                        }
+//                    Spacer().frame(maxWidth: Size.w(20))
+//                    Image("SNS-facebook")
+//                        .resizable()
+//                        .scaledToFit()
+//                    Spacer().frame(maxWidth: Size.w(20))
+//                    Image("SNS-naver")
+//                        .resizable()
+//                        .scaledToFit()
+                    Spacer().frame(maxWidth: Size.w(20))
                     Image("SNS-kakao")
                         .resizable()
                         .scaledToFit()
+                        .onTapGesture {
+                            sessionManager.signInWithKakao()
+                        }
                 }
                 .frame(maxWidth: UIScreen.main.bounds.width - Size.w(60), maxHeight: Size.w(54))
-                .onTapGesture {
-                    sessionManager.isBusiness = false
-                    sessionManager.signedIn = true
-                }
                 
                 (Text("가입함으로써, 귀하는 당사의 ") + 
                  Text("이용약관").underline() +
@@ -106,14 +111,12 @@ struct SignInSheet: View {
                 //
                 
             }
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: UIScreen.main.bounds.width)
             .background(Color.black)
         }
         .ignoresSafeArea(edges: .bottom)
         .transition(.move(edge: .bottom))
     }
-    
-    
     
     private func goNext() {
         //        if user.exists {

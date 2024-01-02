@@ -25,29 +25,42 @@ struct SignInView: View {
                     ZStack {
                         LogoLoadingView(animation1: true, animation2: true, animation3: true, animation4: true, animation5: true)
                             .onAppear {
-                                withAnimation(.smooth) {
-                                    animate = true
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                    withAnimation(.smooth) {
+                                        animate = true
+                                    }
                                 }
                             }
-                        if animate {
-                            SignInSheet(goToUserOnboarding: $goToUserOnboarding).environmentObject(navigator)
+                        
+                        ZStack(alignment: .topLeading) {
+                            if animate {
+                                SignInSheet(goToUserOnboarding: $goToUserOnboarding).environmentObject(navigator)
+                            }
+                            if animate {
+                                Text("AMORING")
+                                    .font(bold20Font)
+                                    .foregroundColor(.yellow300)
+                                    .frame(height: 44, alignment: .center)
+                                    .padding(.horizontal, Size.w(22))
+                            }
                         }
                     }
-                    .navigationBarItems(leading:
-                        Text("AMORING")
-                            .font(bold20Font)
-                            .foregroundColor(.yellow300)
-                            .opacity(sessionManager.isLoading ? 0 : 1)
-                    )
+                    //                    .navigationBarItems(leading:
+                    //                        Text("AMORING")
+                    //                            .font(bold20Font)
+                    //                            .foregroundColor(.yellow300)
+                    //                            .opacity(sessionManager.isLoading ? 0.01 : 1)
+                    //                    )
                     .backport.navigationDestination(for: AuthPath.self) { screen in
                         navigator.navigate(screen: screen)
                     }
                 }
             }
         }
+        .transition(.identity)
     }
 }
-                        
+
 #Preview {
     SignInView()
 }

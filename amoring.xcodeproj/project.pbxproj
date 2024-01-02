@@ -100,6 +100,7 @@
 		85E8E9402B3140580054EBCE /* ListOfConversations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E8E93F2B3140580054EBCE /* ListOfConversations.swift */; };
 		85E8E9422B3140850054EBCE /* ListOfPeopleLikesLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E8E9412B3140850054EBCE /* ListOfPeopleLikesLink.swift */; };
 		85E8E9442B3145390054EBCE /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E8E9432B3145390054EBCE /* ConversationView.swift */; };
+		85FB6B892B43DA3A0023A889 /* schema1.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 85FB6B882B43DA3A0023A889 /* schema1.graphqls */; };
 		85FC207E2B0C510100DC1950 /* UserOnboardingAge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20762B0C510100DC1950 /* UserOnboardingAge.swift */; };
 		85FC207F2B0C510100DC1950 /* UserOnboardingName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20772B0C510100DC1950 /* UserOnboardingName.swift */; };
 		85FC20802B0C510100DC1950 /* UserOnboardingBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */; };
@@ -233,6 +234,7 @@
 		85E8E93F2B3140580054EBCE /* ListOfConversations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfConversations.swift; sourceTree = "<group>"; };
 		85E8E9412B3140850054EBCE /* ListOfPeopleLikesLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfPeopleLikesLink.swift; sourceTree = "<group>"; };
 		85E8E9432B3145390054EBCE /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
+		85FB6B882B43DA3A0023A889 /* schema1.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema1.graphqls; sourceTree = "<group>"; };
 		85FC20762B0C510100DC1950 /* UserOnboardingAge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingAge.swift; sourceTree = "<group>"; };
 		85FC20772B0C510100DC1950 /* UserOnboardingName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingName.swift; sourceTree = "<group>"; };
 		85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingBio.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 		85806C452B22F6800077D12C /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
+				85FB6B882B43DA3A0023A889 /* schema1.graphqls */,
 				85806C462B22F6920077D12C /* schema.graphqls */,
 				85806C482B22F7330077D12C /* RocketsQuery.graphql */,
 				85064ADF2B26880A0074E45A /* LaunchesQuery.graphql */,
@@ -776,6 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85064AE02B26880A0074E45A /* LaunchesQuery.graphql in Resources */,
+				85FB6B892B43DA3A0023A889 /* schema1.graphqls in Resources */,
 				850A30212B0AEF41003B12B7 /* Pretendard-Medium.ttf in Resources */,
 				85064AE52B269D2A0074E45A /* launchFragment.graphql in Resources */,
 				850A301F2B0AEF41003B12B7 /* Pretendard-Thin.ttf in Resources */,
@@ -1141,7 +1145,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen .storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1182,7 +1186,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen .storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
