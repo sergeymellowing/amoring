@@ -10,42 +10,53 @@ import SwiftUI
 struct AddedImageView: View {
     @State private var isTapped: Bool = false
     let image: UIImage
+    let number: Int
     let action: () -> ()
     var body: some View {
-        ZStack(alignment: .bottomTrailing){
-            /// need this Color and .allowsHitTesting(false) because wide images overlaying on each other
-            Color.gray100.opacity(0.1)
-                .cornerRadius(8)
+        ZStack(alignment: .bottomLeading) {
             Image(uiImage: image)
                 .centerCropped()
-                .frame(maxWidth: .infinity)
-                .aspectRatio(0.6, contentMode: .fit)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .aspectRatio(1, contentMode: .fit)
                 .background(.gray100)
                 .cornerRadius(8)
                 .allowsHitTesting(false)
-            Image(systemName: "multiply.circle.fill")
-                .resizable()
-                .frame(width: 32, height: 32)
-                .background(Capsule().fill(LinearGradient(colors: [Color.blue, Color.white], startPoint: .leading, endPoint: .trailing)))
-//                .background(Capsule().fill(LinearGradient(colors: AppColor.appColors, startPoint: .leading, endPoint: .trailing)))
+            Text(number.description)
+                .font(semiBold16Font)
                 .foregroundColor(.white)
-                .offset(x: 8, y: 8)
+                .frame(width: Size.w(24), height: Size.w(24))
+                .background(Color.black.opacity(0.3))
+                .clipShape(Circle())
+                .padding(Size.w(10))
         }
-        .opacity(isTapped ? 0.5 : 1)
-        .scaleEffect(isTapped ? 0.9 : 1)
-        .padding(8)
-        .gesture(
-            TapGesture()
-                .onEnded{ _ in
-                    print("on End Tap")
-                    withAnimation(Animation.linear(duration: 0.1)){
-                        self.isTapped = true
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.isTapped = false
-                        action()
-                    }
-                })
+        .frame(minWidth: Size.w(106))
+        .overlay(
+            Image(systemName: "xmark.circle.fill")
+                .font(bold24Font)
+                .symbolRenderingMode(.palette)
+                    .foregroundStyle(.white, Color.black.opacity(0.3))
+//                .foregroundColor(Color.black.opacity(0.3))
+                .onTapGesture {
+                    action()
+                }
+            , alignment: .topTrailing
+        )
+        .padding(Size.w(8))
+//        .opacity(isTapped ? 0.5 : 1)
+//        .scaleEffect(isTapped ? 0.9 : 1)
+        
+//        .gesture(
+//            TapGesture()
+//                .onEnded{ _ in
+//                    print("on End Tap")
+//                    withAnimation(Animation.linear(duration: 0.1)){
+//                        self.isTapped = true
+//                    }
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                        self.isTapped = false
+//                        action()
+//                    }
+//                })
     }
 }
 
@@ -55,7 +66,8 @@ extension Image {
             self
             .resizable()
             .scaledToFill()
-            .frame(width: geo.size.width, height: geo.size.height)
+//            .frame(width: geo.size.width, height: geo.size.height)
+            .frame(width: geo.size.width, height: geo.size.width)
             .clipped()
         }
     }
@@ -63,7 +75,7 @@ extension Image {
 
 struct AddedImageView_Previews: PreviewProvider {
     static var previews: some View {
-        AddedImageView(image: UIImage(named: "jeff_bezos")!){
+        AddedImageView(image: UIImage(named: "jeff_bezos")!, number: 1){
             
         }
     }

@@ -34,15 +34,15 @@ struct GridCell: Hashable, Identifiable, Draggable {
 }
 
 struct PictureGridView: View {
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-    ]
+//    let columns = [
+//        GridItem(.flexible()),
+//        GridItem(.flexible()),
+//        GridItem(.flexible()),
+//    ]
     @Binding var pictures: [PictureModel]
     @Binding var picturesChanged: Bool
     @Binding var droppedOutside: Bool
-    @State var cells: [GridCell] = (0...8).map{  _ in GridCell() }
+    @State var cells: [GridCell] = (0...5).map{  _ in GridCell() }
 
     let onAddedImageClick: (Int) -> ()
     let onAddImageClick: () -> ()
@@ -56,27 +56,43 @@ struct PictureGridView: View {
     }
     
     var body: some View {
-        LazyVGrid(columns: columns, spacing: 0) {
-            ReorderableForEach(droppedOutside: $droppedOutside, items: cells) { cell in
-                getCellView(cell: cell)
-            } moveAction: { from, to in
-                picturesChanged = true
-                cells.move(fromOffsets: from, toOffset: to)
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
+                getCellView(cell: cells[0], number: 1)
+                    .layoutPriority(1)
+                VStack(spacing: 0) {
+                    getCellView(cell: cells[1], number: 2)
+                    getCellView(cell: cells[2], number: 3)
+                }
             }
-            
+            HStack(spacing: 0) {
+                getCellView(cell: cells[3], number: 4)
+                getCellView(cell: cells[4], number: 5)
+                getCellView(cell: cells[5], number: 6)
+            }
         }
+        // TODO: Implement Dragging?
+//        LazyVGrid(columns: columns, spacing: 0) {
+//            ReorderableForEach(droppedOutside: $droppedOutside, items: cells) { cell in
+//                getCellView(cell: cell)
+//            } moveAction: { from, to in
+//                picturesChanged = true
+//                cells.move(fromOffsets: from, toOffset: to)
+//            }
+//            
+//        }
         .onChange(of: pictures, perform: { newValue in
             cells = (0...8).map{ GridCell(picture: $0 < newValue.count ? newValue[$0] : nil)}
         })
     }
     
-    func getCellView(cell: GridCell) -> some View {
-        if let picture = cell.picture, let index = pictures.firstIndex(of: picture){
-            return AnyView(AddedImageView(image: picture.picture, action:{
+    func getCellView(cell: GridCell, number: Int) -> some View {
+        if let picture = cell.picture, let index = pictures.firstIndex(of: picture) {
+            return AnyView(AddedImageView(image: picture.picture, number: number, action:{
                 onAddedImageClick(index)
             }))
         } else {
-            return AnyView(AddImageView(action: onAddImageClick))
+            return AnyView(AddImageView(number: number, action: onAddImageClick))
         }
     }
 }

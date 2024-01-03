@@ -13,8 +13,10 @@ struct UserOnboardingView: View {
     
     var body: some View {
         NavigationStackBackport.NavigationStack {
-            UserOnboardingName()
-           
+            ZStack {
+                UserOnboardingName()
+            }
+                .navigationBarTitleDisplayMode(.inline)
 //                .onChange(of: user) { changed in
 //                    print(changed)
 //                }

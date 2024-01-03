@@ -21,12 +21,12 @@ struct BusnessSettings: View {
             VStack(alignment: .center, spacing: 20) {
                 Text("Please enter your business information")
                 Text("Basic Information")
-                CustomTextField("Name", text: $someText)
-                CustomTextField("Address", text: $someText)
-                CustomTextField("Sectors", text: $someText)
-                CustomTextField("representative", text: $someText)
-                CustomTextField("contact", text: $someText)
-                CustomTextField("Company Registration Number", text: $someText)
+                CustomTextField(placeholder: "Name", text: $someText)
+                CustomTextField(placeholder: "Address", text: $someText)
+                CustomTextField(placeholder: "Sectors", text: $someText)
+                CustomTextField(placeholder: "representative", text: $someText)
+                CustomTextField(placeholder: "contact", text: $someText)
+                CustomTextField(placeholder: "Company Registration Number", text: $someText)
                 
                 Divider()
                 

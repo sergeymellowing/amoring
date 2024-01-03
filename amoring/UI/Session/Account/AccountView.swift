@@ -40,7 +40,7 @@ struct AccountView: View {
                 })
                 .padding(.horizontal)
                 .sheet(isPresented: $showContentTypeSheet) {
-                    ImagePicker(pictures: $pictures)
+                    ImagePicker(pictures: $pictures, limit: 6 - pictures.count).ignoresSafeArea()
                 }
     //            .alert("camera-permission-denied", isPresented: $showPermissionDenied, actions: {}, message: { Text("user-must-grant-camera-permission") })
                 .alert("Remove this picture?", isPresented: $showRemoveConfirmation, actions: {

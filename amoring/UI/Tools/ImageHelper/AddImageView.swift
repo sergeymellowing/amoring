@@ -9,30 +9,32 @@ import SwiftUI
 
 struct AddImageView: View {
     @State private var isTapped: Bool = false
+    let number: Int
     let action: () -> ()
     var body: some View {
-        ZStack(alignment: .bottomTrailing){
+        ZStack(alignment: .bottomLeading) {
             Spacer()
-                .frame(maxWidth: .infinity)
-                .aspectRatio(0.6, contentMode: .fit)
-                .background(Color(UIColor.systemGray5))
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .aspectRatio(1, contentMode: .fit)
+                .background(Color.white)
                 .cornerRadius(8)
-                .overlay(Rectangle()
-                            .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [6]))
-                            .cornerRadius(8)
-                            .foregroundColor(Color(UIColor.systemGray4))
-                         
-                )
-            Image(systemName: "plus.circle.fill")
-                .resizable()
-                .frame(width: 32, height: 32)
-                .foregroundGradient(colors: [Color.blue, Color.white])
-                .background(Capsule().fill(.white))
-                .offset(x: 8, y: 8)
+            Text(number.description)
+                .font(semiBold16Font)
+                .foregroundColor(.white)
+                .frame(width: Size.w(24), height: Size.w(24))
+                .background(Color.black.opacity(0.3))
+                .clipShape(Circle())
+                .padding(Size.w(10))
         }
+        .frame(minWidth: Size.w(106))
+        .overlay(
+            Image(systemName: "plus")
+                .font(bold24Font)
+                .foregroundColor(.gray200)
+        )
         .opacity(isTapped ? 0.5 : 1)
         .scaleEffect(isTapped ? 0.9 : 1)
-        .padding(8)
+        .padding(Size.w(8))
         .gesture(
             TapGesture()
                 .onEnded{ _ in
@@ -50,7 +52,7 @@ struct AddImageView: View {
 
 struct AddImageView_Previews: PreviewProvider {
     static var previews: some View {
-        AddImageView{
+        AddImageView(number: 1) {
             
         }
     }

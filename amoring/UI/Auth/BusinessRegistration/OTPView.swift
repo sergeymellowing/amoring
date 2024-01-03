@@ -14,7 +14,7 @@ struct OTPView: View {
         VStack(spacing: 20) {
             Spacer()
             
-            CustomTextField("", text: $otp)
+            CustomTextField(placeholder: "", text: $otp)
                 
             Spacer()
             
