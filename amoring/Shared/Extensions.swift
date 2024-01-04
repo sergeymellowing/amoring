@@ -108,14 +108,6 @@ struct RoundedCorner: Shape {
     }
 }
 
-/// optional bindings (ex: $text ?? "default value")
-func ??<T>(lhs: Binding<Optional<T>>, rhs: T) -> Binding<T> {
-    Binding(
-        get: { lhs.wrappedValue ?? rhs },
-        set: { lhs.wrappedValue = $0 }
-    )
-}
-
 extension UINavigationController {
     // MARK: Allows to Swipe to go back for Navigation View even when stock Back Button is hidden
     open override func viewDidLoad() {

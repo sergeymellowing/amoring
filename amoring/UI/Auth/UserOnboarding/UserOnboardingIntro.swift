@@ -22,51 +22,55 @@ struct UserOnboardingIntro: View {
     @State var mbtiPresented: Bool = false
     
     @State var next: Bool = false
+    @State var contentOffset: CGFloat = 0
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("회원님을 소개하세요")
-                        .font(bold32Font)
-                        .foregroundColor(.black)
-                        .padding(.horizontal, Size.w(14))
-                        .padding(.top, Size.w(56))
-                        .padding(.bottom, Size.w(10))
-                    
-                    Text("인연은 신뢰속에서 시작됩니다.\n회원님을 소개하고 인연을 만들어보세요.")
-                        .font(regular16Font)
-                        .foregroundColor(.black)
-                        .padding(.horizontal, Size.w(14))
-                        .padding(.bottom, Size.w(40))
-                    
-                    VStack(alignment: .leading) {
-                        Text("직업")
+            VStack(spacing: 0) {
+                CustomNavigationView(offset: $contentOffset, title: "소개하기", back: { self.presentationMode.wrappedValue.dismiss() })
+                TrackableScrollView(showIndicators: false, contentOffset: $contentOffset) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("회원님을 소개하세요")
+                            .font(bold32Font)
+                            .foregroundColor(.black)
+                            .padding(.horizontal, Size.w(14))
+                            .padding(.top, Size.w(56))
+                            .padding(.bottom, Size.w(10))
+                        
+                        Text("인연은 신뢰속에서 시작됩니다.\n회원님을 소개하고 인연을 만들어보세요.")
                             .font(regular16Font)
                             .foregroundColor(.black)
-                            .padding(.leading, Size.w(14))
+                            .padding(.horizontal, Size.w(14))
+                            .padding(.bottom, Size.w(40))
+                        
+                        VStack(alignment: .leading) {
+                            Text("직업")
+                                .font(regular16Font)
+                                .foregroundColor(.black)
+                                .padding(.leading, Size.w(14))
                             
-                        CustomTextField(placeholder: "예: 대학생, 직장인...", text: $job)
-                            .onChange(of: job, perform: { newValue in
-                                if(newValue.count >= 10){
-                                    job = String(newValue.prefix(10))
-                                }
-                                if(newValue.count >= 1){
-                                    controller.user.job = newValue
-                                } else {
-                                    controller.user.job = nil
-                                }
-                            })
-                    }
-                    .padding(.bottom, Size.w(30))
-
-                    PickerButton(title: "키") {
-                        if let height = controller.user.height {
-                            Text("\(Int(height).description)cm")
+                            CustomTextField(placeholder: "예: 대학생, 직장인...", text: $job)
+                                .onChange(of: job, perform: { newValue in
+                                    if(newValue.count >= 10){
+                                        job = String(newValue.prefix(10))
+                                    }
+                                    if(newValue.count >= 1){
+                                        controller.user.job = newValue
+                                    } else {
+                                        controller.user.job = nil
+                                    }
+                                })
                         }
-                    }
+                        .padding(.bottom, Size.w(30))
+                        
+                        PickerButton(title: "키") {
+                            if let height = controller.user.height {
+                                Text("\(Int(height).description)cm")
+                            }
+                        }
                         .padding(.bottom, Size.w(30))
                         .onTapGesture {
+                            closeKeyboard()
                             withAnimation {
                                 if !weightPresented && !mbtiPresented {
                                     heightPresented.toggle()
@@ -75,14 +79,15 @@ struct UserOnboardingIntro: View {
                                 weightPresented = false
                             }
                         }
-                  
-                    PickerButton(title: "몸무게") {
-                        if let weight = controller.user.weight {
-                            Text("\(Int(weight).description)kg")
+                        
+                        PickerButton(title: "몸무게") {
+                            if let weight = controller.user.weight {
+                                Text("\(Int(weight).description)kg")
+                            }
                         }
-                    }
                         .padding(.bottom, Size.w(30))
                         .onTapGesture {
+                            closeKeyboard()
                             withAnimation {
                                 if !heightPresented && !mbtiPresented {
                                     weightPresented.toggle()
@@ -92,104 +97,95 @@ struct UserOnboardingIntro: View {
                             }
                         }
                         
-                    
-                    PickerButton(title: "MBTI") {
-                        if let mbti = controller.user.mbti {
-                            Text(mbti.rawValue)
-                        }
-                    }
-                    .padding(.bottom, Size.w(30))
-                    .onTapGesture {
-                        withAnimation {
-                            if !weightPresented && !heightPresented {
-                                mbtiPresented.toggle()
+                        
+                        PickerButton(title: "MBTI") {
+                            if let mbti = controller.user.mbti {
+                                Text(mbti.rawValue)
                             }
-                            heightPresented = false
-                            weightPresented = false
+                        }
+                        .padding(.bottom, Size.w(30))
+                        .onTapGesture {
+                            closeKeyboard()
+                            withAnimation {
+                                if !weightPresented && !heightPresented {
+                                    mbtiPresented.toggle()
+                                }
+                                heightPresented = false
+                                weightPresented = false
+                            }
+                        }
+                        
+                        VStack(alignment: .leading) {
+                            Text("교육")
+                                .font(regular16Font)
+                                .foregroundColor(.black)
+                                .padding(.leading, Size.w(14))
+                            
+                            CustomTextField(placeholder: "예: 고졸, 학사, 석사, 박사...", text: $education)
+                                .onChange(of: education, perform: { newValue in
+                                    if(newValue.count >= 10){
+                                        education = String(newValue.prefix(10))
+                                    }
+                                    if(newValue.count >= 1){
+                                        controller.user.education = newValue
+                                    } else {
+                                        controller.user.education = nil
+                                    }
+                                })
+                        }
+                        .padding(.bottom, Size.w(30))
+                        
+                        Spacer().frame(height: 300)
+                        
+                        NavigationLink(isActive: $next, destination: {
+                            UserOnboardingInterests()
+                        }) {
+                            EmptyView()
                         }
                     }
-                    
-                    VStack(alignment: .leading) {
-                        Text("교육")
-                            .font(regular16Font)
-                            .foregroundColor(.black)
-                            .padding(.leading, Size.w(14))
-                            
-                        CustomTextField(placeholder: "예: 고졸, 학사, 석사, 박사...", text: $education)
-                            .onChange(of: education, perform: { newValue in
-                                if(newValue.count >= 10){
-                                    education = String(newValue.prefix(10))
-                                }
-                                if(newValue.count >= 1){
-                                    controller.user.education = newValue
-                                } else {
-                                    controller.user.education = nil
-                                }
-                            })
-                    }
-                    .padding(.bottom, Size.w(30))
-                    
-                    Spacer().frame(height: 300)
-                    
-                    NavigationLink(isActive: $next, destination: {
-                        UserOnboardingInterests()
-                    }) {
-                        EmptyView()
-                    }
+                    .padding(.horizontal, Size.w(22))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .padding(.horizontal, Size.w(22))
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
-            .background(Color.yellow300)
-            
-            
-            VStack(spacing: 0) {
-                Color.yellow200
-                    .frame(height: 1)
+                .background(Color.yellow300)
+                
+                
+                VStack(spacing: 0) {
+                    Color.yellow200
+                        .frame(height: 1)
+                        .frame(maxWidth: .infinity)
+                    
+                    TagCloudView(tags: [
+                        controller.user.height.toHeight(),
+                        controller.user.weight.toWeight(),
+                        controller.user.job?.description,
+                        controller.user.education?.description,
+                        controller.user.mbti?.rawValue,
+                    ], totalHeight: CGFloat.infinity, isDark: true)
                     .frame(maxWidth: .infinity)
-                
-                TagCloudView(tags: [
-                    controller.user.height.toHeight(),
-                    controller.user.weight.toWeight(),
-                    controller.user.job?.description,
-                    controller.user.education?.description,
-                    controller.user.mbti?.rawValue,
-                ], totalHeight: CGFloat.infinity, isDark: true)
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal, Size.w(32))
-                .padding(.top, Size.w(25))
-                
-//                let pass = !controller.user.height.isNil && !controller.user.weight.isNil && !controller.user.job.isNil && !controller.user.education.isNil && controller.user.mbti != nil
-                let pass = !controller.user.height.isNil && !controller.user.weight.isNil
-                
-                Button(action: {
-                    if pass {
-                        next = true
+                    .padding(.horizontal, Size.w(32))
+                    .padding(.top, Size.w(25))
+                    
+                    let pass = !controller.user.height.isNil && !controller.user.weight.isNil
+                    
+                    Button(action: {
+                        if pass {
+                            next = true
+                        }
+                    }) {
+                        NextBlackButton(enabled: pass)
                     }
-                }) {
-                    NextBlackButton(enabled: pass)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.top, Size.w(16))
+                    .padding(.horizontal, Size.w(22))
                 }
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(.top, Size.w(16))
-                .padding(.horizontal, Size.w(22))
+                .padding(.bottom, Size.w(36))
+                .background(Color.yellow300)
+                .shadow(color: Color.black.opacity(0.1), radius: 50, y: -20)
             }
-            .padding(.bottom, Size.w(36))
-            .background(Color.yellow300)
-            .shadow(color: Color.black.opacity(0.1), radius: 50, y: -20)
         }
-        .navigationBarBackButtonHidden()
-        .navigationBarItems(leading:
-                                Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .resizable()
-                .scaledToFit()
-                .frame(width: Size.w(20), height: Size.w(20))
-                .foregroundColor(.black)
-        }
-        )
+        .navigationBarHidden(true)
         .onTapGesture {
+            closeKeyboard()
             withAnimation {
                 mbtiPresented = false
                 weightPresented = false

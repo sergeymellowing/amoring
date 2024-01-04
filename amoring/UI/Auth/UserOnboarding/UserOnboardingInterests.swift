@@ -14,42 +14,47 @@ struct UserOnboardingInterests: View {
     @State var selectedInterests: [String] = []
     
     @State var next: Bool = false
+    @State var contentOffset: CGFloat = 0
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("회원님을 소개하세요")
-                        .font(bold32Font)
-                        .foregroundColor(.black)
-                        .padding(.horizontal, Size.w(14))
-                        .padding(.top, Size.w(56))
-                        .padding(.bottom, Size.w(10))
-                    
-                    Text("인연은 신뢰속에서 시작됩니다.\n회원님을 소개하고 인연을 만들어보세요.")
-                        .font(regular16Font)
-                        .foregroundColor(.black)
-                        .padding(.horizontal, Size.w(14))
-                        .padding(.bottom, Size.w(40))
-                    
-                    ForEach(InterestCategory.allCases, id: \.self) { cat in
-                        TagCloudViewSelectable(cat: cat, selectedInterests: $selectedInterests)
-                            .frame(maxWidth: .infinity)
-                            .padding(.bottom, Size.w(30))
+            VStack(spacing: 0) {
+                CustomNavigationView(offset: $contentOffset, title: "관심사", back: { self.presentationMode.wrappedValue.dismiss() })
+                TrackableScrollView(showIndicators: false, contentOffset: $contentOffset) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("회원님을 소개하세요")
+                            .font(bold32Font)
+                            .foregroundColor(.black)
+                            .padding(.horizontal, Size.w(14))
+                            .padding(.top, Size.w(56))
+                            .padding(.bottom, Size.w(10))
+                        
+                        Text("인연은 신뢰속에서 시작됩니다.\n회원님을 소개하고 인연을 만들어보세요.")
+                            .font(regular16Font)
+                            .foregroundColor(.black)
+                            .padding(.horizontal, Size.w(14))
+                            .padding(.bottom, Size.w(40))
+                        
+                        ForEach(InterestCategory.allCases, id: \.self) { cat in
+                            TagCloudViewSelectable(cat: cat, selectedInterests: $selectedInterests)
+                                .frame(maxWidth: .infinity)
+                                .padding(.bottom, Size.w(30))
+                                .opacity(selectedInterests.count >= 7 ? 0.5 : 1)
+                        }
+                        
+                        Spacer().frame(height: 300)
+                        
+                        NavigationLink(isActive: $next, destination: {
+                            UserOnboardingBio()
+                        }) {
+                            EmptyView()
+                        }
                     }
-                    
-                    Spacer().frame(height: 300)
-                    
-                    NavigationLink(isActive: $next, destination: {
-                        UserOnboardingBio()
-                    }) {
-                        EmptyView()
-                    }
+                    .padding(.horizontal, Size.w(22))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .padding(.horizontal, Size.w(22))
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.yellow300)
             }
-            .background(Color.yellow300)
             
             VStack(spacing: 0) {
                 Color.yellow200
@@ -61,7 +66,7 @@ struct UserOnboardingInterests: View {
                 .padding(.horizontal, Size.w(32))
                 .padding(.top, Size.w(25))
                 
-                let pass = selectedInterests.count > 3
+                let pass = selectedInterests.count >= 3
                 Button(action: {
                     if pass {
                         next = true
@@ -77,18 +82,18 @@ struct UserOnboardingInterests: View {
             .background(Color.yellow300)
             .shadow(color: Color.black.opacity(0.1), radius: 50, y: -20)
         }
-        .navigationBarBackButtonHidden()
-        .navigationBarItems(leading:
-                                Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .resizable()
-                .scaledToFit()
-                .frame(width: Size.w(20), height: Size.w(20))
-                .foregroundColor(.black)
-        }
-        )
+        .navigationBarHidden(true)
+//        .navigationBarItems(leading:
+//                                Button(action: {
+//            self.presentationMode.wrappedValue.dismiss()
+//        }) {
+//            Image(systemName: "chevron.left")
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: Size.w(20), height: Size.w(20))
+//                .foregroundColor(.black)
+//        }
+//        )
     }
 }
 

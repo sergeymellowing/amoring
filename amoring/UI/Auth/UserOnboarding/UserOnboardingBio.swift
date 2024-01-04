@@ -61,6 +61,9 @@ struct UserOnboardingBio: View {
         .padding(.horizontal, Size.w(22))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.yellow300)
+        .onTapGesture {
+            closeKeyboard()
+        }
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .principal) {

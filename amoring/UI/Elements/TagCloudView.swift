@@ -164,8 +164,10 @@ struct TagCloudViewSelectable: View {
                     })
                     .onTapGesture {
                         if !self.selectedInterests.contains(interest.title) {
-                            withAnimation(.smooth) {
-                                self.selectedInterests.append(interest.title)
+                            if selectedInterests.count < 7 {
+                                withAnimation(.smooth) {
+                                    self.selectedInterests.append(interest.title)
+                                }
                             }
                         } else {
                             withAnimation(.smooth) {

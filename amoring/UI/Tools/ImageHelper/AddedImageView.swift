@@ -28,19 +28,22 @@ struct AddedImageView: View {
                 .background(Color.black.opacity(0.3))
                 .clipShape(Circle())
                 .padding(Size.w(10))
-        }
-        .frame(minWidth: Size.w(106))
-        .overlay(
-            Image(systemName: "xmark.circle.fill")
-                .font(bold24Font)
-                .symbolRenderingMode(.palette)
-                    .foregroundStyle(.white, Color.black.opacity(0.3))
-//                .foregroundColor(Color.black.opacity(0.3))
                 .onTapGesture {
                     action()
                 }
-            , alignment: .topTrailing
-        )
+        }
+        .frame(minWidth: Size.w(106))
+//        .overlay(
+//            Image(systemName: "xmark.circle.fill")
+//                .font(bold24Font)
+//                .symbolRenderingMode(.palette)
+//                    .foregroundStyle(.white, Color.black.opacity(0.3))
+////                .foregroundColor(Color.black.opacity(0.3))
+//                .onTapGesture {
+//                    action()
+//                }
+//            , alignment: .topTrailing
+//        )
         .padding(Size.w(8))
 //        .opacity(isTapped ? 0.5 : 1)
 //        .scaleEffect(isTapped ? 0.9 : 1)

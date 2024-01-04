@@ -74,10 +74,20 @@ struct UserOnboardingPhoto: View {
                     ImagePicker(pictures: $pictures, limit: 6 - pictures.count).ignoresSafeArea()
                 }
                 //            .alert("camera-permission-denied", isPresented: $showPermissionDenied, actions: {}, message: { Text("user-must-grant-camera-permission") })
-                            .alert("Remove this picture?", isPresented: $showRemoveConfirmation, actions: {
-                                Button("Yes", action: removePicture)
-                                Button("Cancel", role: .cancel, action: {})
-                            })
+                .actionSheet(isPresented: $showRemoveConfirmation) {
+                    ActionSheet(title: Text("프로필 사진 추가"), message: Text("회원가입을 위해 최소 3개의 사진이 필요합니다."), buttons: [
+                        .default(Text("등록"), action: {
+                            removePicture()
+                            showContentTypeSheet.toggle()
+                        }),
+                        .destructive(Text("삭제"), action: removePicture),
+                        .cancel()
+                    ])
+                }
+//                            .alert("Remove this picture?", isPresented: $showRemoveConfirmation, actions: {
+//                                Button("Yes", action: removePicture)
+//                                Button("Cancel", role: .cancel, action: {})
+//                            })
                         
             }
             .frame(maxWidth: .infinity, alignment: .trailing)

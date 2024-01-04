@@ -106,6 +106,8 @@
 		85FB6B912B450E980023A889 /* UserOnboardingInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B902B450E980023A889 /* UserOnboardingInterests.swift */; };
 		85FB6B932B4622F20023A889 /* FullSizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B922B4622F20023A889 /* FullSizeButton.swift */; };
 		85FB6B952B4628EC0023A889 /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B942B4628EC0023A889 /* CustomSheet.swift */; };
+		85FB6B972B4646DD0023A889 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B962B4646DD0023A889 /* CustomNavigationView.swift */; };
+		85FB6B992B464F2A0023A889 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B982B464F2A0023A889 /* Global.swift */; };
 		85FC207E2B0C510100DC1950 /* UserOnboardingAge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20762B0C510100DC1950 /* UserOnboardingAge.swift */; };
 		85FC207F2B0C510100DC1950 /* UserOnboardingName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20772B0C510100DC1950 /* UserOnboardingName.swift */; };
 		85FC20802B0C510100DC1950 /* UserOnboardingBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */; };
@@ -245,6 +247,8 @@
 		85FB6B902B450E980023A889 /* UserOnboardingInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOnboardingInterests.swift; sourceTree = "<group>"; };
 		85FB6B922B4622F20023A889 /* FullSizeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSizeButton.swift; sourceTree = "<group>"; };
 		85FB6B942B4628EC0023A889 /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
+		85FB6B962B4646DD0023A889 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
+		85FB6B982B464F2A0023A889 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		85FC20762B0C510100DC1950 /* UserOnboardingAge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingAge.swift; sourceTree = "<group>"; };
 		85FC20772B0C510100DC1950 /* UserOnboardingName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingName.swift; sourceTree = "<group>"; };
 		85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingBio.swift; sourceTree = "<group>"; };
@@ -400,6 +404,7 @@
 				85064AEE2B292EA80074E45A /* ViewHeightKey.swift */,
 				85FC209A2B0D717700DC1950 /* Constants.swift */,
 				8522A5F12B2BDFE7008AF703 /* Dummy.swift */,
+				85FB6B982B464F2A0023A889 /* Global.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -531,6 +536,10 @@
 			isa = PBXGroup;
 			children = (
 				8522A5F72B2BF9C5008AF703 /* Purchases */,
+				85FB6B8A2B43EC820023A889 /* NextBlackButton.swift */,
+				85FB6B8C2B44D3BB0023A889 /* PickerButton.swift */,
+				85FB6B922B4622F20023A889 /* FullSizeButton.swift */,
+				85FB6B942B4628EC0023A889 /* CustomSheet.swift */,
 				854C7B022B180C5D0060CE03 /* CoctailToggle.swift */,
 				854C7B042B1815EE0060CE03 /* PurchasedLikesView.swift */,
 				854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */,
@@ -538,6 +547,7 @@
 				8522A5E82B2A7B39008AF703 /* TrackableScrollView.swift */,
 				8522A5EC2B2AAE4F008AF703 /* TagCloudView.swift */,
 				851AF8F72B3E8E46005A8DEB /* LogoLoadingView.swift */,
+				85FB6B962B4646DD0023A889 /* CustomNavigationView.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -623,10 +633,6 @@
 				85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */,
 				85FC207C2B0C510100DC1950 /* UserOnboardingTerms.swift */,
 				85FC20792B0C510100DC1950 /* UserOnboardingSuccess.swift */,
-				85FB6B8A2B43EC820023A889 /* NextBlackButton.swift */,
-				85FB6B8C2B44D3BB0023A889 /* PickerButton.swift */,
-				85FB6B922B4622F20023A889 /* FullSizeButton.swift */,
-				85FB6B942B4628EC0023A889 /* CustomSheet.swift */,
 			);
 			path = UserOnboarding;
 			sourceTree = "<group>";
@@ -922,6 +928,7 @@
 				85B028A12B2FE7B300A738AB /* SessionController.swift in Sources */,
 				8522A5EB2B2AA9EC008AF703 /* ExpandedView.swift in Sources */,
 				850A30262B0AEF6C003B12B7 /* DesignSystem.swift in Sources */,
+				85FB6B992B464F2A0023A889 /* Global.swift in Sources */,
 				85FB6B8D2B44D3BB0023A889 /* PickerButton.swift in Sources */,
 				85FC209B2B0D717700DC1950 /* Constants.swift in Sources */,
 				85FC209F2B0D75AB00DC1950 /* UserManager.swift in Sources */,
@@ -972,6 +979,7 @@
 				85FC20922B0C514400DC1950 /* DragRelocateDelegate.swift in Sources */,
 				850A30352B0B1CE3003B12B7 /* MessagesView.swift in Sources */,
 				850A303E2B0B2C61003B12B7 /* BusinessOnboardingView.swift in Sources */,
+				85FB6B972B4646DD0023A889 /* CustomNavigationView.swift in Sources */,
 				8522A5F22B2BDFE7008AF703 /* Dummy.swift in Sources */,
 				851AF8F42B3D2495005A8DEB /* BusinessDetailsView.swift in Sources */,
 				85B028A32B3019B500A738AB /* NavigationsMessagesController.swift in Sources */,
