@@ -21,10 +21,15 @@ extension String {
 
 //        let item = "7:00 PM"
 //        print("Start: \(date)") // Start: Optional(2000-01-01 19:00:00 +0000)
-        return dateFormatter.date(from: self ?? "")
+        return dateFormatter.date(from: self)
     }
 }
 
+extension Optional where Wrapped == String {
+    var isNil: Bool {
+        return self == nil
+    }
+}
 
 extension Optional where Wrapped == Double {
     var isNil: Bool {
@@ -32,10 +37,10 @@ extension Optional where Wrapped == Double {
     }
     
     func toWeight() -> String? {
-        self.isNil ? nil : self!.description + "kg"
+        self.isNil ? nil : Int(self!).description + "kg"
     }
     func toHeight() -> String? {
-        self.isNil ? nil : self!.description + "cm"
+        self.isNil ? nil : Int(self!).description + "cm"
     }
 }
 
@@ -86,6 +91,11 @@ extension View {
             self
         }
     }
+    
+//    func customSheet<Content>(isPresented: Binding<Bool>, onDismiss: (() -> Void)? = nil, @ViewBuilder content: @escaping () -> Content) -> some View where Content : View {
+//
+//    }
+    
 }
 
 struct RoundedCorner: Shape {

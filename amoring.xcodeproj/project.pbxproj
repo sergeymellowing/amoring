@@ -102,6 +102,10 @@
 		85FB6B892B43DA3A0023A889 /* schema1.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 85FB6B882B43DA3A0023A889 /* schema1.graphqls */; };
 		85FB6B8B2B43EC820023A889 /* NextBlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B8A2B43EC820023A889 /* NextBlackButton.swift */; };
 		85FB6B8D2B44D3BB0023A889 /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B8C2B44D3BB0023A889 /* PickerButton.swift */; };
+		85FB6B8F2B44ED210023A889 /* UserOnboardingIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B8E2B44ED210023A889 /* UserOnboardingIntro.swift */; };
+		85FB6B912B450E980023A889 /* UserOnboardingInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B902B450E980023A889 /* UserOnboardingInterests.swift */; };
+		85FB6B932B4622F20023A889 /* FullSizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B922B4622F20023A889 /* FullSizeButton.swift */; };
+		85FB6B952B4628EC0023A889 /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B942B4628EC0023A889 /* CustomSheet.swift */; };
 		85FC207E2B0C510100DC1950 /* UserOnboardingAge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20762B0C510100DC1950 /* UserOnboardingAge.swift */; };
 		85FC207F2B0C510100DC1950 /* UserOnboardingName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20772B0C510100DC1950 /* UserOnboardingName.swift */; };
 		85FC20802B0C510100DC1950 /* UserOnboardingBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */; };
@@ -237,6 +241,10 @@
 		85FB6B882B43DA3A0023A889 /* schema1.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema1.graphqls; sourceTree = "<group>"; };
 		85FB6B8A2B43EC820023A889 /* NextBlackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextBlackButton.swift; sourceTree = "<group>"; };
 		85FB6B8C2B44D3BB0023A889 /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
+		85FB6B8E2B44ED210023A889 /* UserOnboardingIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOnboardingIntro.swift; sourceTree = "<group>"; };
+		85FB6B902B450E980023A889 /* UserOnboardingInterests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOnboardingInterests.swift; sourceTree = "<group>"; };
+		85FB6B922B4622F20023A889 /* FullSizeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSizeButton.swift; sourceTree = "<group>"; };
+		85FB6B942B4628EC0023A889 /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		85FC20762B0C510100DC1950 /* UserOnboardingAge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingAge.swift; sourceTree = "<group>"; };
 		85FC20772B0C510100DC1950 /* UserOnboardingName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingName.swift; sourceTree = "<group>"; };
 		85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingBio.swift; sourceTree = "<group>"; };
@@ -342,8 +350,8 @@
 		850A2FDB2B0AE54B003B12B7 /* amoring */ = {
 			isa = PBXGroup;
 			children = (
-				85806C4D2B22F8510077D12C /* Network */,
 				850A2FDC2B0AE54B003B12B7 /* amoringApp.swift */,
+				85806C4D2B22F8510077D12C /* Network */,
 				850A30092B0AE9E6003B12B7 /* UI */,
 				850A30082B0AE95B003B12B7 /* Shared */,
 				85FC20712B0C4E5500DC1950 /* Model */,
@@ -610,11 +618,15 @@
 				85FC207B2B0C510100DC1950 /* UserOnboardingGender.swift */,
 				85FC20762B0C510100DC1950 /* UserOnboardingAge.swift */,
 				85FC207D2B0C510100DC1950 /* UserOnboardingPhoto.swift */,
+				85FB6B8E2B44ED210023A889 /* UserOnboardingIntro.swift */,
+				85FB6B902B450E980023A889 /* UserOnboardingInterests.swift */,
 				85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */,
 				85FC207C2B0C510100DC1950 /* UserOnboardingTerms.swift */,
 				85FC20792B0C510100DC1950 /* UserOnboardingSuccess.swift */,
 				85FB6B8A2B43EC820023A889 /* NextBlackButton.swift */,
 				85FB6B8C2B44D3BB0023A889 /* PickerButton.swift */,
+				85FB6B922B4622F20023A889 /* FullSizeButton.swift */,
+				85FB6B942B4628EC0023A889 /* CustomSheet.swift */,
 			);
 			path = UserOnboarding;
 			sourceTree = "<group>";
@@ -904,6 +916,7 @@
 				853AFD542B1DC6BF0020A570 /* CustomTextField.swift in Sources */,
 				853AFD4E2B1DB2150020A570 /* NavigationAmoringController.swift in Sources */,
 				8522A5FD2B2C4B4C008AF703 /* Data.swift in Sources */,
+				85FB6B932B4622F20023A889 /* FullSizeButton.swift in Sources */,
 				85FC20832B0C510100DC1950 /* UserOnboardingGender.swift in Sources */,
 				85D0DEDB2B3564530029DA5D /* TestView.swift in Sources */,
 				85B028A12B2FE7B300A738AB /* SessionController.swift in Sources */,
@@ -915,6 +928,7 @@
 				850A2FDF2B0AE54B003B12B7 /* ContentView.swift in Sources */,
 				8522A5F42B2BE03D008AF703 /* Interest.swift in Sources */,
 				85064AF12B292ECF0074E45A /* LikeDislikeButtons.swift in Sources */,
+				85FB6B952B4628EC0023A889 /* CustomSheet.swift in Sources */,
 				8522A5F62B2BE831008AF703 /* mbti.swift in Sources */,
 				85FC20A62B0D9DC700DC1950 /* Business.swift in Sources */,
 				850A30332B0B1CD6003B12B7 /* AmoringView.swift in Sources */,
@@ -927,6 +941,7 @@
 				8522A5ED2B2AAE4F008AF703 /* TagCloudView.swift in Sources */,
 				8522A5FB2B2C2F6A008AF703 /* PurchaseModel.swift in Sources */,
 				85FC20942B0C514400DC1950 /* PictureGridView.swift in Sources */,
+				85FB6B8F2B44ED210023A889 /* UserOnboardingIntro.swift in Sources */,
 				85806C4F2B22F8650077D12C /* NetworkService.swift in Sources */,
 				850A302B2B0B0D62003B12B7 /* NavigatorView.swift in Sources */,
 				85E8E9442B3145390054EBCE /* ConversationView.swift in Sources */,
@@ -939,6 +954,7 @@
 				85FC20912B0C514400DC1950 /* AddImageView.swift in Sources */,
 				85D36AF02B0F26DB00106BC0 /* SettingsView.swift in Sources */,
 				8522A5F92B2BFA00008AF703 /* PurchaseView.swift in Sources */,
+				85FB6B912B450E980023A889 /* UserOnboardingInterests.swift in Sources */,
 				85E8E93C2B3109EE0054EBCE /* Message.swift in Sources */,
 				850A30402B0B2DEF003B12B7 /* BusinessSignInView.swift in Sources */,
 				851AF8FA2B3E9F3D005A8DEB /* SignInSheet.swift in Sources */,

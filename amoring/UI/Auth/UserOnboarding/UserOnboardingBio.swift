@@ -8,34 +8,102 @@
 import SwiftUI
 
 struct UserOnboardingBio: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var controller: UserOnboardingController
     
     private let charLimit: Int = 40
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Step5")
-            Text("Lastly, please explain yourself\n(40 characters or less)")
+        VStack(alignment: .leading, spacing: 0) {
+            Text("마지막, 자기소개 한줄")
+                .font(bold32Font)
+                .foregroundColor(.black)
+                .padding(.horizontal, Size.w(14))
+                .padding(.top, Size.w(56))
+                .padding(.bottom, Size.w(10))
             
-            TextEditor(text: $controller.user.bio ?? "")
+            Text("회원님에 대한 인상을 남길 수 있는\n파워풀한 자기소개 한줄을 부탁드려요!")
+                .font(regular16Font)
+                .foregroundColor(.black)
+                .padding(.horizontal, Size.w(14))
+                .padding(.bottom, Size.w(40))
+            
+            CustomTextField(placeholder: "40자 이하로 작성해주세요.", text: $controller.user.bio ?? "")
                 .onChange(of: controller.user.bio ?? "", perform: { newValue in
-                if(newValue.count >= charLimit){
-                    controller.user.bio = String(newValue.prefix(charLimit))
-                }
+                    if(newValue.count >= charLimit){
+                        controller.user.bio = String(newValue.prefix(charLimit))
+                    }
             })
             
-            HStack{
-                Spacer()
-                Text("\(charLimit - (controller.user.bio?.count ?? 0))").foregroundColor(.gray).font(.headline).bold()
+            
+            Spacer()
+            
+            Text("이제 다 끝났어요!\n계속해서 가입하기를 완료해주세요.")
+                .font(regular16Font)
+                .foregroundColor(.black)
+                .multilineTextAlignment(.center)
+                .lineSpacing(5)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.horizontal, Size.w(14))
+                .padding(.bottom, Size.w(30))
+            
+            HStack {
+                NavigationLink(destination: {
+                    UserOnboardingTerms()
+                }) {
+                    FullSizeButton(title: "가입하기", enabled: !(controller.user.bio?.isEmpty ?? true))
+                }
+                .disabled((controller.user.name?.isEmpty ?? true))
             }
-
-            NavigationLink(destination: { UserOnboardingTerms() }) {
-                Text("Next")
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.bottom, Size.w(36))
+        }
+        .padding(.horizontal, Size.w(22))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.yellow300)
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("")
+                    .font(medium20Font)
+                    .foregroundColor(.black)
             }
         }
-        .padding(16)
+        .navigationBarItems(leading:
+                                Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            Image(systemName: "chevron.left")
+                .resizable()
+                .scaledToFit()
+                .frame(width: Size.w(20), height: Size.w(20))
+                .foregroundColor(.black)
+        }
+        )
     }
 }
+
+//    var body: some View {
+//        VStack(spacing: 20) {
+//            Text("Step5")
+//            Text("Lastly, please explain yourself\n(40 characters or less)")
+//            
+//            TextEditor(text: $controller.user.bio ?? "")
+//                
+//            
+//            HStack{
+//                Spacer()
+//                Text("\(charLimit - (controller.user.bio?.count ?? 0))").foregroundColor(.gray).font(.headline).bold()
+//            }
+//
+//            NavigationLink(destination: { UserOnboardingTerms() }) {
+//                Text("Next")
+//            }
+//        }
+//        .padding(16)
+//        .navigationBarBackButtonHidden()
+//    }
+//}
 
 //#Preview {
 //    UserOnboardingBio()

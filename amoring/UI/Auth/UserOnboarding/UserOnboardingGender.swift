@@ -28,14 +28,7 @@ struct UserOnboardingGender: View {
                 .foregroundColor(.black)
                 .padding(.horizontal, Size.w(14))
                 .padding(.bottom, Size.w(40))
-            
-            
-//            Picker("", selection: $controller.user.gender ?? "") {
-//                ForEach(Constants.genderOptions, id: \.self) {
-//                    Text(LocalizedStringKey($0)).tag($0)
-//                }
-//            }
-//                    .pickerStyle(.segmented).frame(maxWidth: .infinity)
+        
             GenderPicker(gender: $gender)
             
             Spacer()
@@ -71,6 +64,7 @@ struct UserOnboardingGender: View {
         .padding(.horizontal, Size.w(22))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.yellow300)
+        .navigationBarBackButtonHidden()
         .navigationBarItems(leading:
                                 Button(action: {
             self.presentationMode.wrappedValue.dismiss()

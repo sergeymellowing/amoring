@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum mbti: String, Codable {
+enum mbtiE: String, Codable, CaseIterable {
     case ESTJ, ENTJ, ESFJ, ENFJ, ISTJ, ISFJ, INTJ, INFJ, ESTP, ESFP, ENTP, ENFP, ISTP, ISFP, INTP, INFP
 }

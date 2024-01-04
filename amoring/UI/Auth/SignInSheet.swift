@@ -48,16 +48,19 @@ struct SignInSheet: View {
 //                    Image("SNS-facebook")
 //                        .resizable()
 //                        .scaledToFit()
-//                    Spacer().frame(maxWidth: Size.w(20))
-//                    Image("SNS-naver")
-//                        .resizable()
-//                        .scaledToFit()
                     Spacer().frame(maxWidth: Size.w(20))
                     Image("SNS-kakao")
                         .resizable()
                         .scaledToFit()
                         .onTapGesture {
                             sessionManager.signInWithKakao()
+                        }
+                    Spacer().frame(maxWidth: Size.w(20))
+                    Image("SNS-naver")
+                        .resizable()
+                        .scaledToFit()
+                        .onTapGesture {
+                            self.goNext()
                         }
                 }
                 .frame(maxWidth: UIScreen.main.bounds.width - Size.w(60), maxHeight: Size.w(54))

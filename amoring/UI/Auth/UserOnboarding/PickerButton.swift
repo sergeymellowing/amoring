@@ -7,28 +7,77 @@
 
 import SwiftUI
 
-struct PickerButton: View {
-    @Binding var age: Int?
+struct PickerButton<Content: View>: View {
+    var title: String? = nil
+    @ViewBuilder let content: () -> Content
+
     var body: some View {
-        HStack {
-            if let age {
-                Text(age.description)
+        VStack(alignment: .leading) {
+            if let title {
+                Text(title)
+                    .font(regular16Font)
                     .foregroundColor(.black)
-            } else {
-                Text("선택하기")
-                    .foregroundColor(.gray400)
+                    .padding(.leading, Size.w(14))
             }
-            
-            Spacer()
-            Image(systemName: "chevron.down")
-                .foregroundColor(.yellow350)
-                .font(regular22Font)
+            HStack {
+                ZStack {
+                    Text("선택하기")
+                        .foregroundColor(.gray400)
+                    content()
+                        .font(medium18Font)
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color.white)
+                }
+                
+                Spacer()
+                Image(systemName: "chevron.down")
+                    .foregroundColor(.yellow350)
+                    .font(regular20Font)
+            }
+            .padding(.vertical, Size.w(16))
+            .padding(.horizontal, Size.w(20))
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+//            .font(semiBold22Font)
+            .font(medium18Font)
         }
-        .padding(.vertical, Size.w(16))
-        .padding(.horizontal, Size.w(20))
-        .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .font(semiBold22Font)
+    }
+}
+
+struct PickerButtonDouble: View {
+    var title: String? = nil
+    @Binding var age: Double?
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            if let title {
+                Text(title)
+                    .font(regular16Font)
+                    .foregroundColor(.black)
+                    .padding(.leading, Size.w(14))
+            }
+            HStack {
+                if let age {
+                    Text(Int(age).description)
+                        .foregroundColor(.black)
+                } else {
+                    Text("선택하기")
+                        .foregroundColor(.gray400)
+                }
+                
+                Spacer()
+                Image(systemName: "chevron.down")
+                    .foregroundColor(.yellow350)
+                    .font(regular20Font)
+            }
+            .padding(.vertical, Size.w(16))
+            .padding(.horizontal, Size.w(20))
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+//            .font(semiBold22Font)
+            .font(medium18Font)
+        }
     }
 }
 

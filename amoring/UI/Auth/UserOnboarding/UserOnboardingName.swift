@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserOnboardingName: View {
     @EnvironmentObject var controller: UserOnboardingController
+    @EnvironmentObject var sessionManager: SessionManager
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -61,7 +62,9 @@ struct UserOnboardingName: View {
         }
         .navigationBarItems(leading:
                                 Button(action: {
-            // sign out?
+            withAnimation {
+                sessionManager.signedIn = false
+            }
         }) {
             Image(systemName: "chevron.left")
                 .resizable()

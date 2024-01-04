@@ -22,7 +22,7 @@ struct ExpandedView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            if user.height != nil || user.weight != nil || user.cat != nil || user.cat2 != nil || user.mbti != nil {
+            if user.height != nil || user.weight != nil || user.job != nil || user.education != nil || user.mbti != nil {
                 VStack(alignment: .leading) {
                     Text("기본정보")
                         .font(bold26Font)
@@ -31,8 +31,8 @@ struct ExpandedView: View {
                     TagCloudView(tags: [
                         user.height.toHeight(),
                         user.weight.toWeight(),
-                        user.cat?.description,
-                        user.cat2?.description,
+                        user.job?.description,
+                        user.education?.description,
                         user.mbti?.rawValue,
                     ])
                 }
@@ -67,7 +67,7 @@ struct ExpandedView: View {
     
     @ViewBuilder
     private func BasicInfo() -> some View {
-        if user.height != nil || user.weight != nil || user.cat != nil || user.cat2 != nil || user.mbti != nil {
+        if user.height != nil || user.weight != nil || user.job != nil || user.education != nil || user.mbti != nil {
             VStack(alignment: .leading) {
                 Text("기본정보")
                     .font(bold26Font)
@@ -76,8 +76,8 @@ struct ExpandedView: View {
                 TagCloudView(tags: [
                     user.height.toHeight(),
                     user.weight.toWeight(),
-                    user.cat?.description,
-                    user.cat2?.description,
+                    user.job?.description,
+                    user.education?.description,
                     user.mbti?.rawValue,
                 ])
             }

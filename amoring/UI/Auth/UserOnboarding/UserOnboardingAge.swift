@@ -10,15 +10,9 @@ import SwiftUI
 struct UserOnboardingAge: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var controller: UserOnboardingController
-    @State private var datePickerSelection: Date = Date()
     @State private var goToPhoto: Bool = false
     @State private var sheetPresented: Bool = false
-    @State var age: Int? = nil
-    
-    var partialRange: PartialRangeThrough<Date> {
-        let eighteenYearsAgo = Calendar.current.date(byAdding: .year, value: -18, to: Date())!
-        return ...eighteenYearsAgo
-    }
+    @State var age = 2000
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -29,11 +23,18 @@ struct UserOnboardingAge: View {
                 .padding(.horizontal, Size.w(14))
                 .padding(.bottom, Size.w(66))
             
-            
-            PickerButton(age: $age).onTapGesture {
-                sheetPresented = true
+            PickerButton {
+                if let age = controller.user.birthYear {
+                    Text(age.description)
+                        .foregroundColor(.black)
+                        .font(medium18Font)
+                }
+            } .onTapGesture {
+                withAnimation {
+                    sheetPresented.toggle()
+                }
             }
-
+            
             Spacer()
             
             Text("회원님의 프로필에 표시되는 정보로\n등록 후 변경은 불가하니 신중하게 입력하세요.")
@@ -53,12 +54,11 @@ struct UserOnboardingAge: View {
             
             HStack {
                 Button(action: {
-                    controller.user.birthDate = datePickerSelection
                     goToPhoto = true
                 }) {
-                    NextBlackButton(enabled: self.age != nil)
+                    NextBlackButton(enabled: controller.user.age != nil)
                 }
-                .disabled(self.age == nil)
+                .disabled(controller.user.age == nil)
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.bottom, Size.w(36))
@@ -66,6 +66,12 @@ struct UserOnboardingAge: View {
         .padding(.horizontal, Size.w(22))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.yellow300)
+        .onTapGesture {
+            withAnimation {
+                sheetPresented = false
+            }
+        }
+        .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("")
@@ -84,58 +90,31 @@ struct UserOnboardingAge: View {
                 .foregroundColor(.black)
         }
         )
-        .sheet(isPresented: $sheetPresented) {
-            VStack {
-                DatePicker(selection: $datePickerSelection, in: partialRange, displayedComponents: .date, label: {  })
-                    .datePickerStyle(WheelDatePickerStyle())
-                Button(action: {
-                    controller.user.birthDate = datePickerSelection
-                    self.age = Date().years(from: datePickerSelection)
-                    sheetPresented = false
-                }) {
-                    Text("SAVE")
+        .overlay(
+            sheetPresented ? CustomSheet {
+                let year = (Int(Calendar.current.component(.year, from: Date()).description) ?? 2024) - 17
+                Picker("", selection: $age) {
+                    ForEach(1920..<year, id: \.self) { year in
+                        Text(String(year)).tag(year)
+                            .foregroundColor(.black)
+                    }
                 }
-            }
-        }
+                .pickerStyle(.wheel)
+                .onChange(of: age) { newAge in
+                    withAnimation {
+                        controller.user.birthYear = newAge
+                    }
+                }
+            } : nil
+        )
+        
     }
-    
-//    var body: some View {
-//        VStack(spacing: 20) {
-//            Text("Step3")
-//            Text("Please enter your age")
-//            
-//            DatePicker(selection: $datePickerSelection, in: partialRange, displayedComponents: .date, label: {  })
-//                .datePickerStyle(WheelDatePickerStyle())
-////            Picker("", selection: $selection) {
-////                ForEach(18...100, id: \.self) {
-////                    Text(String($0))
-////                }
-////            }
-////            .pickerStyle(InlinePickerStyle())
-//
-//            Text("Visible to other users and cannot be changed after registration")
-//
-//            NavigationLink(isActive: $goToPhoto, destination: {
-//                UserOnboardingPhoto()
-//            }) {
-//                EmptyView()
-//            }
-//            
-//            Button(action: {
-//                controller.user.birthDate = datePickerSelection
-//                goToPhoto = true
-//            }) {
-//                Text("Next")
-//            }
-//            
-//        }
-//        .padding(16)
-//    }
 }
 
 #Preview {
     NavigationView {
         UserOnboardingAge().environmentObject(UserOnboardingController()).navigationBarTitleDisplayMode(.inline)
+          
     }
     
 }

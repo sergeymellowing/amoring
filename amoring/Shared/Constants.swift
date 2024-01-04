@@ -8,8 +8,8 @@
 import Foundation
 
 class Constants {
-    static let genderOptions = ["male", "female"]
-    
+    static let genderOptions = ["MALE", "FEMALE"]
+
 //    관심사
     static let interests = [
         Interest(id: 101, title: "🎪 페스티벌", category: .interest),
@@ -72,7 +72,6 @@ class Constants {
         Interest(id: 408, title: "🛤️ 로드트립", category: .travel),
         Interest(id: 409, title: "✈️ 해외여행", category: .travel),
         Interest(id: 410, title: "🗿 유적지탐험", category: .travel),
-        Interest(id: 411, title: "🏃‍♀️ 하이킹", category: .travel),
         ]
 //    영화&소설
     static let movies_novels = [
@@ -98,6 +97,8 @@ class Constants {
         Interest(id: 520, title: "📚️ 시", category: .movie),
         Interest(id: 521, title: "📚 심리", category: .movie),
         ]
+    
+    //스포츠
     static let sport = [
         Interest(id: 601, title: "🏋️‍♂️ 헬스", category: .sport),
         Interest(id: 602, title: "🎾️ 테니스", category: .sport),

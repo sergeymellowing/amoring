@@ -17,9 +17,17 @@ struct CustomTextField: View {
 //    }
     
     var body: some View {
-        TextField(placeholder ?? "", text: $text)
-            .padding()
-            .overlay(RoundedRectangle(cornerRadius: 12).fill(Color.white))
+        TextField("", text: $text)
+            .placeholder(when: text.isEmpty) {
+                Text(placeholder ?? "")
+                    .font(regular20Font)
+                    .foregroundColor(.gray200)
+            }
+            .font(semiBold22Font)
+            .foregroundColor(.black)
+            .padding(.vertical, Size.w(16))
+            .padding(.horizontal, Size.w(20))
+            .background(RoundedRectangle(cornerRadius: 12).fill(Color.white))
     }
 }
 
@@ -29,6 +37,19 @@ struct CustomSecureField: View {
         SecureField("", text: $text)
             .padding()
             .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray100))
+    }
+}
+
+extension View {
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+
+        ZStack(alignment: alignment) {
+            placeholder().opacity(shouldShow ? 1 : 0)
+            self
+        }
     }
 }
 

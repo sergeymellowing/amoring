@@ -75,12 +75,15 @@ struct UserInfoView: View {
                         .padding(.vertical, Size.w(6))
                         .background(Capsule().fill(Color.gray1000))
                     
-                    Text(user.age.description + "세")
-                        .font(semiBold12Font)
-                        .foregroundColor(.white)
-                        .padding(.horizontal, Size.w(12))
-                        .padding(.vertical, Size.w(6))
-                        .background(Capsule().fill(Color.gray1000))
+                    if let age = user.age {
+                        Text(age.description + "세")
+                            .font(semiBold12Font)
+                            .foregroundColor(.white)
+                            .padding(.horizontal, Size.w(12))
+                            .padding(.vertical, Size.w(6))
+                            .background(Capsule().fill(Color.gray1000))
+                    }
+                    
                     
                     Text("테이블")
                         .font(semiBold12Font)

@@ -57,7 +57,6 @@ struct SignInView: View {
                 }
             }
         }
-        .transition(.identity)
     }
 }
 

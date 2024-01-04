@@ -21,14 +21,14 @@ struct AccountView: View {
     @State private var showImagePicker: Bool = false
     
     //TODO: pass real user here
-    @State var user = User(id: 1, name: "Eugene Krabs", birthDate: "2000-01-01".toDate(), bio: "There is no knowledge\nThat is no power", gender: "MALE", interests: [])
+    @State var user = User(id: 1, name: "Eugene Krabs", birthYear: 2000, bio: "There is no knowledge\nThat is no power", gender: "MALE", interests: [])
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 20) {
                 HStack {
                     Text(user.name ?? "")
-                    Text(user.age.description)
+                    Text(user.age?.description ?? "")
                     Text(user.gender ?? "")
                 }
                 

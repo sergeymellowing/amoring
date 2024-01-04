@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct UserOnboardingPhoto: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var controller: UserOnboardingController
     
     @State private var pictures: [PictureModel] = []
@@ -53,7 +54,7 @@ struct UserOnboardingPhoto: View {
                 .padding(.bottom, Size.w(30))
             
             NavigationLink(isActive: $goToStep5, destination: {
-                UserOnboardingBio()
+                UserOnboardingIntro()
             }) {
                 EmptyView()
             }
@@ -86,7 +87,7 @@ struct UserOnboardingPhoto: View {
         
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.yellow300)
-        
+        .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("")
@@ -96,7 +97,7 @@ struct UserOnboardingPhoto: View {
         }
         .navigationBarItems(leading:
                                 Button(action: {
-            // sign out?
+            presentationMode.wrappedValue.dismiss()
         }) {
             Image(systemName: "chevron.left")
                 .resizable()
