@@ -37,7 +37,7 @@ struct UserOnboardingIntro: View {
                             .padding(.top, Size.w(56))
                             .padding(.bottom, Size.w(10))
                         
-                        Text("인연은 신뢰속에서 시작됩니다.\n회원님의 ***키와 몸무게** 등을 알려주세요.")
+                        Text("인연은 신뢰속에서 시작됩니다.\n회원님의 ***키와** 몸무게 등 기본정보를 알려주세요.")
                             .font(regular16Font)
                             .foregroundColor(.black)
                             .padding(.horizontal, Size.w(14))
@@ -49,10 +49,10 @@ struct UserOnboardingIntro: View {
                                 .foregroundColor(.black)
                                 .padding(.leading, Size.w(14))
                             
-                            CustomTextField(placeholder: "예: 대학생, 직장인...", text: $job)
+                            CustomTextField(placeholder: "예: 대학생, 직장인...", text: $job, font: regular18Font)
                                 .onChange(of: job, perform: { newValue in
-                                    if(newValue.count >= 10){
-                                        job = String(newValue.prefix(10))
+                                    if(newValue.count >= 20){
+                                        job = String(newValue.prefix(20))
                                     }
                                     if(newValue.count >= 1){
                                         controller.user.job = newValue
@@ -121,10 +121,10 @@ struct UserOnboardingIntro: View {
                                 .foregroundColor(.black)
                                 .padding(.leading, Size.w(14))
                             
-                            CustomTextField(placeholder: "예: 고졸, 학사, 석사, 박사...", text: $education)
+                            CustomTextField(placeholder: "예: 고졸, 학사, 석사, 박사...", text: $education, font: regular18Font)
                                 .onChange(of: education, perform: { newValue in
-                                    if(newValue.count >= 10){
-                                        education = String(newValue.prefix(10))
+                                    if(newValue.count >= 20){
+                                        education = String(newValue.prefix(20))
                                     }
                                     if(newValue.count >= 1){
                                         controller.user.education = newValue
@@ -155,11 +155,11 @@ struct UserOnboardingIntro: View {
                         .frame(maxWidth: .infinity)
                     
                     TagCloudView(tags: [
+                        controller.user.job?.description,
                         controller.user.height.toHeight(),
                         controller.user.weight.toWeight(),
-                        controller.user.job?.description,
-                        controller.user.education?.description,
                         controller.user.mbti?.rawValue,
+                        controller.user.education?.description
                     ], totalHeight: CGFloat.infinity, isDark: true)
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal, Size.w(32))
@@ -218,6 +218,9 @@ struct UserOnboardingIntro: View {
                             }
                         }
                         .pickerStyle(.wheel)
+                        .onAppear {
+                            controller.user.weight = Double(self.weight)
+                        }
                         .onChange(of: weight) { newValue in
                             withAnimation {
                                 controller.user.weight = Double(newValue)
@@ -233,6 +236,9 @@ struct UserOnboardingIntro: View {
                             }
                         }
                         .pickerStyle(.wheel)
+                        .onAppear {
+                            controller.user.height = Double(self.height)
+                        }
                         .onChange(of: height) { newValue in
                             withAnimation {
                                 controller.user.height = Double(newValue)

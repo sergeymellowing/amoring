@@ -39,7 +39,6 @@ struct UserOnboardingInterests: View {
                             TagCloudViewSelectable(cat: cat, selectedInterests: $selectedInterests)
                                 .frame(maxWidth: .infinity)
                                 .padding(.bottom, Size.w(30))
-                                .opacity(selectedInterests.count >= 7 ? 0.5 : 1)
                         }
                         
                         Spacer().frame(height: 300)
@@ -61,10 +60,10 @@ struct UserOnboardingInterests: View {
                     .frame(height: 1)
                     .frame(maxWidth: .infinity)
                 
-                TagCloudView(tags: self.selectedInterests, totalHeight: CGFloat.infinity, isDark: true)
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal, Size.w(32))
-                .padding(.top, Size.w(25))
+                TagCloudViewSelected(selectedInterests: $selectedInterests, totalHeight: CGFloat.infinity)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, Size.w(32))
+                    .padding(.top, Size.w(25))
                 
                 Button(action: {
                     next = true
@@ -80,17 +79,17 @@ struct UserOnboardingInterests: View {
             .shadow(color: Color.black.opacity(0.1), radius: 50, y: -20)
         }
         .navigationBarHidden(true)
-//        .navigationBarItems(leading:
-//                                Button(action: {
-//            self.presentationMode.wrappedValue.dismiss()
-//        }) {
-//            Image(systemName: "chevron.left")
-//                .resizable()
-//                .scaledToFit()
-//                .frame(width: Size.w(20), height: Size.w(20))
-//                .foregroundColor(.black)
-//        }
-//        )
+        //        .navigationBarItems(leading:
+        //                                Button(action: {
+        //            self.presentationMode.wrappedValue.dismiss()
+        //        }) {
+        //            Image(systemName: "chevron.left")
+        //                .resizable()
+        //                .scaledToFit()
+        //                .frame(width: Size.w(20), height: Size.w(20))
+        //                .foregroundColor(.black)
+        //        }
+        //        )
     }
 }
 

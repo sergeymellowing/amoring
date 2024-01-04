@@ -27,16 +27,19 @@ struct UserOnboardingBio: View {
                 .foregroundColor(.black)
                 .padding(.horizontal, Size.w(14))
                 .padding(.bottom, Size.w(40))
+            if #available(iOS 16.0, *) {
+                MultilineCustomTextField(placeholder: "40자 이하로 작성해주세요.", text: $controller.user.bio ?? "")
+                    .layoutPriority(2)
+            } else {
+                CustomTextField(placeholder: "40자 이하로 작성해주세요.", text: $controller.user.bio ?? "", font: semiBold18Font)
+            }
             
-            CustomTextField(placeholder: "40자 이하로 작성해주세요.", text: $controller.user.bio ?? "")
+            Spacer()
                 .onChange(of: controller.user.bio ?? "", perform: { newValue in
                     if(newValue.count >= charLimit){
                         controller.user.bio = String(newValue.prefix(charLimit))
                     }
                 })
-            
-            
-            Spacer()
             
             Text("이제 다 끝났어요!\n계속해서 가입하기를 완료해주세요.")
                 .font(regular16Font)

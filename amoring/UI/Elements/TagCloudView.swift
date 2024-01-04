@@ -208,8 +208,98 @@ struct InterestChip: View {
             .padding(.vertical, Size.w(8))
             .background(selected ? Color.gray1000 : Color.white)
             .clipShape(Capsule())
+            .opacity((selectedInterests.count >= 7 && !selected) ? 0.5 : 1)
     }
 }
+
+struct TagCloudViewSelected: View {
+    @Binding var selectedInterests: [String]
+    @State var totalHeight
+          = CGFloat.zero       // << variant for ScrollView/List
+    //    = CGFloat.infinity   // << variant for VStacktotalHeight: CGFloat.infinity,
+    var isDark: Bool = false
+    
+    
+    var body: some View {
+        VStack {
+            GeometryReader { geometry in
+                self.generateContent(in: geometry)
+            }
+        }
+//        .frame(height: totalHeight)// << variant for ScrollView/List
+        .frame(maxHeight: totalHeight) // << variant for VStack
+    }
+
+    private func generateContent(in g: GeometryProxy) -> some View {
+        var width = CGFloat.zero
+        var height = CGFloat.zero
+        
+        return ZStack(alignment: .topLeading) {
+            ForEach(selectedInterests, id: \.self) { tag in
+                self.item(for: tag)
+                    .padding(.trailing, 8)
+                    .padding(.vertical, 4)
+                    .alignmentGuide(.leading, computeValue: { d in
+                        if (abs(width - d.width) > g.size.width)
+                        {
+                            width = 0
+                            height -= d.height
+                        }
+                        let result = width
+                        if tag == selectedInterests.last! {
+                            width = 0 //last item
+                        } else {
+                            width -= d.width
+                        }
+                        return result
+                    })
+                    .alignmentGuide(.top, computeValue: {d in
+                        let result = height
+                        if tag == selectedInterests.last! {
+                            height = 0 // last item
+                        }
+                        return result
+                    })
+            }
+        }.background(viewHeightReader($totalHeight))
+    }
+
+    private func item(for text: String?) -> some View {
+        text == nil ? nil : ChipSelected(selectedInterests: $selectedInterests, text: text ?? "")
+    }
+
+    private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {
+        return GeometryReader { geometry -> Color in
+            let rect = geometry.frame(in: .local)
+            DispatchQueue.main.async {
+                binding.wrappedValue = rect.size.height
+            }
+            return .clear
+        }
+    }
+}
+
+struct ChipSelected: View {
+    @Binding var selectedInterests: [String]
+    let text: String
+    
+    var body: some View {
+        Text(text)
+            .font(medium16Font)
+            .foregroundColor(.gray150)
+            .lineLimit(1)
+            .padding(.horizontal, Size.w(18))
+            .padding(.vertical, Size.w(8))
+            .background(Color.gray1000)
+            .clipShape(Capsule())
+            .onTapGesture {
+                withAnimation {
+                    selectedInterests.removeAll(where: { $0 == text })
+                }
+            }
+    }
+}
+
 
 #Preview {
 //    TagCloudView(tags: [])

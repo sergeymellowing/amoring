@@ -10,12 +10,8 @@ import SwiftUI
 struct CustomTextField: View {
     var placeholder: String? = nil
     @Binding var text: String
-    
-//    init(_ placeholder: String = "", text: Binding<String>) {
-//        self.placeholder = placeholder
-//        self._text = text
-//    }
-    
+    var font: Font = semiBold22Font
+  
     var body: some View {
         TextField("", text: $text)
             .autocorrectionDisabled()
@@ -24,7 +20,30 @@ struct CustomTextField: View {
                     .font(regular20Font)
                     .foregroundColor(.gray200)
             }
-            .font(semiBold22Font)
+            .font(font)
+            .foregroundColor(.black)
+            .padding(.vertical, Size.w(16))
+            .padding(.horizontal, Size.w(20))
+            .background(RoundedRectangle(cornerRadius: 12).fill(Color.white))
+    }
+}
+
+@available(iOS 16.0, *)
+struct MultilineCustomTextField: View {
+    var placeholder: String? = nil
+    @Binding var text: String
+    var font: Font = semiBold18Font
+    
+    var body: some View {
+        TextField("", text: $text, axis: .vertical)
+            .autocorrectionDisabled()
+            .lineLimit(3)
+            .placeholder(when: text.isEmpty) {
+                Text(placeholder ?? "")
+                    .font(regular20Font)
+                    .foregroundColor(.gray200)
+            }
+            .font(font)
             .foregroundColor(.black)
             .padding(.vertical, Size.w(16))
             .padding(.horizontal, Size.w(20))
