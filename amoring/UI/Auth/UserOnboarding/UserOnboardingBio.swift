@@ -52,7 +52,7 @@ struct UserOnboardingBio: View {
             
             HStack {
                 NavigationLink(destination: {
-                    UserOnboardingTerms()
+                    UserOnboardingSuccess()
                 }) {
                     FullSizeButton(title: "가입하기")
                 }

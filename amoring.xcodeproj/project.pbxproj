@@ -113,7 +113,6 @@
 		85FC20802B0C510100DC1950 /* UserOnboardingBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */; };
 		85FC20812B0C510100DC1950 /* UserOnboardingSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20792B0C510100DC1950 /* UserOnboardingSuccess.swift */; };
 		85FC20832B0C510100DC1950 /* UserOnboardingGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC207B2B0C510100DC1950 /* UserOnboardingGender.swift */; };
-		85FC20842B0C510100DC1950 /* UserOnboardingTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC207C2B0C510100DC1950 /* UserOnboardingTerms.swift */; };
 		85FC20852B0C510100DC1950 /* UserOnboardingPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC207D2B0C510100DC1950 /* UserOnboardingPhoto.swift */; };
 		85FC208E2B0C514400DC1950 /* ReordableForEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20872B0C514400DC1950 /* ReordableForEach.swift */; };
 		85FC208F2B0C514400DC1950 /* AddedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20882B0C514400DC1950 /* AddedImageView.swift */; };
@@ -254,7 +253,6 @@
 		85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingBio.swift; sourceTree = "<group>"; };
 		85FC20792B0C510100DC1950 /* UserOnboardingSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingSuccess.swift; sourceTree = "<group>"; };
 		85FC207B2B0C510100DC1950 /* UserOnboardingGender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingGender.swift; sourceTree = "<group>"; };
-		85FC207C2B0C510100DC1950 /* UserOnboardingTerms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingTerms.swift; sourceTree = "<group>"; };
 		85FC207D2B0C510100DC1950 /* UserOnboardingPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingPhoto.swift; sourceTree = "<group>"; };
 		85FC20872B0C514400DC1950 /* ReordableForEach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReordableForEach.swift; sourceTree = "<group>"; };
 		85FC20882B0C514400DC1950 /* AddedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedImageView.swift; sourceTree = "<group>"; };
@@ -631,7 +629,6 @@
 				85FB6B8E2B44ED210023A889 /* UserOnboardingIntro.swift */,
 				85FB6B902B450E980023A889 /* UserOnboardingInterests.swift */,
 				85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */,
-				85FC207C2B0C510100DC1950 /* UserOnboardingTerms.swift */,
 				85FC20792B0C510100DC1950 /* UserOnboardingSuccess.swift */,
 			);
 			path = UserOnboarding;
@@ -957,7 +954,6 @@
 				85D0DEE22B3BA9000029DA5D /* AdaptsToKeyboard.swift in Sources */,
 				854C7B032B180C5D0060CE03 /* CoctailToggle.swift in Sources */,
 				85FC20AC2B0DB31B00DC1950 /* PlansView.swift in Sources */,
-				85FC20842B0C510100DC1950 /* UserOnboardingTerms.swift in Sources */,
 				85FC20912B0C514400DC1950 /* AddImageView.swift in Sources */,
 				85D36AF02B0F26DB00106BC0 /* SettingsView.swift in Sources */,
 				8522A5F92B2BFA00008AF703 /* PurchaseView.swift in Sources */,
