@@ -19,6 +19,7 @@ struct UserOnboardingPhoto: View {
     @State private var showContentTypeSheet: Bool = false
     @State private var showPermissionDenied: Bool = false
     @State private var goToStep5: Bool = false
+    @State private var editIndex: Int? = nil
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -71,24 +72,31 @@ struct UserOnboardingPhoto: View {
                 .disabled(pictures.count < 3)
                 .opacity(pictures.count < 3 ? 0.5 : 1)
                 .sheet(isPresented: $showContentTypeSheet) {
-                    ImagePicker(pictures: $pictures, limit: 6 - pictures.count).ignoresSafeArea()
+                    ImagePicker(pictures: $pictures, photoIndex: editIndex).ignoresSafeArea()
+                        .onDisappear {
+                            self.editIndex = nil
+                        }
                 }
-                //            .alert("camera-permission-denied", isPresented: $showPermissionDenied, actions: {}, message: { Text("user-must-grant-camera-permission") })
                 .actionSheet(isPresented: $showRemoveConfirmation) {
-                    ActionSheet(title: Text("프로필 사진 추가"), message: Text("회원가입을 위해 최소 3개의 사진이 필요합니다."), buttons: [
-                        .default(Text("등록"), action: {
-                            removePicture()
-                            showContentTypeSheet.toggle()
-                        }),
-                        .destructive(Text("삭제"), action: removePicture),
-                        .cancel()
-                    ])
+                    if confirmRemoveImageIndex >= 3 {
+                        ActionSheet(title: Text("프로필 사진 추가"), message: Text("회원가입을 위해 최소 3개의 사진이 필요합니다."), buttons: [
+                            .default(Text("등록"), action: {
+                                self.editIndex = confirmRemoveImageIndex
+                                showContentTypeSheet.toggle()
+                            }),
+                            .destructive(Text("삭제"), action: removePicture),
+                            .cancel()
+                        ])
+                    } else {
+                        ActionSheet(title: Text("프로필 사진 추가"), message: Text("회원가입을 위해 최소 3개의 사진이 필요합니다."), buttons: [
+                            .default(Text("등록"), action: {
+                                self.editIndex = confirmRemoveImageIndex
+                                showContentTypeSheet.toggle()
+                            }),
+                            .cancel()
+                        ])
+                    }
                 }
-//                            .alert("Remove this picture?", isPresented: $showRemoveConfirmation, actions: {
-//                                Button("Yes", action: removePicture)
-//                                Button("Cancel", role: .cancel, action: {})
-//                            })
-                        
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.horizontal, Size.w(22))

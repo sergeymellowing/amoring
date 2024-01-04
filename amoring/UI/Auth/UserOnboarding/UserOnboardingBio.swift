@@ -33,7 +33,7 @@ struct UserOnboardingBio: View {
                     if(newValue.count >= charLimit){
                         controller.user.bio = String(newValue.prefix(charLimit))
                     }
-            })
+                })
             
             
             Spacer()
@@ -51,9 +51,8 @@ struct UserOnboardingBio: View {
                 NavigationLink(destination: {
                     UserOnboardingTerms()
                 }) {
-                    FullSizeButton(title: "가입하기", enabled: !(controller.user.bio?.isEmpty ?? true))
+                    FullSizeButton(title: "가입하기")
                 }
-                .disabled((controller.user.name?.isEmpty ?? true))
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.bottom, Size.w(36))

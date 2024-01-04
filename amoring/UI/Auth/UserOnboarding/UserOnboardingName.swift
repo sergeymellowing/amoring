@@ -11,6 +11,8 @@ struct UserOnboardingName: View {
     @EnvironmentObject var controller: UserOnboardingController
     @EnvironmentObject var sessionManager: SessionManager
     
+    @Binding var goToUserOnboarding: Bool
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("이름을 입력해주세요")
@@ -27,7 +29,12 @@ struct UserOnboardingName: View {
                 .padding(.bottom, Size.w(40))
             
             CustomTextField(placeholder: "이름을 입력해주세요.", text: $controller.user.name ?? "")
-
+                .onChange(of: controller.user.name ?? "", perform: { newValue in
+                    if(newValue.count >= 15){
+                        controller.user.name = String(newValue.prefix(15))
+                    }
+                })
+            
             Spacer()
             
             Text("회원님의 첫 인상이 되는 이름이예요!\n등록 후 변경은 불가하니 신중하게 입력하세요.")
@@ -63,9 +70,10 @@ struct UserOnboardingName: View {
         }
         .navigationBarItems(leading:
                                 Button(action: {
-            withAnimation {
-                sessionManager.signedIn = false
-            }
+                withAnimation {
+                    goToUserOnboarding = false
+                    sessionManager.signedIn = false
+                }
         }) {
             Image(systemName: "chevron.left")
                 .resizable()
@@ -79,8 +87,6 @@ struct UserOnboardingName: View {
 
 #Preview {
     NavigationView {
-        UserOnboardingName().environmentObject(UserOnboardingController())
+        UserOnboardingName(goToUserOnboarding: .constant(true)).environmentObject(UserOnboardingController())
     }
 }
-
-

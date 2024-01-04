@@ -10,12 +10,13 @@ import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var pictures: [PictureModel]
-    let limit: Int
+    var photoIndex: Int? = nil
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()
         config.filter = .images
-        config.selectionLimit = limit
+//        config.selectionLimit = limit
+        config.selectionLimit = 1
         let picker = PHPickerViewController(configuration: config)
         picker.delegate = context.coordinator
         return picker
@@ -44,7 +45,11 @@ struct ImagePicker: UIViewControllerRepresentable {
                 if provider.canLoadObject(ofClass: UIImage.self) {
                     provider.loadObject(ofClass: UIImage.self) { image, _ in
                         if let img = image as? UIImage {
-                            self.parent.pictures.append(PictureModel.newPicture(img))
+                            if let index = self.parent.photoIndex {
+                                self.parent.pictures[index] = PictureModel.newPicture(img)
+                            } else {
+                                self.parent.pictures.append(PictureModel.newPicture(img))
+                            }
                         }
                     }
                 }

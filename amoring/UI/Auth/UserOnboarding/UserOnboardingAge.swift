@@ -100,6 +100,11 @@ struct UserOnboardingAge: View {
                     }
                 }
                 .pickerStyle(.wheel)
+                .onAppear {
+                    withAnimation {
+                        controller.user.birthYear = self.age
+                    }
+                }
                 .onChange(of: age) { newAge in
                     withAnimation {
                         controller.user.birthYear = newAge

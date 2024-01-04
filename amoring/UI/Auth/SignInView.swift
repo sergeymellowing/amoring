@@ -18,7 +18,7 @@ struct SignInView: View {
     var body: some View {
         ZStack {
             if goToUserOnboarding {
-                UserOnboardingView()
+                UserOnboardingView(goToUserOnboarding: $goToUserOnboarding)
                     .transition(.move(edge: .trailing))
             } else {
                 NavigationStackBackport.NavigationStack(path: $navigator.path) {

@@ -66,13 +66,10 @@ struct UserOnboardingInterests: View {
                 .padding(.horizontal, Size.w(32))
                 .padding(.top, Size.w(25))
                 
-                let pass = selectedInterests.count >= 3
                 Button(action: {
-                    if pass {
-                        next = true
-                    }
+                    next = true
                 }) {
-                    NextBlackButton(enabled: pass)
+                    NextBlackButton()
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.top, Size.w(16))

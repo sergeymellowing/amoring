@@ -20,7 +20,6 @@ struct AddedImageView: View {
                 .aspectRatio(1, contentMode: .fit)
                 .background(.gray100)
                 .cornerRadius(8)
-                .allowsHitTesting(false)
             Text(number.description)
                 .font(semiBold16Font)
                 .foregroundColor(.white)
@@ -28,38 +27,23 @@ struct AddedImageView: View {
                 .background(Color.black.opacity(0.3))
                 .clipShape(Circle())
                 .padding(Size.w(10))
-                .onTapGesture {
-                    action()
-                }
         }
         .frame(minWidth: Size.w(106))
-//        .overlay(
-//            Image(systemName: "xmark.circle.fill")
-//                .font(bold24Font)
-//                .symbolRenderingMode(.palette)
-//                    .foregroundStyle(.white, Color.black.opacity(0.3))
-////                .foregroundColor(Color.black.opacity(0.3))
-//                .onTapGesture {
-//                    action()
-//                }
-//            , alignment: .topTrailing
-//        )
         .padding(Size.w(8))
-//        .opacity(isTapped ? 0.5 : 1)
-//        .scaleEffect(isTapped ? 0.9 : 1)
-        
-//        .gesture(
-//            TapGesture()
-//                .onEnded{ _ in
-//                    print("on End Tap")
-//                    withAnimation(Animation.linear(duration: 0.1)){
-//                        self.isTapped = true
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-//                        self.isTapped = false
-//                        action()
-//                    }
-//                })
+        .opacity(isTapped ? 0.5 : 1)
+        .scaleEffect(isTapped ? 0.9 : 1)
+        .gesture(
+            TapGesture()
+                .onEnded{ _ in
+                    print("on End Tap")
+                    withAnimation(Animation.linear(duration: 0.1)){
+                        self.isTapped = true
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.isTapped = false
+                        action()
+                    }
+                })
     }
 }
 

@@ -44,10 +44,6 @@ struct SignInSheet: View {
                         .onTapGesture {
                             sessionManager.signInWithApple()
                         }
-//                    Spacer().frame(maxWidth: Size.w(20))
-//                    Image("SNS-facebook")
-//                        .resizable()
-//                        .scaledToFit()
                     Spacer().frame(maxWidth: Size.w(20))
                     Image("SNS-kakao")
                         .resizable()
@@ -62,22 +58,32 @@ struct SignInSheet: View {
                         .onTapGesture {
                             self.goNext()
                         }
+                    Spacer().frame(maxWidth: Size.w(20))
+                    Image("SNS-facebook")
+                        .resizable()
+                        .scaledToFit()
+                        .onTapGesture {
+                            withAnimation {
+                                sessionManager.signedIn = true
+                                sessionManager.isBusiness = false
+                            }
+                        }
                 }
                 .frame(maxWidth: UIScreen.main.bounds.width - Size.w(60), maxHeight: Size.w(54))
                 
-                (Text("가입함으로써, 귀하는 당사의 ") + 
+                (Text("가입함으로써, 귀하는 당사의 ") +
                  Text("이용약관").underline() +
                  Text("에 동의하게됩니다.\n당사의 개인정보 사용방식에 관한 내용은 ") +
                  Text("개인정보 취급방침").underline() +
                  Text("에서\n확인하실 수 있습니다."))
-                    .font(light12Font)
-                    .foregroundColor(.gray600)
-                    .multilineTextAlignment(.center)
-                    .lineSpacing(6)
-                    .padding(.top, Size.w(50))
-                    .padding(.bottom, Size.w(42))
-                    .padding(.horizontal, Size.w(36))
-                    .fixedSize(horizontal: false, vertical: true)
+                .font(light12Font)
+                .foregroundColor(.gray600)
+                .multilineTextAlignment(.center)
+                .lineSpacing(6)
+                .padding(.top, Size.w(50))
+                .padding(.bottom, Size.w(42))
+                .padding(.horizontal, Size.w(36))
+                .fixedSize(horizontal: false, vertical: true)
                 
                 HStack {
                     Button(action: {

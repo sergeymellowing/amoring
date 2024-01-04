@@ -37,7 +37,7 @@ struct UserOnboardingIntro: View {
                             .padding(.top, Size.w(56))
                             .padding(.bottom, Size.w(10))
                         
-                        Text("인연은 신뢰속에서 시작됩니다.\n회원님을 소개하고 인연을 만들어보세요.")
+                        Text("인연은 신뢰속에서 시작됩니다.\n회원님의 ***키와 몸무게** 등을 알려주세요.")
                             .font(regular16Font)
                             .foregroundColor(.black)
                             .padding(.horizontal, Size.w(14))

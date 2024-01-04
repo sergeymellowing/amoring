@@ -10,16 +10,15 @@ import NavigationStackBackport
 
 struct UserOnboardingView: View {
     @StateObject var controller: UserOnboardingController = UserOnboardingController()
+    @Binding var goToUserOnboarding: Bool
     
     var body: some View {
         NavigationStackBackport.NavigationStack {
             ZStack {
-                UserOnboardingName()
+                UserOnboardingPhoto()
+//                UserOnboardingName(goToUserOnboarding: $goToUserOnboarding)
             }
-                .navigationBarTitleDisplayMode(.inline)
-//                .onChange(of: user) { changed in
-//                    print(changed)
-//                }
+            .navigationBarTitleDisplayMode(.inline)
         }
         .environmentObject(controller)
     }
@@ -30,5 +29,5 @@ class UserOnboardingController: ObservableObject {
 }
 
 #Preview {
-    UserOnboardingView()
+    UserOnboardingView(goToUserOnboarding: .constant(true))
 }

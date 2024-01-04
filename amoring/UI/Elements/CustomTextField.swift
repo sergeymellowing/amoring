@@ -18,6 +18,7 @@ struct CustomTextField: View {
     
     var body: some View {
         TextField("", text: $text)
+            .autocorrectionDisabled()
             .placeholder(when: text.isEmpty) {
                 Text(placeholder ?? "")
                     .font(regular20Font)
