@@ -12,8 +12,11 @@ struct ConversationView: View, KeyboardReadable {
     @EnvironmentObject var navigator: NavigationController
     @EnvironmentObject var sessionController: SessionController
     @EnvironmentObject var userManager: UserManager
+    @EnvironmentObject var controller: MessagesController
     
     @State var newMessage = ""
+    @State var controlPresented = false
+    @State var alertPresented = false
     
     var body: some View {
         if let conversation = navigator.selectedConversation {
@@ -22,7 +25,7 @@ struct ConversationView: View, KeyboardReadable {
             let url = companion.pictures?.first ?? ""
             
             ScrollViewReader { proxy in
-                VStack(spacing: 0) {
+                ZStack(alignment: .bottom) {
                     ScrollView {
                         header()
                         
@@ -43,26 +46,29 @@ struct ConversationView: View, KeyboardReadable {
                                     .lineSpacing(6)
                                     .multilineTextAlignment(.center)
                             }
+                            .padding(.top, Size.w(50))
                         } else {
                             ForEach(messages, id: \.self) { message in
                                 MessageView(message: message)
                                     .id(message.id)
                             }
-    //                        EmptyView().id("bottom")
                         }
+                        /// do not remove this dublicate button. Bug: iOS 15,16 - no top bar while scrolling
+                        messageField(proxy: proxy).opacity(0.01).disabled(true).id("bottom")
                     }
                     
                     .onAppear {
                         withAnimation {
-                            proxy.scrollTo(messages.last?.id, anchor: .bottom)
+//                            proxy.scrollTo(messages.last?.id, anchor: .bottom)
+                            proxy.scrollTo("bottom", anchor: .bottom)
                         }
                     }
                     .onReceive(keyboardPublisher) { isKeyboardVisible in
                         if isKeyboardVisible {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                 withAnimation {
-    //                                proxy.scrollTo("bottom", anchor: .bottom)
-                                    proxy.scrollTo(messages.last?.id, anchor: .bottom)
+                                    proxy.scrollTo("bottom", anchor: .bottom)
+//                                    proxy.scrollTo(messages.last?.id, anchor: .bottom)
                                 }
                             }
                         }
@@ -71,6 +77,9 @@ struct ConversationView: View, KeyboardReadable {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }
                     messageField(proxy: proxy)
+                        .alert(isPresented: $alertPresented) {
+                            Alert(title: Text("신고하기"), message: Text("이 메시지 내역 또는 멤버가 신고 대상에 해당하는지 다시 한번 확인해주세요. 신고 시 사실확인을 위한 내역이 관리자에게 전달됩니다."), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기"), action: { controller.report() }))
+                        }
                 }
             }
             .frame(maxWidth: .infinity)
@@ -90,12 +99,32 @@ struct ConversationView: View, KeyboardReadable {
                     .scaledToFit()
                     .frame(width: Size.w(20), height: Size.w(20))
                     .foregroundColor(.yellow300)
+            }, trailing:
+                                    Button(action: {
+                controlPresented = true
+            }) {
+                Image(systemName: "ellipsis")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: Size.w(20), height: Size.w(20))
+                    .rotationEffect(.degrees(90))
+                    .foregroundColor(.yellow300)
             }
+                .confirmationDialog("", isPresented: $controlPresented, titleVisibility: .hidden) {
+                    Button("삭제") {
+                        navigator.toRoot()
+                        controller.delete(id: conversation.id)
+                    }
+                    Button("신고하기") {
+                        alertPresented = true
+                    }
+                    Button("취소", role: .cancel) {
+                    }
+                }
             )
         } else {
             Text("Something went wrong . . .")
         }
-       
     }
     
     func sendMessage(_ proxy: ScrollViewProxy) {
@@ -106,7 +135,8 @@ struct ConversationView: View, KeyboardReadable {
                 newMessage = ""
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     withAnimation {
-                        proxy.scrollTo(navigator.selectedConversation?.messages.last?.id, anchor: .bottom)
+//                        proxy.scrollTo(navigator.selectedConversation?.messages.last?.id, anchor: .bottom)
+                        proxy.scrollTo("bottom", anchor: .bottom)
                     }
                 }
             }
@@ -185,6 +215,7 @@ struct ConversationView: View, KeyboardReadable {
             .padding(.bottom, Size.w(12))
             .padding(.top, Size.w(10))
         }
+        .background(Color.gray1000)
     }
 }
 

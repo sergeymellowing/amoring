@@ -10,8 +10,8 @@ import CachedAsyncImage
 
 struct ListOfConversations: View {
     @EnvironmentObject var navigator: NavigationController
+    @EnvironmentObject var controller: MessagesController
     
-    @State var conversations: [Conversation] = Dummy.conversations
     @State var alertPresented = false
     @State var selectedConversation: Conversation? = nil
     
@@ -22,7 +22,7 @@ struct ListOfConversations: View {
         VStack(spacing: 0) {
             HStack {
                 Text("메시지")
-                Text("(\(conversations.count))")
+                Text("(\(controller.conversations.count))")
             }
             .font(medium18Font)
             .foregroundColor(.yellow300)
@@ -30,7 +30,7 @@ struct ListOfConversations: View {
             .padding(.horizontal, Size.w(22))
             .padding(.bottom, Size.w(20))
             
-            if conversations.isEmpty {
+            if controller.conversations.isEmpty {
                 VStack {
                     Text("연결된 인연이\n이곳에 나타납니다")
                         .font(bold26Font)
@@ -48,7 +48,7 @@ struct ListOfConversations: View {
                 .padding(.bottom, bottomSpacing)
             } else {
                 List {
-                    ForEach(conversations.filter { $0.createdAt > Date().addingTimeInterval(-86400) }, id: \.self.id) { conversation in
+                    ForEach(controller.conversations.filter { $0.createdAt > Date().addingTimeInterval(-86400) }, id: \.self.id) { conversation in
                         ChatRow(conversation: conversation)
                             .listRowInsets(EdgeInsets())
                             .listRowBackground(Color.clear)
@@ -84,7 +84,7 @@ struct ListOfConversations: View {
                         .listRowInsets(EdgeInsets())
                         .listRowBackground(Color.clear)
                     
-                    ForEach(conversations.filter { $0.createdAt < Date().addingTimeInterval(-86400) }, id: \.self.id) { conversation in
+                    ForEach(controller.conversations.filter { $0.createdAt < Date().addingTimeInterval(-86400) }, id: \.self.id) { conversation in
                         ChatRow(conversation: conversation, expired: true)
                             .listRowInsets(EdgeInsets())
                             .listRowBackground(Color.clear)
@@ -100,17 +100,9 @@ struct ListOfConversations: View {
                     Alert(
                         title: Text("메시지 삭제하기"),
                         message: Text("메시지를 삭제하면 서로 연락하거나 프로필을 확인 할 수 없습니다.\n메시지를 삭제 하시겠습니까?"),
-                        primaryButton: .destructive(Text("삭제"), action: { delete(conversation: self.selectedConversation) }),
+                        primaryButton: .destructive(Text("삭제"), action: { controller.delete(id: selectedConversation?.id ?? 0) }),
                         secondaryButton: .cancel(Text("취소")))
                 }
-            }
-        }
-    }
-    
-    func delete(conversation: Conversation?) {
-        if let conversation {
-            withAnimation {
-                conversations.removeAll(where: { $0.id == conversation.id })
             }
         }
     }

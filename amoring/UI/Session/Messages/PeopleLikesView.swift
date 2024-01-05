@@ -76,7 +76,7 @@ struct PeopleLikesView: View {
                     LazyVGrid(columns: columns, spacing: Size.w(20), pinnedViews: [.sectionHeaders]) {
                         Section(header:
                                     HStack {
-                            Text("메시지")
+                            Text("리스트")
                             Text("(\(messageController.reactions.count))")
                         }
                             .font(medium18Font)

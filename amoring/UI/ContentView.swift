@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import NavigationStackBackport
 
 struct ContentView: View {
     @StateObject var sessionManager = SessionManager()

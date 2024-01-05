@@ -48,6 +48,10 @@ struct ProfilesView: View {
                 .background(Color.gray1000)
                 .zIndex(2)
                 .transition(.move(edge: .top))
+            } else {
+                if #unavailable(iOS 17) {
+                    Color.gray1000.frame(height: 1).transition(.move(edge: .top))
+                }
             }
             
             ZStack(alignment: .bottom) {

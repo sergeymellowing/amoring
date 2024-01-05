@@ -56,9 +56,9 @@ struct UserOnboardingAge: View {
                 Button(action: {
                     goToPhoto = true
                 }) {
-                    NextBlackButton(enabled: controller.user.age != nil)
+                    NextBlackButton(enabled: controller.user.birthYear != nil)
                 }
-                .disabled(controller.user.age == nil)
+                .disabled(controller.user.birthYear == nil)
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.bottom, Size.w(36))

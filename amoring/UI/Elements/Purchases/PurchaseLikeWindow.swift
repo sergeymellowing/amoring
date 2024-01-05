@@ -46,7 +46,7 @@ struct PurchaseLikePlan: View {
             .padding(.top, Size.w(16))
             .padding(.bottom, Size.w(12))
             
-            Color.gray300.frame(width: Size.w(16), height: Size.w(2))
+            Color.gray1000.opacity(0.2).frame(width: Size.w(16), height: Size.w(2))
                 .padding(.bottom, Size.w(12))
             
             Text(price)

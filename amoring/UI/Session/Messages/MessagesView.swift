@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MessagesView: View {
-    @StateObject var messageController = MessagesController()
+    @EnvironmentObject var messageController: MessagesController
     
     @State var torchIsOn = false
     @State var haveTable = false
@@ -34,7 +34,6 @@ struct MessagesView: View {
             }
             .navigationBarItems(trailing:
                                     Button(action: {
-                
             }) {
                 Image("ic-info")
                     .resizable()

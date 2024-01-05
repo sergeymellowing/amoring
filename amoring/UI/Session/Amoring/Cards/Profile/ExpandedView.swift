@@ -54,9 +54,17 @@ struct ExpandedView: View {
             VStack(spacing: 0) {
                 ForEach(pictures(), id: \.self) { url in
                     VStack(spacing: 0) {
-                        Color.gray1000.frame(height: 2)
+                        Color.gray1000.frame(height: 2).frame(minWidth: UIScreen.main.bounds.width)
                         //                        Color.red.frame(height: 300)
-                        CachedAsyncImage(url: URL(string: url))
+                        CachedAsyncImage(url: URL(string: url), content: { cont in
+                            cont
+                                .resizable()
+                                .scaledToFill()
+                        }, placeholder: {
+                            ZStack {
+                                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: Color.gray1000))
+                            }
+                        })
                     }
                 }
             }

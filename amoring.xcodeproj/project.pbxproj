@@ -74,7 +74,7 @@
 		85806C532B22FBB90077D12C /* GraphQLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85806C522B22FBB90077D12C /* GraphQLManager.swift */; };
 		858862382B34FA9B009CC600 /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858862372B34FA9B009CC600 /* CheckIn.swift */; };
 		85B028A12B2FE7B300A738AB /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B028A02B2FE7B300A738AB /* SessionController.swift */; };
-		85B028A32B3019B500A738AB /* NavigationsMessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B028A22B3019B500A738AB /* NavigationsMessagesController.swift */; };
+		85B028A32B3019B500A738AB /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B028A22B3019B500A738AB /* MessagesController.swift */; };
 		85B028A52B301A2B00A738AB /* PeopleLikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B028A42B301A2B00A738AB /* PeopleLikesView.swift */; };
 		85D0DECF2B352AE90029DA5D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 85D0DECE2B352AE90029DA5D /* GoogleSignIn */; };
 		85D0DED12B352AE90029DA5D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 85D0DED02B352AE90029DA5D /* GoogleSignInSwift */; };
@@ -220,7 +220,7 @@
 		85806C522B22FBB90077D12C /* GraphQLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLManager.swift; sourceTree = "<group>"; };
 		858862372B34FA9B009CC600 /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
 		85B028A02B2FE7B300A738AB /* SessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
-		85B028A22B3019B500A738AB /* NavigationsMessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationsMessagesController.swift; sourceTree = "<group>"; };
+		85B028A22B3019B500A738AB /* MessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
 		85B028A42B301A2B00A738AB /* PeopleLikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleLikesView.swift; sourceTree = "<group>"; };
 		85D0DEDA2B3564530029DA5D /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		85D0DEDF2B3A6B130029DA5D /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -504,10 +504,10 @@
 			children = (
 				850A30342B0B1CE3003B12B7 /* MessagesView.swift */,
 				85E8E93F2B3140580054EBCE /* ListOfConversations.swift */,
+				85E8E9432B3145390054EBCE /* ConversationView.swift */,
 				85E8E9412B3140850054EBCE /* ListOfPeopleLikesLink.swift */,
 				85B028A42B301A2B00A738AB /* PeopleLikesView.swift */,
-				85E8E9432B3145390054EBCE /* ConversationView.swift */,
-				85B028A22B3019B500A738AB /* NavigationsMessagesController.swift */,
+				85B028A22B3019B500A738AB /* MessagesController.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -525,10 +525,10 @@
 			children = (
 				8522A5F82B2BFA00008AF703 /* PurchaseView.swift */,
 				8522A5FA2B2C2F6A008AF703 /* PurchaseModel.swift */,
-				8522A5FC2B2C4B4C008AF703 /* Data.swift */,
 				8522A5FE2B2C4B6F008AF703 /* PurchaseSimpleWindow.swift */,
 				8522A6002B2C4B96008AF703 /* PurchaseLoungeWindow.swift */,
 				8522A6022B2C4BAD008AF703 /* PurchaseLikeWindow.swift */,
+				8522A5FC2B2C4B4C008AF703 /* Data.swift */,
 			);
 			path = Purchases;
 			sourceTree = "<group>";
@@ -982,7 +982,7 @@
 				85FB6B972B4646DD0023A889 /* CustomNavigationView.swift in Sources */,
 				8522A5F22B2BDFE7008AF703 /* Dummy.swift in Sources */,
 				851AF8F42B3D2495005A8DEB /* BusinessDetailsView.swift in Sources */,
-				85B028A32B3019B500A738AB /* NavigationsMessagesController.swift in Sources */,
+				85B028A32B3019B500A738AB /* MessagesController.swift in Sources */,
 				85FC20802B0C510100DC1950 /* UserOnboardingBio.swift in Sources */,
 				8522A6032B2C4BAD008AF703 /* PurchaseLikeWindow.swift in Sources */,
 				850A300F2B0AEDF8003B12B7 /* SessionView.swift in Sources */,
