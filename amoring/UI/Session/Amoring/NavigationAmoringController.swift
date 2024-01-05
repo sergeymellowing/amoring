@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class NavigationAmoringController: ObservableObject {
+class AmoringController: ObservableObject {
     @Published var selectedUser: User? = nil
 //    @Published var amoring: Bool = false
     @Published var showDetails: Bool = false

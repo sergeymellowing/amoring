@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct AmoringView: View {
-    @StateObject var navigator = NavigationAmoringController()
-    @StateObject var userManager = UserManager()
+    @EnvironmentObject var amoringController: AmoringController
     
     var body: some View {
         Group {
-            if navigator.checkIn != nil {
+            if amoringController.checkIn != nil {
                 ProfilesView()
             } else {
                 CheckInView()
             }
         }
-        .environmentObject(navigator)
         .onAppear {
             /// getting existed check in session
             //            navigator.checkIn = CheckIn(userId: userManager.user?.id, businessId: 123, place: "resultString", checkedInAt: Date().addingTimeInterval(-123 * 59), checkedOutAt: nil)

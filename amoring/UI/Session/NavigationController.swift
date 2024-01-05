@@ -14,6 +14,7 @@ class NavigationController: ObservableObject {
     @Published var path = NavigationStackBackport.NavigationPath()
     @Published var selectedConversation: Conversation? = nil
     @Published var selectedBusiness: Business? = nil
+    @Published var resultString: String? = nil
     
     @ViewBuilder
     func navigate(screen: NavigatorPath) -> some View {
@@ -24,6 +25,8 @@ class NavigationController: ObservableObject {
             ConversationView().environmentObject(self)
         case .business:
             BusinessDetailsView().environmentObject(self)
+        case .checkInResult:
+            CheckInResult().environmentObject(self)
                 }
     }
     
@@ -38,4 +41,5 @@ enum NavigatorPath: Hashable {
     case listOfLikes
     case conversation
     case business
+    case checkInResult
 }

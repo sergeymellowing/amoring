@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfilesView: View {
-    @EnvironmentObject var navigator: NavigationAmoringController
+    @EnvironmentObject var amoringController: AmoringController
     @EnvironmentObject var sessionController: SessionController
     
     @State var isOn = false
@@ -28,7 +28,7 @@ struct ProfilesView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            if !navigator.hidePanel {
+            if !amoringController.hidePanel {
                 HStack {
                     CoctailToggle(isOn: $isOn)
                     Spacer()
@@ -105,7 +105,9 @@ struct ProfilesView: View {
                     Text(countDown.toString())
                         .font(medium16Font)
                         .foregroundColor(.yellow300)
-                    Button(action: navigator.leave) {
+                        .fixedSize(horizontal: true, vertical: false)
+                        .lineLimit(1)
+                    Button(action: amoringController.leave) {
                         Image("ic-leave-room")
                             .resizable()
                             .scaledToFit()
@@ -113,19 +115,14 @@ struct ProfilesView: View {
                     }
                 }
         )
-        .environmentObject(navigator)
-        //        .backport.navigationDestination(for: AmoringPath.self) { screen in
-        //            navigator.navigate(screen: screen)
-        //        }
-        
         .onAppear {
-            if let checkIn = navigator.checkIn {
+            if let checkIn = amoringController.checkIn {
                 self.countDown = checkIn.checkedInAt.addingTimeInterval(3 * 60 * 60) - Date()
                 self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
                     if let countDown, countDown > 0 {
                         self.countDown = countDown - 1
                     } else {
-                        navigator.leave()
+                        amoringController.leave()
                     }
                 })
             }
@@ -134,8 +131,8 @@ struct ProfilesView: View {
     
     private func performSwipe(userProfile: User, hasLiked: Bool) {
         withAnimation {
-            navigator.showDetails = false
-            navigator.hidePanel = false
+            amoringController.showDetails = false
+            amoringController.hidePanel = false
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             removeTopItem()

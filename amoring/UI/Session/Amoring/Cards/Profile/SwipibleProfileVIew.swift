@@ -12,7 +12,7 @@ enum SwipeAction{
 }
 
 struct SwipibleProfileVIew: View {
-    @EnvironmentObject var navigator: NavigationAmoringController
+    @EnvironmentObject var amoringController: AmoringController
     @EnvironmentObject var sessionController: SessionController
     @Namespace var animation
     let user: User
@@ -38,19 +38,19 @@ struct SwipibleProfileVIew: View {
                 TrackableScrollView(showIndicators: false, contentOffset: $scrollOffset) {
                     VStack(spacing: 0) {
                         ProfileCardView(user: user, 
-                                        width: reader.size.width - Size.w(navigator.showDetails ? 20 : 44),
+                                        width: reader.size.width - Size.w(amoringController.showDetails ? 20 : 44),
                                         height: reader.size.height - heightPadding
                         )
                         ExpandedView(user: user)
                     }
                     .background(Color.yellow350)
                     .frame(
-                        maxWidth: reader.size.width - Size.w(navigator.showDetails ? 20 : 44),
+                        maxWidth: reader.size.width - Size.w(amoringController.showDetails ? 20 : 44),
                         /// bottom bar + 56paddiing + 44navbar + saveAreaBottom
-                        maxHeight: navigator.showDetails ? .infinity : reader.size.height - heightPadding, alignment: .top)
+                        maxHeight: amoringController.showDetails ? .infinity : reader.size.height - heightPadding, alignment: .top)
                     .cornerRadius(24)
                     /// bottom bar + 56paddiing
-                    .padding(.bottom, navigator.showDetails ? Size.w(131) : 0)
+                    .padding(.bottom, amoringController.showDetails ? Size.w(131) : 0)
                     .frame(maxWidth: reader.size.width)
                     .background(GeometryReader {
                         // calculate height by consumed background and store in
@@ -77,17 +77,17 @@ struct SwipibleProfileVIew: View {
                         }
                     }
                 }
-                .onChange(of: navigator.showDetails) { bool in
+                .onChange(of: amoringController.showDetails) { bool in
                     self.heightPadding = bool ? Size.w(75) : Size.w(131)
                 }
             }
             .onTapGesture {
                 withAnimation {
-                    navigator.hidePanel.toggle()
+                    amoringController.hidePanel.toggle()
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     withAnimation(.smooth) {
-                        navigator.showDetails.toggle()
+                        amoringController.showDetails.toggle()
                     }
                 }
             }
@@ -128,12 +128,12 @@ struct SwipibleProfileVIew: View {
 //            .offset(x: self.dragOffset.width,y: self.dragOffset.height)
             .rotationEffect(.degrees(self.dragOffset.width * 0.06), anchor: .center)
             .simultaneousGesture(DragGesture(minimumDistance: 10).onChanged{ value in
-                if !navigator.showDetails {
+                if !amoringController.showDetails {
                     self.dragOffset = value.translation
                 }
                 
             }.onEnded{ value in
-                if !navigator.showDetails {
+                if !amoringController.showDetails {
                     performDragEnd(value.translation)
                     print("onEnd: \(value.location)")
                 }
@@ -150,7 +150,7 @@ struct SwipibleProfileVIew: View {
                     }
                 }
             })
-            if !navigator.showDetails || showButtons {
+            if !amoringController.showDetails || showButtons {
                 LikeDisLikeButtons(swipeAction: $swipeAction)
                     .transition(.move(edge: .bottom))
             }
@@ -200,8 +200,8 @@ struct SwipibleProfileVIew: View {
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 //                withAnimation {
-                //                    navigator.showDetails = false
-                //                    navigator.hidePanel = false
+                //                    amoringController.showDetails = false
+                //                    amoringController.hidePanel = false
                 //                }
                 onSwiped(user, false)
             }

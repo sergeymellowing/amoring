@@ -14,6 +14,7 @@ struct ContentView: View {
     @StateObject var navigator = NavigationController()
     @StateObject var sessionController = SessionController()
     @StateObject var messagesController = MessagesController()
+    @StateObject var amoringController = AmoringController()
     
     var body: some View {
         ZStack {
@@ -36,6 +37,7 @@ struct ContentView: View {
         .environmentObject(sessionManager)
         .environmentObject(userManager)
         .environmentObject(messagesController)
+        .environmentObject(amoringController)
         .onAppear {
             sessionManager.getCurrentSession()
             

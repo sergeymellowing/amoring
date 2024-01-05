@@ -18,8 +18,8 @@ public struct User: Codable, Equatable, Hashable {
     
     var id: Int
     var name: String?
-//    var birthDate: Date?
     var birthYear: Int?
+    var age: Int?
     var bio: String?
     var gender: String?
     var pictures: [String]?
@@ -37,14 +37,14 @@ public struct User: Codable, Equatable, Hashable {
     var isOnline: Bool?
     
     //TODO: fix it
-    var age: Int? {
-        let year = (Int(Calendar.current.component(.year, from: Date()).description) ?? 2024)
-        if let birthYear {
-            return year - birthYear
-        } else {
-            return nil
-        }
-    }
+//    var age: Int? {
+//        let year = (Int(Calendar.current.component(.year, from: Date()).description) ?? 2024)
+//        if let birthYear {
+//            return year - birthYear
+//        } else {
+//            return nil
+//        }
+//    }
 
     enum CodingKeys: String, CodingKey {
         case id

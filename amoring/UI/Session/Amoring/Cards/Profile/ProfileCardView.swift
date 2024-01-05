@@ -49,7 +49,7 @@ struct ProfileCardView: View {
 }
 
 struct UserInfoView: View {
-    @EnvironmentObject var navigator: NavigationAmoringController
+    @EnvironmentObject var amoringController: AmoringController
     
     let user: User
     var body: some View {
@@ -92,18 +92,18 @@ struct UserInfoView: View {
                         .padding(.vertical, Size.w(6))
                         .background(Capsule().fill(Color.green200))
                 }
-                .frame(maxWidth: .infinity, alignment: navigator.showDetails ? .leading : .center)
+                .frame(maxWidth: .infinity, alignment: amoringController.showDetails ? .leading : .center)
                 
                 Text(user.name ?? "")
                     .font(bold32Font)
                     .foregroundColor(.black)
                     .lineLimit(1)
-                    .frame(maxWidth: .infinity, alignment: navigator.showDetails ? .leading : .center)
+                    .frame(maxWidth: .infinity, alignment: amoringController.showDetails ? .leading : .center)
                 Text(user.bio ?? "")
                     .font(medium16Font)
                     .foregroundColor(.black)
                     .lineLimit(1)
-                    .frame(maxWidth: .infinity, alignment: navigator.showDetails ? .leading : .center)
+                    .frame(maxWidth: .infinity, alignment: amoringController.showDetails ? .leading : .center)
             }
             .padding(.horizontal, Size.w(22))
             .padding(.top, Size.w(16))

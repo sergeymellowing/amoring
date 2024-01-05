@@ -108,6 +108,7 @@
 		85FB6B952B4628EC0023A889 /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B942B4628EC0023A889 /* CustomSheet.swift */; };
 		85FB6B972B4646DD0023A889 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B962B4646DD0023A889 /* CustomNavigationView.swift */; };
 		85FB6B992B464F2A0023A889 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B982B464F2A0023A889 /* Global.swift */; };
+		85FB6B9D2B4785CE0023A889 /* CheckInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B9C2B4785CE0023A889 /* CheckInResult.swift */; };
 		85FC207E2B0C510100DC1950 /* UserOnboardingAge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20762B0C510100DC1950 /* UserOnboardingAge.swift */; };
 		85FC207F2B0C510100DC1950 /* UserOnboardingName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20772B0C510100DC1950 /* UserOnboardingName.swift */; };
 		85FC20802B0C510100DC1950 /* UserOnboardingBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */; };
@@ -248,6 +249,7 @@
 		85FB6B942B4628EC0023A889 /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		85FB6B962B4646DD0023A889 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		85FB6B982B464F2A0023A889 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		85FB6B9C2B4785CE0023A889 /* CheckInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInResult.swift; sourceTree = "<group>"; };
 		85FC20762B0C510100DC1950 /* UserOnboardingAge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingAge.swift; sourceTree = "<group>"; };
 		85FC20772B0C510100DC1950 /* UserOnboardingName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingName.swift; sourceTree = "<group>"; };
 		85FC20782B0C510100DC1950 /* UserOnboardingBio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOnboardingBio.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				85D26F662B2015FE00E3C55F /* CheckInView.swift */,
+				85FB6B9C2B4785CE0023A889 /* CheckInResult.swift */,
 			);
 			path = CheckIn;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 				85D26F6D2B20198B00E3C55F /* QRCodeGenerator.swift in Sources */,
 				85FC20962B0C96E800DC1950 /* UserOnboardingView.swift in Sources */,
 				8522A6012B2C4B96008AF703 /* PurchaseLoungeWindow.swift in Sources */,
+				85FB6B9D2B4785CE0023A889 /* CheckInResult.swift in Sources */,
 				85FB6B8B2B43EC820023A889 /* NextBlackButton.swift in Sources */,
 				85E8E93E2B3119780054EBCE /* Reaction.swift in Sources */,
 				85D26F6E2B20198B00E3C55F /* ScannerViewController.swift in Sources */,
