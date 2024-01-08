@@ -9,15 +9,17 @@ import SwiftUI
 
 struct FullSizeButton: View {
     let title: String
+    var color: Color = .gray150
+    var bg: Color = Color.gray1000
     var enabled: Bool = true
     
     var body: some View {
         Text(title)
             .font(medium18Font)
-            .foregroundColor(.gray150)
+            .foregroundColor(color)
             .padding(.vertical, Size.w(16))
             .frame(maxWidth: .infinity)
-            .background(Color.gray1000)
+            .background(bg)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .opacity(enabled ? 1 : 0.3)
     }

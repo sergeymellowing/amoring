@@ -19,13 +19,15 @@ struct ContentView: View {
         ZStack {
             if sessionManager.isLoading {
                 LogoLoadingView()
-            } else if !sessionManager.signedIn {
-                SignInView()
-            } else if sessionManager.isBusiness {
-                BusinessSessionView().transition(.move(edge: .trailing))
-            } else {
+            } else if sessionManager.signedIn {
                 /// pass user here
                 SessionView().transition(.move(edge: .trailing))
+            } else if sessionManager.BusinessSignedIn {
+                NavigationView {
+                    BusinessSessionView().transition(.move(edge: .trailing))
+                }
+            } else {
+                SignInView()
             }
         }
         .overlay(

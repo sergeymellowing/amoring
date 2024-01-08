@@ -59,8 +59,7 @@ struct BusnessSettings: View {
                 
                 Button(action: {
                     withAnimation {
-                        sessionManager.signedIn = false
-                        sessionManager.isBusiness = false
+                        sessionManager.BusinessSignedIn = false
                     }
                 }) {
                     Text("Logout")

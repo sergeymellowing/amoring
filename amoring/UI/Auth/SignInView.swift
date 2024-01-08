@@ -12,18 +12,24 @@ struct SignInView: View {
     @EnvironmentObject var sessionManager: SessionManager
     @StateObject var navigator = NavigationAuthController()
     
-    @State var goToUserOnboarding = false
+    @State var goToOnboarding = false
     @State var animate = false
+    @State var businessSheetPresented: Bool = false
     
     var body: some View {
         ZStack {
-            if goToUserOnboarding {
-                UserOnboardingView(goToUserOnboarding: $goToUserOnboarding)
-                    .transition(.move(edge: .trailing))
+            if goToOnboarding {
+                if sessionManager.BusinessSignedIn {
+                    Text("Business Onboarding")
+                        .padding()
+                } else {
+                    UserOnboardingView(goToUserOnboarding: $goToOnboarding)
+                        .transition(.move(edge: .trailing))
+                }
             } else {
                 NavigationStackBackport.NavigationStack(path: $navigator.path) {
                     ZStack {
-                        LogoLoadingView(animation1: true, animation2: true, animation3: true, animation4: true, animation5: true)
+                        LogoLoadingViewAsBG()
                             .onAppear {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                     withAnimation(.smooth) {
@@ -34,23 +40,28 @@ struct SignInView: View {
                         
                         ZStack(alignment: .topLeading) {
                             if animate {
-                                SignInSheet(goToUserOnboarding: $goToUserOnboarding).environmentObject(navigator)
-                            }
-                            if animate {
-                                Text("AMORING")
-                                    .font(bold20Font)
-                                    .foregroundColor(.yellow300)
-                                    .frame(height: 44, alignment: .center)
-                                    .padding(.horizontal, Size.w(22))
+                                SignInSheet(goToUserOnboarding: $goToOnboarding, businessSheetPresented: $businessSheetPresented).environmentObject(navigator)
+                                if self.businessSheetPresented {
+                                    BusinessSignInSheet()
+                                }
                             }
                         }
                     }
-                    //                    .navigationBarItems(leading:
-                    //                        Text("AMORING")
-                    //                            .font(bold20Font)
-                    //                            .foregroundColor(.yellow300)
-                    //                            .opacity(sessionManager.isLoading ? 0.01 : 1)
-                    //                    )
+                    .navigationBarItems(leading:
+                                            Text("AMORING")
+                        .font(bold20Font)
+                        .foregroundColor(.yellow300)
+                        .opacity(animate ? 1 : 0), trailing:
+                                            Button(action: {
+                        withAnimation {
+                            self.businessSheetPresented = false
+                        }
+                    }) {
+                        Text("돌아가기")
+                            .font(medium16Font)
+                            .foregroundColor(.yellow300)
+                    }
+                    )
                     .backport.navigationDestination(for: AuthPath.self) { screen in
                         navigator.navigate(screen: screen)
                     }

@@ -27,7 +27,7 @@ class NavigationAuthController: ObservableObject {
         ZStack {
             switch screen {
             case .businessSignIn:
-                BusinessSignInView().environmentObject(self)
+                Text("Business Sign IN").environmentObject(self)
             case .businessSignUp:
                 BusinessSignUp().environmentObject(self)
             }

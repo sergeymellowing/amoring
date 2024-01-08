@@ -15,8 +15,7 @@ struct BusinessSuccess: View {
             
             Button(action: {
                 withAnimation {
-                    sessionManager.isBusiness = true
-                    sessionManager.signedIn = true
+                    sessionManager.BusinessSignedIn = true
                     // user onb finished
                 }
             }) {

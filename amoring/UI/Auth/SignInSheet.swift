@@ -11,6 +11,7 @@ struct SignInSheet: View {
     @EnvironmentObject var sessionManager: SessionManager
     @EnvironmentObject var navigator: NavigationAuthController
     @Binding var goToUserOnboarding: Bool
+    @Binding var businessSheetPresented: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -65,9 +66,20 @@ struct SignInSheet: View {
                         .onTapGesture {
                             withAnimation {
                                 sessionManager.signedIn = true
-                                sessionManager.isBusiness = false
                             }
                         }
+                    //                    Button(action: goNext) {
+                    //                        Text("Facebook")
+                    //                    }
+                    //                    ThirdPartyProvider.shared.googleButton()
+                    //                    ThirdPartyProvider.shared.appleButton()
+                    //
+                    //                    HStack(spacing: 20) {
+                    //                        Button(action: goNext) {
+                    //                            Text("Naver")
+                    //                        }
+                    //                        ThirdPartyProvider.shared.kakaoButton()
+                    //                    }
                 }
                 .frame(maxWidth: UIScreen.main.bounds.width - Size.w(60), maxHeight: Size.w(54))
                 
@@ -86,17 +98,18 @@ struct SignInSheet: View {
                 .fixedSize(horizontal: false, vertical: true)
                 
                 HStack {
-                    Button(action: {
-                        navigator.toBusinessSignUp()
+                    NavigationLink(destination: {
+                        BusinessOnboardingIntro()
                     }) {
                         Text("비즈니스 가입 ")
                     }
                     
-                    
                     Text("  |  ")
                     
                     Button(action: {
-                        navigator.toBusinessSignIn()
+                        withAnimation {
+                            self.businessSheetPresented = true
+                        }
                     }) {
                         Text("비즈니스 로그인")
                     }
@@ -104,21 +117,6 @@ struct SignInSheet: View {
                 .font(medium16Font)
                 .foregroundColor(.gray600)
                 .padding(.bottom, Size.w(48))
-                
-                //                    Button(action: goNext) {
-                //                        Text("Facebook")
-                //                    }
-                //                    ThirdPartyProvider.shared.googleButton()
-                //                    ThirdPartyProvider.shared.appleButton()
-                //
-                //                    HStack(spacing: 20) {
-                //                        Button(action: goNext) {
-                //                            Text("Naver")
-                //                        }
-                //                        ThirdPartyProvider.shared.kakaoButton()
-                //                    }
-                //
-                
             }
             .frame(maxWidth: UIScreen.main.bounds.width)
             .background(Color.black)
@@ -139,5 +137,5 @@ struct SignInSheet: View {
 }
 
 #Preview {
-    SignInSheet(goToUserOnboarding: .constant(false))
+    SignInSheet(goToUserOnboarding: .constant(false), businessSheetPresented: .constant(false))
 }

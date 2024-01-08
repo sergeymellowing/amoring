@@ -22,7 +22,6 @@ struct UserOnboardingSuccess: View {
                 print(controller.user)
                 userManager.user = controller.user
                 withAnimation {
-                    sessionManager.isBusiness = false
                     sessionManager.signedIn = true
                     // user onb finished
                 }

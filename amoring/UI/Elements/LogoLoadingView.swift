@@ -58,6 +58,8 @@ struct LogoLoadingView: View {
                     .padding(.bottom, 30)
             }
         }
+        ///  size of navigation view? after loading screen
+        .padding(.top, 38)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .background(Color.gray1000.ignoresSafeArea())
         .onAppear(perform: runAnimation)
@@ -126,9 +128,63 @@ struct TickerLine: View {
         .background(background)
         .shadow(color: .black.opacity(0.3), radius: 10, y: 10)
         .shadow(color: .black.opacity(0.3), radius: 40, y: 40)
+        .drawingGroup()
     }
 }
 
 #Preview {
     LogoLoadingView()
+}
+
+
+struct LogoLoadingViewAsBG: View {
+    var body: some View {
+        ZStack(alignment: .center) {
+            ZStack(alignment: .center) {
+                TickerLine(background: Color.yellow900)
+                    .offset(y: Size.w(-200))
+                    .rotationEffect(.degrees(-45))
+                    .opacity(1)
+                
+                TickerLine(background: Color.yellow900)
+                    .rotationEffect(.degrees(25 + 180))
+                    .opacity(1)
+                
+                TickerLine(background: Color.yellow900)
+                    .offset(y: Size.w(200))
+                    .rotationEffect(.degrees(-30))
+                    .opacity(1)
+                
+                TickerLine()
+                    .offset(y: Size.w(200))
+                    .rotationEffect(.degrees(10))
+                    .opacity(1)
+                
+                TickerLine()
+                    .offset(y: Size.w(-250))
+                    .rotationEffect(.degrees(-10))
+                    .opacity(1)
+            }
+            
+            Image("LOGO")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 211, height: 182)
+                .shadow(color: .black.opacity(0.8), radius: 10, y: 10)
+            
+            VStack(spacing: 0) {
+                Spacer()
+                Text("@mellowingfactory")
+                    .font(regular14Font)
+                    .foregroundColor(.yellow350)
+                // FIXME: pass version here
+                Text("1.0.0")
+                    .font(regular14Font)
+                    .foregroundColor(.yellow350)
+                    .padding(.bottom, 30)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        .background(Color.gray1000.ignoresSafeArea())
+    }
 }

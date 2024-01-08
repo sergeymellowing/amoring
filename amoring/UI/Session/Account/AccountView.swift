@@ -137,7 +137,6 @@ struct AccountView: View {
                 Button(action: {
                     withAnimation {
                         sessionManager.signedIn = false
-                        sessionManager.isBusiness = false
                     }
                 }) {
                     Text("LOGOUT")

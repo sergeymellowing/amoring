@@ -18,7 +18,7 @@ class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDeleg
     @Published var isLoading: Bool = true
     @Published var token: String? = nil
     @AppStorage("signedIn") var signedIn: Bool = false
-    @AppStorage("isBusiness") var isBusiness: Bool = false
+    @AppStorage("isBusiness") var BusinessSignedIn: Bool = false
 //    @Published var signedIn: Bool = false
 //    @Published var isBusiness: Bool = true
     
@@ -27,9 +27,13 @@ class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDeleg
 //        Task {
 //            isLoading = true
 //            sleep(3)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             withAnimation {
-                isLoading = false
+                self.isLoading = false
             }
+            
+        }
+            
             print("current session")
 //        }
     }
@@ -107,7 +111,6 @@ class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDeleg
             print("UserIdentifier\n")
             print(UserIdentifier)
             self.signedIn = true
-            self.isBusiness = false
         }
     }
     
@@ -118,7 +121,6 @@ class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDeleg
             if let error {
                 print(error.localizedDescription)
                 self.signedIn = true
-                self.isBusiness = false
             } else {
                 print(result?.user.profile?.name)
                 print(result?.user.profile?.email)
@@ -129,7 +131,6 @@ class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDeleg
                 print(result?.user.fetcherAuthorizer.description)
                 print(result?.user.userID)
                 self.signedIn = true
-                self.isBusiness = false
             }
         }
     }
@@ -140,7 +141,6 @@ class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDeleg
                 if let error {
                     print(error)
                     self.signedIn = true
-                    self.isBusiness = false
                 } else {
                     print("oauthToken::")
                     print(oauthToken)
@@ -152,7 +152,6 @@ class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDeleg
                     }
                     
                     self.signedIn = true
-                    self.isBusiness = false
                 }
             }
         } else {
@@ -160,7 +159,6 @@ class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDeleg
                 if let error {
                     print(error)
                     self.signedIn = true
-                    self.isBusiness = false
                 } else {
                     print("oauthToken::")
                     print(oauthToken)
@@ -170,7 +168,6 @@ class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDeleg
                         print(error)
                     }
                     self.signedIn = true
-                    self.isBusiness = false
                 }
             }
         }

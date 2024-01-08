@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LOGO" translatesAutoresizingMaskIntoConstraints="NO" id="AU2-9l-Dpd">
-                                <rect key="frame" x="82" y="323" width="211" height="182"/>
+                                <rect key="frame" x="82" y="343" width="211" height="182"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
@@ -37,7 +37,7 @@
                         <constraints>
                             <constraint firstItem="AU2-9l-Dpd" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="0VF-En-Jma"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="34Y-4C-V01" secondAttribute="bottom" id="6iy-IO-sHs"/>
-                            <constraint firstItem="AU2-9l-Dpd" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="NWC-fJ-lnY"/>
+                            <constraint firstItem="AU2-9l-Dpd" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" constant="20" id="NWC-fJ-lnY"/>
                             <constraint firstItem="34Y-4C-V01" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="giS-7k-JBW"/>
                         </constraints>
                     </view>
