@@ -12,6 +12,8 @@ import GoogleSignIn
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
+import Apollo
+import AmoringAPI
 
 class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDelegate {
     ///Publishing changes from background threads is not allowed; make sure to publish values from the main thread (via operators like receive(on:)) on model updates.
@@ -22,20 +24,31 @@ class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDeleg
 //    @Published var signedIn: Bool = false
 //    @Published var isBusiness: Bool = true
     
-//    @MainActor 
+
     func getCurrentSession() {
-//        Task {
-//            isLoading = true
-//            sleep(3)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            withAnimation {
-                self.isLoading = false
+        
+        NetworkService.shared.amoring.fetch(query: QueryAuthenticatedUserQuery()) { result in
+            print("getting session .... ")
+            switch result {
+            case .success(let value):
+                if let errors = value.errors {
+                    print(errors)
+                    return
+                } else {
+                    print(value.data?.authenticatedUser)
+                    print(value.data?.authenticatedUser?.email)
+                }
+            case .failure(let error):
+                
+                debugPrint(error.localizedDescription)
             }
-            
+            DispatchQueue.main.async {
+                withAnimation {
+                    self.isLoading = false
+                }
+                
+            }
         }
-            
-            print("current session")
-//        }
     }
     
 //    func signIn() async {
@@ -169,6 +182,31 @@ class SessionManager: NSObject, ObservableObject, ASAuthorizationControllerDeleg
                     }
                     self.signedIn = true
                 }
+            }
+        }
+    }
+    
+    func businessSignIn(email: String, password: String) {
+        NetworkService.shared.amoring.perform(mutation: SignInMutation(email: email, password: password)) { result in
+            switch result {
+            case .success(let value):
+                if let errors = value.errors {
+                    print(errors)
+                    return
+                }
+                
+                if let data = value.data?.signIn {
+                    UserDefaults.standard.setValue(data.sessionToken, forKey: "sessionToken")
+                    print(data.sessionToken)
+                    print(data.user?.email)
+                    print(UserDefaults.standard.string(forKey: "sessionToken"))
+                } else {
+                    print("Wrong data!")
+                    
+                }
+                
+            case .failure(let error):
+                debugPrint(error.localizedDescription)
             }
         }
     }

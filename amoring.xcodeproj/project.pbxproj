@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		85064AE02B26880A0074E45A /* LaunchesQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 85064ADF2B26880A0074E45A /* LaunchesQuery.graphql */; };
-		85064AE32B2690DD0074E45A /* SpaceXAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 85064AE22B2690DD0074E45A /* SpaceXAPI */; };
-		85064AE52B269D2A0074E45A /* launchFragment.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 85064AE42B269D2A0074E45A /* launchFragment.graphql */; };
 		85064AEF2B292EA80074E45A /* ViewHeightKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85064AEE2B292EA80074E45A /* ViewHeightKey.swift */; };
 		85064AF12B292ECF0074E45A /* LikeDislikeButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85064AF02B292ECF0074E45A /* LikeDislikeButtons.swift */; };
 		850A2FDD2B0AE54B003B12B7 /* amoringApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A2FDC2B0AE54B003B12B7 /* amoringApp.swift */; };
@@ -59,6 +56,9 @@
 		8522A6012B2C4B96008AF703 /* PurchaseLoungeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A6002B2C4B96008AF703 /* PurchaseLoungeWindow.swift */; };
 		8522A6032B2C4BAD008AF703 /* PurchaseLikeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522A6022B2C4BAD008AF703 /* PurchaseLikeWindow.swift */; };
 		8523BAC92B4BB7B80099CDE4 /* BusinessOnboardingIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8523BAC82B4BB7B80099CDE4 /* BusinessOnboardingIntro.swift */; };
+		8523BACB2B4CCCEC0099CDE4 /* MutationSignIn.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 8523BACA2B4CCCEC0099CDE4 /* MutationSignIn.graphql */; };
+		8523BAD22B4CDDEB0099CDE4 /* QueryAuthenticatedUser.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 8523BAD12B4CDDEB0099CDE4 /* QueryAuthenticatedUser.graphql */; };
+		8523BAD42B4CDF560099CDE4 /* AmoringAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 8523BAD32B4CDF560099CDE4 /* AmoringAPI */; };
 		853AFD4C2B1DB0890020A570 /* NavigationStackBackport in Frameworks */ = {isa = PBXBuildFile; productRef = 853AFD4B2B1DB0890020A570 /* NavigationStackBackport */; };
 		853AFD4E2B1DB2150020A570 /* NavigationAmoringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AFD4D2B1DB2150020A570 /* NavigationAmoringController.swift */; };
 		853AFD522B1DBD7F0020A570 /* NavigationAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AFD512B1DBD7F0020A570 /* NavigationAuthController.swift */; };
@@ -67,9 +67,6 @@
 		854C7B052B1815EE0060CE03 /* PurchasedLikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B042B1815EE0060CE03 /* PurchasedLikesView.swift */; };
 		854C7B072B1818AB0060CE03 /* LikesFromMaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */; };
 		854C7B092B181B1C0060CE03 /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854C7B082B181B1C0060CE03 /* ProfileCardView.swift */; };
-		85806C472B22F6920077D12C /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 85806C462B22F6920077D12C /* schema.graphqls */; };
-		85806C492B22F7330077D12C /* RocketsQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 85806C482B22F7330077D12C /* RocketsQuery.graphql */; };
-		85806C4C2B22F7AB0077D12C /* SpaceXAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 85806C4B2B22F7AB0077D12C /* SpaceXAPI */; };
 		85806C4F2B22F8650077D12C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85806C4E2B22F8650077D12C /* NetworkService.swift */; };
 		85806C512B22F90E0077D12C /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 85806C502B22F90E0077D12C /* Apollo */; };
 		85806C532B22FBB90077D12C /* GraphQLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85806C522B22FBB90077D12C /* GraphQLManager.swift */; };
@@ -100,7 +97,7 @@
 		85E8E9402B3140580054EBCE /* ListOfConversations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E8E93F2B3140580054EBCE /* ListOfConversations.swift */; };
 		85E8E9422B3140850054EBCE /* ListOfPeopleLikesLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E8E9412B3140850054EBCE /* ListOfPeopleLikesLink.swift */; };
 		85E8E9442B3145390054EBCE /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E8E9432B3145390054EBCE /* ConversationView.swift */; };
-		85FB6B892B43DA3A0023A889 /* schema1.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 85FB6B882B43DA3A0023A889 /* schema1.graphqls */; };
+		85FB6B892B43DA3A0023A889 /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 85FB6B882B43DA3A0023A889 /* schema.graphqls */; };
 		85FB6B8B2B43EC820023A889 /* NextBlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B8A2B43EC820023A889 /* NextBlackButton.swift */; };
 		85FB6B8D2B44D3BB0023A889 /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B8C2B44D3BB0023A889 /* PickerButton.swift */; };
 		85FB6B8F2B44ED210023A889 /* UserOnboardingIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6B8E2B44ED210023A889 /* UserOnboardingIntro.swift */; };
@@ -154,8 +151,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		85064ADF2B26880A0074E45A /* LaunchesQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchesQuery.graphql; sourceTree = "<group>"; };
-		85064AE42B269D2A0074E45A /* launchFragment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = launchFragment.graphql; sourceTree = "<group>"; };
 		85064AEE2B292EA80074E45A /* ViewHeightKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHeightKey.swift; sourceTree = "<group>"; };
 		85064AF02B292ECF0074E45A /* LikeDislikeButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDislikeButtons.swift; sourceTree = "<group>"; };
 		850A2FD92B0AE54B003B12B7 /* Amoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +204,8 @@
 		8522A6002B2C4B96008AF703 /* PurchaseLoungeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseLoungeWindow.swift; sourceTree = "<group>"; };
 		8522A6022B2C4BAD008AF703 /* PurchaseLikeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseLikeWindow.swift; sourceTree = "<group>"; };
 		8523BAC82B4BB7B80099CDE4 /* BusinessOnboardingIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessOnboardingIntro.swift; sourceTree = "<group>"; };
+		8523BACA2B4CCCEC0099CDE4 /* MutationSignIn.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = MutationSignIn.graphql; sourceTree = "<group>"; };
+		8523BAD12B4CDDEB0099CDE4 /* QueryAuthenticatedUser.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = QueryAuthenticatedUser.graphql; sourceTree = "<group>"; };
 		853AFD4D2B1DB2150020A570 /* NavigationAmoringController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAmoringController.swift; sourceTree = "<group>"; };
 		853AFD512B1DBD7F0020A570 /* NavigationAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAuthController.swift; sourceTree = "<group>"; };
 		853AFD532B1DC6BF0020A570 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -216,8 +213,6 @@
 		854C7B042B1815EE0060CE03 /* PurchasedLikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedLikesView.swift; sourceTree = "<group>"; };
 		854C7B062B1818AB0060CE03 /* LikesFromMaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesFromMaxView.swift; sourceTree = "<group>"; };
 		854C7B082B181B1C0060CE03 /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
-		85806C462B22F6920077D12C /* schema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
-		85806C482B22F7330077D12C /* RocketsQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = RocketsQuery.graphql; sourceTree = "<group>"; };
 		85806C4E2B22F8650077D12C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		85806C522B22FBB90077D12C /* GraphQLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLManager.swift; sourceTree = "<group>"; };
 		858862372B34FA9B009CC600 /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
@@ -242,7 +237,7 @@
 		85E8E93F2B3140580054EBCE /* ListOfConversations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfConversations.swift; sourceTree = "<group>"; };
 		85E8E9412B3140850054EBCE /* ListOfPeopleLikesLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfPeopleLikesLink.swift; sourceTree = "<group>"; };
 		85E8E9432B3145390054EBCE /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
-		85FB6B882B43DA3A0023A889 /* schema1.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema1.graphqls; sourceTree = "<group>"; };
+		85FB6B882B43DA3A0023A889 /* schema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
 		85FB6B8A2B43EC820023A889 /* NextBlackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextBlackButton.swift; sourceTree = "<group>"; };
 		85FB6B8C2B44D3BB0023A889 /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
 		85FB6B8E2B44ED210023A889 /* UserOnboardingIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOnboardingIntro.swift; sourceTree = "<group>"; };
@@ -285,11 +280,10 @@
 			files = (
 				853AFD4C2B1DB0890020A570 /* NavigationStackBackport in Frameworks */,
 				8522A5F02B2AC912008AF703 /* CachedAsyncImage in Frameworks */,
+				8523BAD42B4CDF560099CDE4 /* AmoringAPI in Frameworks */,
 				85D0DED12B352AE90029DA5D /* GoogleSignInSwift in Frameworks */,
 				85806C512B22F90E0077D12C /* Apollo in Frameworks */,
 				85D0DED62B3534840029DA5D /* KakaoSDKCommon in Frameworks */,
-				85806C4C2B22F7AB0077D12C /* SpaceXAPI in Frameworks */,
-				85064AE32B2690DD0074E45A /* SpaceXAPI in Frameworks */,
 				85D0DECF2B352AE90029DA5D /* GoogleSignIn in Frameworks */,
 				85D0DED82B3534840029DA5D /* KakaoSDKUser in Frameworks */,
 				85D0DED42B3534840029DA5D /* KakaoSDKAuth in Frameworks */,
@@ -566,11 +560,9 @@
 		85806C452B22F6800077D12C /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
-				85FB6B882B43DA3A0023A889 /* schema1.graphqls */,
-				85806C462B22F6920077D12C /* schema.graphqls */,
-				85806C482B22F7330077D12C /* RocketsQuery.graphql */,
-				85064ADF2B26880A0074E45A /* LaunchesQuery.graphql */,
-				85064AE42B269D2A0074E45A /* launchFragment.graphql */,
+				85FB6B882B43DA3A0023A889 /* schema.graphqls */,
+				8523BACA2B4CCCEC0099CDE4 /* MutationSignIn.graphql */,
+				8523BAD12B4CDDEB0099CDE4 /* QueryAuthenticatedUser.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -699,15 +691,14 @@
 			name = amoring;
 			packageProductDependencies = (
 				853AFD4B2B1DB0890020A570 /* NavigationStackBackport */,
-				85806C4B2B22F7AB0077D12C /* SpaceXAPI */,
 				85806C502B22F90E0077D12C /* Apollo */,
-				85064AE22B2690DD0074E45A /* SpaceXAPI */,
 				8522A5EF2B2AC912008AF703 /* CachedAsyncImage */,
 				85D0DECE2B352AE90029DA5D /* GoogleSignIn */,
 				85D0DED02B352AE90029DA5D /* GoogleSignInSwift */,
 				85D0DED32B3534840029DA5D /* KakaoSDKAuth */,
 				85D0DED52B3534840029DA5D /* KakaoSDKCommon */,
 				85D0DED72B3534840029DA5D /* KakaoSDKUser */,
+				8523BAD32B4CDF560099CDE4 /* AmoringAPI */,
 			);
 			productName = amoring;
 			productReference = 850A2FD92B0AE54B003B12B7 /* Amoring.app */;
@@ -788,11 +779,11 @@
 			packageReferences = (
 				85FC20AF2B0EC38000DC1950 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				853AFD4A2B1DB0890020A570 /* XCRemoteSwiftPackageReference "navigation-stack-backport" */,
-				85064AE12B2690DD0074E45A /* XCLocalSwiftPackageReference "SpaceXAPI" */,
 				8522A5EE2B2AC912008AF703 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 				85D0DECD2B352AE90029DA5D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				85D0DED22B3534840029DA5D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				85D0DEDE2B3A5B760029DA5D /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */,
+				8523BACC2B4CD1050099CDE4 /* XCLocalSwiftPackageReference "AmoringAPI" */,
 			);
 			productRefGroup = 850A2FDA2B0AE54B003B12B7 /* Products */;
 			projectDirPath = "";
@@ -810,23 +801,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85064AE02B26880A0074E45A /* LaunchesQuery.graphql in Resources */,
-				85FB6B892B43DA3A0023A889 /* schema1.graphqls in Resources */,
+				85FB6B892B43DA3A0023A889 /* schema.graphqls in Resources */,
 				850A30212B0AEF41003B12B7 /* Pretendard-Medium.ttf in Resources */,
-				85064AE52B269D2A0074E45A /* launchFragment.graphql in Resources */,
 				850A301F2B0AEF41003B12B7 /* Pretendard-Thin.ttf in Resources */,
 				850A30392B0B236A003B12B7 /* Localizable.xcstrings in Resources */,
+				8523BACB2B4CCCEC0099CDE4 /* MutationSignIn.graphql in Resources */,
 				850A301D2B0AEF41003B12B7 /* Pretendard-SemiBold.ttf in Resources */,
 				850A30222B0AEF41003B12B7 /* Pretendard-Light.ttf in Resources */,
 				850A301C2B0AEF41003B12B7 /* Pretendard-ExtraBold.ttf in Resources */,
-				85806C472B22F6920077D12C /* schema.graphqls in Resources */,
 				850A301E2B0AEF41003B12B7 /* Pretendard-Regular.ttf in Resources */,
 				850A2FE52B0AE54D003B12B7 /* Preview Assets.xcassets in Resources */,
 				851AF8F62B3E8D3B005A8DEB /* Launch Screen .storyboard in Resources */,
 				850A2FE12B0AE54D003B12B7 /* Assets.xcassets in Resources */,
 				850A30202B0AEF41003B12B7 /* Pretendard-Bold.ttf in Resources */,
 				850A30232B0AEF41003B12B7 /* Pretendard-Black.ttf in Resources */,
-				85806C492B22F7330077D12C /* RocketsQuery.graphql in Resources */,
+				8523BAD22B4CDDEB0099CDE4 /* QueryAuthenticatedUser.graphql in Resources */,
 				850A30242B0AEF41003B12B7 /* Pretendard-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1378,9 +1367,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		85064AE12B2690DD0074E45A /* XCLocalSwiftPackageReference "SpaceXAPI" */ = {
+		8523BACC2B4CD1050099CDE4 /* XCLocalSwiftPackageReference "AmoringAPI" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = SpaceXAPI;
+			relativePath = AmoringAPI;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -1436,23 +1425,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		85064AE22B2690DD0074E45A /* SpaceXAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SpaceXAPI;
-		};
 		8522A5EF2B2AC912008AF703 /* CachedAsyncImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8522A5EE2B2AC912008AF703 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
 			productName = CachedAsyncImage;
 		};
+		8523BAD32B4CDF560099CDE4 /* AmoringAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8523BACC2B4CD1050099CDE4 /* XCLocalSwiftPackageReference "AmoringAPI" */;
+			productName = AmoringAPI;
+		};
 		853AFD4B2B1DB0890020A570 /* NavigationStackBackport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 853AFD4A2B1DB0890020A570 /* XCRemoteSwiftPackageReference "navigation-stack-backport" */;
 			productName = NavigationStackBackport;
-		};
-		85806C4B2B22F7AB0077D12C /* SpaceXAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SpaceXAPI;
 		};
 		85806C502B22F90E0077D12C /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;

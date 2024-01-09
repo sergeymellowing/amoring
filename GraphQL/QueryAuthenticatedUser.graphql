@@ -1,0 +1,23 @@
+query QueryAuthenticatedUser {
+  authenticatedUser {
+    id
+    email
+    status
+    role
+ 
+    business {
+      id
+      ownerId
+      businessName
+      address
+      representativeTitle
+      representativeName
+      phoneNumber
+      registrationNumber
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}

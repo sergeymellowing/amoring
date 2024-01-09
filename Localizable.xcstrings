@@ -54,16 +54,6 @@
     "%@kg" : {
 
     },
-    "%lf meters / %lld kg" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lf meters / %2$lld kg"
-          }
-        }
-      }
-    },
     "%lf시간 후 메시지가 사라집니다." : {
 
     },
@@ -138,6 +128,9 @@
 
     },
     "Address" : {
+
+    },
+    "Address: '%@' successfully copied to clipboard" : {
 
     },
     "admin@pumpkin.com" : {
@@ -345,9 +338,6 @@
     "Next" : {
 
     },
-    "PAST" : {
-
-    },
     "Picker here" : {
 
     },
@@ -385,9 +375,6 @@
 
     },
     "Reset password" : {
-
-    },
-    "ROCKETS by Elon!" : {
 
     },
     "Sectors" : {
@@ -436,9 +423,6 @@
 
     },
     "Type" : {
-
-    },
-    "UPCOMING" : {
 
     },
     "upload business reg photo" : {
@@ -580,6 +564,9 @@
 
     },
     "서로 좋아요한 상대방과\n이제부터 여기서 메시지를 보낼 수 있어요.\n먼저 메시지를 보내보세요!" : {
+
+    },
+    "서울 성동구 성덕정길 152" : {
 
     },
     "선택하기" : {

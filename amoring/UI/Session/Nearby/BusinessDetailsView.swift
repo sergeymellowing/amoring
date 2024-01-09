@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 import CachedAsyncImage
 
 struct BusinessDetailsView: View {
     @EnvironmentObject var navigator: NavigationController
     @State var showPhotoViewer = false
     @State var selection: Int = 0
+    @State var showAlert: Bool = false
     
     var body: some View {
         if let business = navigator.selectedBusiness {
@@ -59,21 +61,43 @@ struct BusinessDetailsView: View {
                                 .padding(.bottom, Size.w(40))
                             
                             VStack(alignment: .leading, spacing: Size.w(26)) {
-                                HStack {
-                                    Image("ic-pin")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: Size.w(24), height: Size.w(24))
-                                    Text(business.address ?? "")
+                                Button(action: {
+                                    if let address = business.address {
+                                        UIPasteboard.general.setValue(address, forPasteboardType: UTType.plainText.identifier)
+                                            showAlert = true
+                                    }
+                                }) {
+                                    HStack {
+                                        Image("ic-pin")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: Size.w(24), height: Size.w(24))
+                                        Text(business.address ?? "")
+                                        Image(systemName: "doc.on.doc")
+                                    }
+                                }
+                                .alert(isPresented: $showAlert) {
+                                    // FIXME: Need alert text
+                                    Alert(title: Text("Address: '\(business.address ?? "")' successfully copied to clipboard"))
                                 }
                                 
-                                HStack {
-                                    Image("ic-phone")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: Size.w(24), height: Size.w(24))
-                                    Text(business.phone ?? "")
+                                if let phone = business.phone {
+                                    Button(action: {
+                                        let telephone = "tel://"
+                                        let formattedString = telephone + phone
+                                        guard let url = URL(string: formattedString) else { return }
+                                        UIApplication.shared.open(url)
+                                    }) {
+                                        HStack {
+                                            Image("ic-phone")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: Size.w(24), height: Size.w(24))
+                                            Text(phone)
+                                        }
+                                    }
                                 }
+                               
                                 
                                 HStack {
                                     Image("ic-clock")

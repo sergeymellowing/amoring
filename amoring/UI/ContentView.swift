@@ -40,6 +40,7 @@ struct ContentView: View {
         .environmentObject(messagesController)
         .environmentObject(amoringController)
         .onAppear {
+//            NetworkService.shared.amoring.
             sessionManager.getCurrentSession()
             
             // MARK: TESTS
